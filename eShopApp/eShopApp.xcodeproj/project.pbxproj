@@ -13,6 +13,8 @@
 		66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A72652598000C767AB /* LaunchScreen.storyboard */; };
 		66E576B526525AAF00C767AB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576B426525AAF00C767AB /* SplashViewController.swift */; };
 		66E576B726525ABB00C767AB /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576B626525ABB00C767AB /* Splash.storyboard */; };
+		66E576BA26525D1600C767AB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576B926525D1600C767AB /* OnboardingViewController.swift */; };
+		66E576BC26525D2C00C767AB /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576BB26525D2C00C767AB /* Onboarding.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		66E576AA2652598000C767AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66E576B426525AAF00C767AB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		66E576B626525ABB00C767AB /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		66E576B926525D1600C767AB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		66E576BB26525D2C00C767AB /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		66E576B226525A8400C767AB /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				66E576B826525CC500C767AB /* Onboarding Screen */,
 				66E576B326525A9300C767AB /* Splash Screen */,
 			);
 			path = Screen;
@@ -97,6 +102,15 @@
 				66E576B626525ABB00C767AB /* Splash.storyboard */,
 			);
 			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		66E576B826525CC500C767AB /* Onboarding Screen */ = {
+			isa = PBXGroup;
+			children = (
+				66E576B926525D1600C767AB /* OnboardingViewController.swift */,
+				66E576BB26525D2C00C767AB /* Onboarding.storyboard */,
+			);
+			path = "Onboarding Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +173,7 @@
 				66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */,
 				66E576A62652598000C767AB /* Assets.xcassets in Resources */,
 				66E576B726525ABB00C767AB /* Splash.storyboard in Resources */,
+				66E576BC26525D2C00C767AB /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +187,7 @@
 				66E576B526525AAF00C767AB /* SplashViewController.swift in Sources */,
 				66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */,
 				66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */,
+				66E576BA26525D1600C767AB /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
