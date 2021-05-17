@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769C2652597E00C767AB /* AppDelegate.swift */; };
 		66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769E2652597E00C767AB /* SceneDelegate.swift */; };
-		66E576A12652597E00C767AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576A02652597E00C767AB /* ViewController.swift */; };
-		66E576A42652597E00C767AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A22652597E00C767AB /* Main.storyboard */; };
 		66E576A62652598000C767AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A52652598000C767AB /* Assets.xcassets */; };
 		66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A72652598000C767AB /* LaunchScreen.storyboard */; };
+		66E576B526525AAF00C767AB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576B426525AAF00C767AB /* SplashViewController.swift */; };
+		66E576B726525ABB00C767AB /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576B626525ABB00C767AB /* Splash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66E576992652597E00C767AB /* eShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E5769C2652597E00C767AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66E5769E2652597E00C767AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		66E576A02652597E00C767AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		66E576A32652597E00C767AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66E576A52652598000C767AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66E576A82652598000C767AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66E576AA2652598000C767AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66E576B426525AAF00C767AB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		66E576B626525ABB00C767AB /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,47 @@
 		66E5769B2652597E00C767AB /* eShopApp */ = {
 			isa = PBXGroup;
 			children = (
+				66E576B226525A8400C767AB /* Screen */,
+				66E576B126525A7600C767AB /* Extention */,
+				66E576B026525A7000C767AB /* Data */,
 				66E5769C2652597E00C767AB /* AppDelegate.swift */,
 				66E5769E2652597E00C767AB /* SceneDelegate.swift */,
-				66E576A02652597E00C767AB /* ViewController.swift */,
-				66E576A22652597E00C767AB /* Main.storyboard */,
 				66E576A52652598000C767AB /* Assets.xcassets */,
 				66E576A72652598000C767AB /* LaunchScreen.storyboard */,
 				66E576AA2652598000C767AB /* Info.plist */,
 			);
 			path = eShopApp;
+			sourceTree = "<group>";
+		};
+		66E576B026525A7000C767AB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		66E576B126525A7600C767AB /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		66E576B226525A8400C767AB /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				66E576B326525A9300C767AB /* Splash Screen */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		66E576B326525A9300C767AB /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				66E576B426525AAF00C767AB /* SplashViewController.swift */,
+				66E576B626525ABB00C767AB /* Splash.storyboard */,
+			);
+			path = "Splash Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +158,7 @@
 			files = (
 				66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */,
 				66E576A62652598000C767AB /* Assets.xcassets in Resources */,
-				66E576A42652597E00C767AB /* Main.storyboard in Resources */,
+				66E576B726525ABB00C767AB /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66E576A12652597E00C767AB /* ViewController.swift in Sources */,
+				66E576B526525AAF00C767AB /* SplashViewController.swift in Sources */,
 				66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */,
 				66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +178,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		66E576A22652597E00C767AB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66E576A32652597E00C767AB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		66E576A72652598000C767AB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z839S848GQ;
 				INFOPLIST_FILE = eShopApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z839S848GQ;
 				INFOPLIST_FILE = eShopApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
