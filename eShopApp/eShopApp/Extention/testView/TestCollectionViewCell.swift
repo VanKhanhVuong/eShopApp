@@ -8,10 +8,15 @@
 import UIKit
 
 class TestCollectionViewCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var nameItemLabel: UILabel!
+    @IBOutlet weak var unitItemLabel: UILabel!
+    @IBOutlet weak var priceItemLabel: UILabel!
+    
+    func configure() {
+        //itemImageView.getImage(urlString: item.urlString)
+        //nameItemLabel.text = item.name
+        //unitItemLabel.text = item.unit
+        //priceItemLabel.text = "\(item.price)"
     }
-
 }
