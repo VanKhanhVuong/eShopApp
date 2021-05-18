@@ -8,5 +8,6 @@
 import UIKit
 
 class CustomSectionHeader: UITableViewHeaderFooterView {
-
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
 }

@@ -80,6 +80,7 @@
                     <connections>
                         <outlet property="slideCollectionView" destination="5Z9-Yj-1XS" id="Udt-1n-sXO"/>
                         <outlet property="slidePageControl" destination="1cr-AQ-1lo" id="70g-oz-0LE"/>
+                        <outlet property="topicTableView" destination="Flc-Qj-qGh" id="VLp-El-aKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
