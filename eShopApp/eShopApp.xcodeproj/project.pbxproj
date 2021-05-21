@@ -108,11 +108,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		6678D9D02654C3AC006E09D3 /* SignInScreen */ = {
-=======
 		665B3F2A26574A6300A22671 /* Networking */ = {
->>>>>>> feature/08-Network-Layer
 			isa = PBXGroup;
 			children = (
 				665B3F2B26574A6300A22671 /* APIClient */,
@@ -121,9 +117,6 @@
 				665B3F3226574A6300A22671 /* Service */,
 				665B3F3426574A6300A22671 /* ServiceManager */,
 			);
-<<<<<<< HEAD
-			path = SignInScreen;
-=======
 			path = Networking;
 			sourceTree = "<group>";
 		};
@@ -166,7 +159,6 @@
 				665B3F3526574A6300A22671 /* APIManager.swift */,
 			);
 			path = ServiceManager;
->>>>>>> feature/08-Network-Layer
 			sourceTree = "<group>";
 		};
 		6678D9D52654EE7B006E09D3 /* NumberScreen */ = {
@@ -275,10 +267,6 @@
 				6678D9E426561C98006E09D3 /* SignUpScreen */,
 				6678D9DA2654FBF2006E09D3 /* VerificationScreen */,
 				6678D9D52654EE7B006E09D3 /* NumberScreen */,
-<<<<<<< HEAD
-				6678D9D02654C3AC006E09D3 /* SignInScreen */,
-=======
->>>>>>> feature/08-Network-Layer
 				66E576F92653ABBA00C767AB /* DetailScreen */,
 				66E576BD2652654B00C767AB /* HomeScreen */,
 				66E576B826525CC500C767AB /* OnboardingScreen */,
