@@ -23,6 +23,8 @@
 		6678D9E826561CF0006E09D3 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6678D9E726561CF0006E09D3 /* SignUp.storyboard */; };
 		6678D9EB26561DD4006E09D3 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678D9EA26561DD4006E09D3 /* CustomView.swift */; };
 		6678D9ED26561DE5006E09D3 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6678D9EC26561DE5006E09D3 /* CustomView.xib */; };
+		669C1169265752B600FC72E6 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669C1167265752B600FC72E6 /* SignIn.storyboard */; };
+		669C116A265752B600FC72E6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C1168265752B600FC72E6 /* SignInViewController.swift */; };
 		66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769C2652597E00C767AB /* AppDelegate.swift */; };
 		66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769E2652597E00C767AB /* SceneDelegate.swift */; };
 		66E576A62652598000C767AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A52652598000C767AB /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		6678D9E726561CF0006E09D3 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		6678D9EA26561DD4006E09D3 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		6678D9EC26561DE5006E09D3 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		669C1167265752B600FC72E6 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		669C1168265752B600FC72E6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		66E576992652597E00C767AB /* eShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E5769C2652597E00C767AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66E5769E2652597E00C767AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,13 @@
 				6678D9EC26561DE5006E09D3 /* CustomView.xib */,
 			);
 			path = CustomView;
+		669C1166265752B600FC72E6 /* SignInScreen */ = {
+			isa = PBXGroup;
+			children = (
+				669C1167265752B600FC72E6 /* SignIn.storyboard */,
+				669C1168265752B600FC72E6 /* SignInViewController.swift */,
+			);
+			path = SignInScreen;
 			sourceTree = "<group>";
 		};
 		66E576902652597E00C767AB = {
@@ -263,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				6678D9E926561D63006E09D3 /* CustomView */,
+				669C1166265752B600FC72E6 /* SignInScreen */,
 				6678D9E12655FED8006E09D3 /* Parts */,
 				6678D9E426561C98006E09D3 /* SignUpScreen */,
 				6678D9DA2654FBF2006E09D3 /* VerificationScreen */,
@@ -411,6 +423,7 @@
 				6678D9D92654EED8006E09D3 /* Number.storyboard in Resources */,
 				6678D9ED26561DE5006E09D3 /* CustomView.xib in Resources */,
 				66E576FD2653AC3900C767AB /* Detail.storyboard in Resources */,
+				669C1169265752B600FC72E6 /* SignIn.storyboard in Resources */,
 				66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */,
 				66E576C12652657F00C767AB /* Home.storyboard in Resources */,
 				66E576A62652598000C767AB /* Assets.xcassets in Resources */,
@@ -482,6 +495,7 @@
 				6678D9E626561CE0006E09D3 /* SignUpViewController.swift in Sources */,
 				66E576D32652787800C767AB /* UIImageView+Extention.swift in Sources */,
 				66E576E426536E5F00C767AB /* TestCollectionViewCell.swift in Sources */,
+				669C116A265752B600FC72E6 /* SignInViewController.swift in Sources */,
 				66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */,
 				665B3F3926574A6300A22671 /* ErrorModel.swift in Sources */,
 				66E576CB2652744A00C767AB /* ClassName+Extention.swift in Sources */,
