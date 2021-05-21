@@ -15,6 +15,8 @@
 		6678D9DE2654FC40006E09D3 /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6678D9DD2654FC40006E09D3 /* Verification.storyboard */; };
 		6678D9E0265500D5006E09D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6678D9DF265500D5006E09D3 /* GoogleService-Info.plist */; };
 		6678D9E3265602B3006E09D3 /* UIViewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678D9E2265602B3006E09D3 /* UIViewController+Extention.swift */; };
+		669C1169265752B600FC72E6 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669C1167265752B600FC72E6 /* SignIn.storyboard */; };
+		669C116A265752B600FC72E6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C1168265752B600FC72E6 /* SignInViewController.swift */; };
 		66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769C2652597E00C767AB /* AppDelegate.swift */; };
 		66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769E2652597E00C767AB /* SceneDelegate.swift */; };
 		66E576A62652598000C767AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A52652598000C767AB /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		6678D9DD2654FC40006E09D3 /* Verification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Verification.storyboard; sourceTree = "<group>"; };
 		6678D9DF265500D5006E09D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6678D9E2265602B3006E09D3 /* UIViewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extention.swift"; sourceTree = "<group>"; };
+		669C1167265752B600FC72E6 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		669C1168265752B600FC72E6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		66E576992652597E00C767AB /* eShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E5769C2652597E00C767AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66E5769E2652597E00C767AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,15 @@
 			path = Parts;
 			sourceTree = "<group>";
 		};
+		669C1166265752B600FC72E6 /* SignInScreen */ = {
+			isa = PBXGroup;
+			children = (
+				669C1167265752B600FC72E6 /* SignIn.storyboard */,
+				669C1168265752B600FC72E6 /* SignInViewController.swift */,
+			);
+			path = SignInScreen;
+			sourceTree = "<group>";
+		};
 		66E576902652597E00C767AB = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +196,7 @@
 		66E576B226525A8400C767AB /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				669C1166265752B600FC72E6 /* SignInScreen */,
 				6678D9E12655FED8006E09D3 /* Parts */,
 				6678D9DA2654FBF2006E09D3 /* VerificationScreen */,
 				6678D9D52654EE7B006E09D3 /* NumberScreen */,
@@ -329,6 +343,7 @@
 				6678D9DE2654FC40006E09D3 /* Verification.storyboard in Resources */,
 				6678D9D92654EED8006E09D3 /* Number.storyboard in Resources */,
 				66E576FD2653AC3900C767AB /* Detail.storyboard in Resources */,
+				669C1169265752B600FC72E6 /* SignIn.storyboard in Resources */,
 				66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */,
 				66E576C12652657F00C767AB /* Home.storyboard in Resources */,
 				66E576A62652598000C767AB /* Assets.xcassets in Resources */,
@@ -395,6 +410,7 @@
 				66E576E026535C7300C767AB /* SlideCollectionViewCell.swift in Sources */,
 				66E576D32652787800C767AB /* UIImageView+Extention.swift in Sources */,
 				66E576E426536E5F00C767AB /* TestCollectionViewCell.swift in Sources */,
+				669C116A265752B600FC72E6 /* SignInViewController.swift in Sources */,
 				66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */,
 				66E576CB2652744A00C767AB /* ClassName+Extention.swift in Sources */,
 				66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */,
