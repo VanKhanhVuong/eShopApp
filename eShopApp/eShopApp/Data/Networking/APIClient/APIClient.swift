@@ -12,14 +12,26 @@ class APIClient {
         APIManager.shared.requestApi(type: ProductAPI.getProduct) { (result: Result<DataProduct?, ErrorModel>) in
             switch result {
             case .success(let data):
-                print(data)
-                
-//                guard let product = products else {
-//                    completionHandler(.failure(ErrorModel.noData))
-//                    return
-//                }
-                
-                //completionHandler(.success(product))
+                guard let products = data?.product else {
+                    completionHandler(.failure(ErrorModel.noData))
+                    return
+                }
+                completionHandler(.success(products))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func getCategoryFromAPI(completionHandler: @escaping (_ result: Result<[Category], ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.getCategory) { (result: Result<DataCategory?, ErrorModel>) in
+            switch result {
+            case .success(let data):
+                guard let categorys = data?.category else {
+                    completionHandler(.failure(ErrorModel.noData))
+                    return
+                }
+                completionHandler(.success(categorys))
             case .failure(let error):
                 completionHandler(.failure(error))
             }

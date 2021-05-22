@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 
+@available(iOS 13.0, *)
 class VerificationViewController: UIViewController {
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var resendButton: UIButton!
@@ -40,13 +41,18 @@ class VerificationViewController: UIViewController {
         Auth.auth().settings?.isAppVerificationDisabledForTesting = false
         PhoneAuthProvider.provider().verifyPhoneNumber(numberPhone, uiDelegate: nil) { verificationID, error in
             if (error != nil){
-                self.showAlert(message: "Show arlert ERROR IN GETTING VERIFICATION ID")
+                self.showAlert(message: "ERROR IN GETTING VERIFICATION ID")
             } else {
                 self.vetificationTextField.isHidden = false
                 self.verificationID = verificationID ?? ""
-                print("Show message has sent a request for re-issuance of the code, please enter VERIFICATION CODE")
             }
         }
+    }
+    
+    func navigationHomeView() {
+        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+        guard let homeView = storyBoard.instantiateViewController(identifier: "HomeView") as? HomeViewController else { return }
+        self.navigationController?.pushViewController(homeView, animated: true)
     }
     
     func verificationPhoneNumber() {
@@ -57,7 +63,7 @@ class VerificationViewController: UIViewController {
                 if (error != nil){
                     print(error.debugDescription)
                 } else {
-                    print("Auth Success")
+                    self.navigationHomeView()
                 }
             }
         } else {

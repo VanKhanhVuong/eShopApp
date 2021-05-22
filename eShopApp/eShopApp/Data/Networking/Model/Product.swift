@@ -20,6 +20,7 @@ struct DataProduct: Codable {
 struct Product: Codable {
     var productId: String?
     var productName: String?
+    var imageProduct: String?
     var price: String?
     var detail: String?
     var rate: String?
@@ -27,6 +28,7 @@ struct Product: Codable {
     private enum CodingKeys: String, CodingKey {
         case productId = "productId"
         case productName = "productName"
+        case imageProduct = "imageProduct"
         case price = "price"
         case detail = "detail"
         case rate = "rate"
