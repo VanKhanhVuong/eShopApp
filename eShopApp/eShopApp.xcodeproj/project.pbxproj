@@ -34,12 +34,12 @@
 		66D873362659CCF2006150F0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D873342659CCF2006150F0 /* Home.storyboard */; };
 		66D873372659CCF2006150F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D873352659CCF2006150F0 /* HomeViewController.swift */; };
 		66D8733A2659CD50006150F0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D873392659CD50006150F0 /* HomeViewModel.swift */; };
+		66D8733E2659CF26006150F0 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D8733C2659CF26006150F0 /* Onboarding.storyboard */; };
+		66D8733F2659CF26006150F0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D8733D2659CF26006150F0 /* OnboardingViewController.swift */; };
 		66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769C2652597E00C767AB /* AppDelegate.swift */; };
 		66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5769E2652597E00C767AB /* SceneDelegate.swift */; };
 		66E576A62652598000C767AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A52652598000C767AB /* Assets.xcassets */; };
 		66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576A72652598000C767AB /* LaunchScreen.storyboard */; };
-		66E576BA26525D1600C767AB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576B926525D1600C767AB /* OnboardingViewController.swift */; };
-		66E576BC26525D2C00C767AB /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E576BB26525D2C00C767AB /* Onboarding.storyboard */; };
 		66E576C92652708900C767AB /* UITableView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576C82652708900C767AB /* UITableView+Extention.swift */; };
 		66E576CB2652744A00C767AB /* ClassName+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576CA2652744A00C767AB /* ClassName+Extention.swift */; };
 		66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576CC265274A600C767AB /* UICollectionView+Extention.swift */; };
@@ -84,14 +84,14 @@
 		66D873342659CCF2006150F0 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		66D873352659CCF2006150F0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		66D873392659CD50006150F0 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		66D8733C2659CF26006150F0 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		66D8733D2659CF26006150F0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		66E576992652597E00C767AB /* eShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E5769C2652597E00C767AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66E5769E2652597E00C767AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		66E576A52652598000C767AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66E576A82652598000C767AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66E576AA2652598000C767AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66E576B926525D1600C767AB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		66E576BB26525D2C00C767AB /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		66E576C82652708900C767AB /* UITableView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extention.swift"; sourceTree = "<group>"; };
 		66E576CA2652744A00C767AB /* ClassName+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassName+Extention.swift"; sourceTree = "<group>"; };
 		66E576CC265274A600C767AB /* UICollectionView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extention.swift"; sourceTree = "<group>"; };
@@ -266,6 +266,15 @@
 			path = ../../../../../ViewModel;
 			sourceTree = "<group>";
 		};
+		66D8733B2659CF26006150F0 /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				66D8733C2659CF26006150F0 /* Onboarding.storyboard */,
+				66D8733D2659CF26006150F0 /* OnboardingViewController.swift */,
+			);
+			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
 		66E576902652597E00C767AB = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +332,7 @@
 		66E576B226525A8400C767AB /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				66D8733B2659CF26006150F0 /* OnboardingScreen */,
 				6678D9E926561D63006E09D3 /* CustomView */,
 				6678D9E12655FED8006E09D3 /* Parts */,
 				669C116B26575C0400FC72E6 /* SignInScreen */,
@@ -331,18 +341,8 @@
 				6678D9D52654EE7B006E09D3 /* NumberScreen */,
 				66E576F92653ABBA00C767AB /* DetailScreen */,
 				66E576BD2652654B00C767AB /* HomeScreen */,
-				66E576B826525CC500C767AB /* OnboardingScreen */,
 			);
 			path = Screen;
-			sourceTree = "<group>";
-		};
-		66E576B826525CC500C767AB /* OnboardingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				66E576B926525D1600C767AB /* OnboardingViewController.swift */,
-				66E576BB26525D2C00C767AB /* Onboarding.storyboard */,
-			);
-			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 		66E576BD2652654B00C767AB /* HomeScreen */ = {
@@ -468,13 +468,13 @@
 				6678D9E826561CF0006E09D3 /* SignUp.storyboard in Resources */,
 				6678D9D92654EED8006E09D3 /* Number.storyboard in Resources */,
 				6678D9ED26561DE5006E09D3 /* CustomView.xib in Resources */,
+				66D8733E2659CF26006150F0 /* Onboarding.storyboard in Resources */,
 				66D873362659CCF2006150F0 /* Home.storyboard in Resources */,
 				66B5F74D2658CC11007BA088 /* CategoryCollectionViewCell.xib in Resources */,
 				66E576FD2653AC3900C767AB /* Detail.storyboard in Resources */,
 				66E576A92652598000C767AB /* LaunchScreen.storyboard in Resources */,
 				66E576A62652598000C767AB /* Assets.xcassets in Resources */,
 				669C116E26575C0400FC72E6 /* SignIn.storyboard in Resources */,
-				66E576BC26525D2C00C767AB /* Onboarding.storyboard in Resources */,
 				6678D9E0265500D5006E09D3 /* GoogleService-Info.plist in Resources */,
 				66E576E126535C7300C767AB /* SlideCollectionViewCell.xib in Resources */,
 			);
@@ -540,6 +540,7 @@
 				66B5F7482658C80A007BA088 /* Category.swift in Sources */,
 				66E576E026535C7300C767AB /* SlideCollectionViewCell.swift in Sources */,
 				6678D9E626561CE0006E09D3 /* SignUpViewController.swift in Sources */,
+				66D8733F2659CF26006150F0 /* OnboardingViewController.swift in Sources */,
 				66E576D32652787800C767AB /* UIImageView+Extention.swift in Sources */,
 				66E576E426536E5F00C767AB /* TestCollectionViewCell.swift in Sources */,
 				66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */,
@@ -549,7 +550,6 @@
 				66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */,
 				66D873372659CCF2006150F0 /* HomeViewController.swift in Sources */,
 				66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */,
-				66E576BA26525D1600C767AB /* OnboardingViewController.swift in Sources */,
 				665B3F3726574A6300A22671 /* ProductAPI.swift in Sources */,
 				66D87323265935E2006150F0 /* DetailViewModel.swift in Sources */,
 				66D8733A2659CD50006150F0 /* HomeViewModel.swift in Sources */,
