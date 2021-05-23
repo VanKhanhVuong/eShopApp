@@ -77,8 +77,9 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if #available(iOS 13.0, *) {
             let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
-            guard let homeView = storyBoard.instantiateViewController(identifier: "DetailView") as? DetailViewController else { return }
-            self.navigationController?.pushViewController(homeView, animated: true)
+            guard let detailView = storyBoard.instantiateViewController(identifier: "DetailView") as? DetailViewController else { return }
+            detailView.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[indexPath.item]
+            self.navigationController?.pushViewController(detailView, animated: true)
         }
     }
 }
@@ -86,11 +87,11 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case exclusiveOfferCollectionView:
-            return homeViewModel.arrayProduct.count
+            return homeViewModel.arrayProductExclusive.count
         case bestSellingCollectionView:
-            return homeViewModel.arrayProduct.count
+            return homeViewModel.arrayProductBestSelling.count
         case cheapProductsCollectionView:
-            return homeViewModel.arrayProduct.count
+            return homeViewModel.arrayProductCheap.count
         case slideCollectionView:
             return homeViewModel.arrayPoster.count
         case categoryCollectionView:
@@ -101,21 +102,34 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.slideCollectionView {
+        switch collectionView {
+        case exclusiveOfferCollectionView:
+            let productCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
+            let product = homeViewModel.arrayProductExclusive[indexPath.item]
+            productCell.configure(item: product)
+            return productCell
+        case cheapProductsCollectionView:
+            let productCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
+            let product = homeViewModel.arrayProductCheap[indexPath.item]
+            productCell.configure(item: product)
+            return productCell
+        case bestSellingCollectionView:
+            let productCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
+            let product = homeViewModel.arrayProductBestSelling[indexPath.item]
+            productCell.configure(item: product)
+            return productCell
+        case slideCollectionView:
             let posterCell = collectionView.dequeueReusableCell(with: SlideCollectionViewCell.self, for: indexPath)
             let poster = homeViewModel.arrayPoster[indexPath.item]
             posterCell.configure(urlString: poster)
             return posterCell
-        } else if (collectionView == self.categoryCollectionView) {
+        case categoryCollectionView:
             let categoryCell = collectionView.dequeueReusableCell(with: CategoryCollectionViewCell.self, for: indexPath)
             let category = homeViewModel.arrayCategory[indexPath.item]
             categoryCell.configure(item: category)
             return categoryCell
-        } else {
-            let productCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
-            let product = homeViewModel.arrayProduct[indexPath.item]
-            productCell.configure(item: product)
-            return productCell
+        default:
+            return UICollectionViewCell()
         }
     }
 }

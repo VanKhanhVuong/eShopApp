@@ -24,10 +24,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     private var priceProduct: Float = 0
+    var detailViewModel = DetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        detailViewModel.delegate = self
+        detailViewModel.getData()
     }
     
     @IBAction func touchPlusButton(_ sender: Any) {
@@ -60,20 +63,7 @@ class DetailViewController: UIViewController {
         addToCartButton.layer.cornerRadius = 15
     }
     
-    func getData(productName: String, productUnit: String, productPrice: Float, productDetail: String, productId: String, productImage: String, productRate: Int) {
-        //unitProductLabel.text = productUnit
-//        if productName != nil {
-//            nameProductLabel.text = productName
-//        }
-        
-//        descriptionLabel.text = productDetail
-//        totalLabel.text = "$\(priceProduct)"
-//        priceProduct = productPrice
-        // func call api get image
-//        starLabel.attributedText = changeColorText(number: productRate, color: .orange)
-    }
-    
-    func changeColorText(number: Int, color: UIColor) -> NSMutableAttributedString{
+    private func changeColorText(number: Int, color: UIColor) -> NSMutableAttributedString{
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: "★★★★★" as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: CGFloat(18.0)) as Any])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: NSRange(location:0, length: number))
@@ -121,4 +111,21 @@ class DetailViewController: UIViewController {
 
 @available(iOS 13.0, *)
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
+}
+
+@available(iOS 13.0, *)
+extension DetailViewController: DetailViewModelEvents {
+    func gotData() {
+        DispatchQueue.main.async {
+            self.nameProductLabel.text = self.detailViewModel.productName
+            self.descriptionLabel.text = self.detailViewModel.productDetail
+            self.totalLabel.text = "$\(self.detailViewModel.productPrice)"
+            self.priceProduct = self.detailViewModel.productPrice
+            self.starLabel.attributedText = self.changeColorText(number: self.detailViewModel.productRate, color: .orange)
+        }
+    }
+    
+    func gotError(messageError: ErrorModel) {
+        print("")
+    }
 }

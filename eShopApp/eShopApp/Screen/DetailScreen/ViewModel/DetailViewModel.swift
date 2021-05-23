@@ -14,6 +14,27 @@ protocol DetailViewModelEvents: AnyObject {
 
 class DetailViewModel {
     var api = APIClient()
+    var itemProduct: Product = Product()
+    var productName: String = ""
+    var productUnit: String = ""
+    var productPrice: Float = 0.0
+    var productDetail: String = ""
+    var productId: String = ""
+    var productImage: String = ""
+    var productRate: Int = 0
+    weak var delegate: DetailViewModelEvents?
+    
+    func getData() {
+        self.productName = itemProduct.productName ?? ""
+        //self.productUnit = itemProduct.productUnit ?? ""
+        self.productPrice = Float(itemProduct.price ?? "") ?? 0.0
+        self.productDetail = itemProduct.detail ?? ""
+        self.productImage = itemProduct.imageProduct ?? ""
+        self.productId = itemProduct.productId ?? ""
+        self.productRate = Int(itemProduct.rate ?? "") ?? 0
+        delegate?.gotData()
+    }
+    
     //var arrayImageProduct: [ImageProduct] = []
     
 //    func loadItemImageProduct() {
