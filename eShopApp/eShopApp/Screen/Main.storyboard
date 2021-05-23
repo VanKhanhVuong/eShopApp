@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Shop-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="HomeView" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="eShopApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,6 +189,7 @@
                             <constraint firstItem="yTf-04-cij" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zaB-hq-XxQ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Shop" image="shop" id="QT1-Gk-KdV"/>
                     <navigationItem key="navigationItem" id="qJ3-6q-QFZ"/>
                     <connections>
                         <outlet property="bestSellingCollectionView" destination="Fp3-RX-YPZ" id="Ynu-gE-f6a"/>
@@ -206,7 +207,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="73.660714285714278"/>
+            <point key="canvasLocation" x="-480" y="838"/>
+        </scene>
+        <!--Explore-->
+        <scene sceneID="l2L-sj-3CG">
+            <objects>
+                <viewController id="4NC-pc-dqe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T0c-gQ-WCR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uE6-ZI-8qk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Explore" image="explore" id="PZu-Fq-HbR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDv-j2-IMi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="838"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RFC-qS-cuS">
@@ -219,16 +236,91 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="CQ0-hd-EOx"/>
+                        <segue destination="j1Z-3w-70M" kind="relationship" relationship="rootViewController" id="CQ0-hd-EOx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtV-wU-VVx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="73.660714285714278"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2Bx-GL-o61">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="j1Z-3w-70M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LRc-fp-vel"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XiC-fa-iBo">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="h03-3R-fYN"/>
+                        <segue destination="4NC-pc-dqe" kind="relationship" relationship="viewControllers" id="ZbU-T8-Dji"/>
+                        <segue destination="EZX-O1-LnT" kind="relationship" relationship="viewControllers" id="5rB-gx-mdb"/>
+                        <segue destination="Vvc-A7-3RE" kind="relationship" relationship="viewControllers" id="3sC-5V-dKm"/>
+                        <segue destination="pJ2-T2-uEz" kind="relationship" relationship="viewControllers" id="f8d-Ah-53y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ns9-8w-h5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939.13043478260875" y="73.660714285714278"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="wLm-TB-4G3">
+            <objects>
+                <viewController id="EZX-O1-LnT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ie1-bG-wdu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="g7D-6F-Ago"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cart" image="shopping-cart" id="mrg-2T-eg6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVX-Ah-0H1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432" y="838"/>
+        </scene>
+        <!--Favourite-->
+        <scene sceneID="hkY-Ii-Llc">
+            <objects>
+                <viewController id="Vvc-A7-3RE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y1s-Jw-HSY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9ZH-sk-GTo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="love" id="Iyj-6x-atI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="umB-T1-Lg7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="838"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="Ug9-Si-i7Y">
+            <objects>
+                <viewController id="pJ2-T2-uEz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zed-BD-kaQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jDf-E9-xDc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="user" id="kU2-Fu-EJ5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F3b-Jg-yle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3283" y="838"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="explore" width="24" height="24"/>
+        <image name="love" width="24" height="24"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="shop" width="24" height="24"/>
+        <image name="shopping-cart" width="24" height="24"/>
+        <image name="user" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
