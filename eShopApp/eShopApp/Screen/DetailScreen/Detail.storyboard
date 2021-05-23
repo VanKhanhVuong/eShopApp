@@ -29,10 +29,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N9t-OG-OoH">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N9t-OG-OoH">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="337.66666666666669"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nZG-R6-ycH">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nZG-R6-ycH">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -40,7 +40,13 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="🤍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q49-IR-bjQ">
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="l5e-2a-58R">
+                                                <rect key="frame" x="135" y="311.33333333333331" width="120.33333333333331" height="26.333333333333314"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="currentPageIndicatorTintColor" systemColor="systemGreenColor"/>
+                                            </pageControl>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="🤍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q49-IR-bjQ">
                                                 <rect key="frame" x="342" y="347.66666666666669" width="33" height="34.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                                 <nil key="textColor"/>
@@ -218,6 +224,7 @@
                                             <constraint firstAttribute="height" constant="765" id="orv-8V-Sa9"/>
                                             <constraint firstItem="rpM-xY-5FE" firstAttribute="leading" secondItem="q2v-2c-OpY" secondAttribute="leading" id="pKV-47-0jD"/>
                                             <constraint firstItem="Qhi-GV-pCd" firstAttribute="height" secondItem="Edu-a8-IZ5" secondAttribute="height" multiplier="1:1" id="thP-Bd-gwv"/>
+                                            <constraint firstItem="l5e-2a-58R" firstAttribute="bottom" secondItem="N9t-OG-OoH" secondAttribute="bottom" id="vX2-V3-hTk"/>
                                             <constraint firstItem="N9t-OG-OoH" firstAttribute="top" secondItem="Qlu-dN-qI6" secondAttribute="top" id="wRd-xl-pD4"/>
                                         </constraints>
                                     </view>
@@ -244,6 +251,7 @@
                         <constraints>
                             <constraint firstItem="35n-Ov-2hV" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/12.6" id="0UY-3s-nMD"/>
                             <constraint firstItem="Qlu-dN-qI6" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="2E3-Nf-ucZ"/>
+                            <constraint firstItem="l5e-2a-58R" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="AGg-v6-zf1"/>
                             <constraint firstAttribute="trailing" secondItem="8uJ-wO-Fe8" secondAttribute="trailing" id="BGO-uT-20A"/>
                             <constraint firstItem="35n-Ov-2hV" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="H1N-kv-2x4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="35n-Ov-2hV" secondAttribute="trailing" constant="15" id="M54-3y-IIk"/>
@@ -267,6 +275,7 @@
                         <outlet property="nameProductLabel" destination="q2v-2c-OpY" id="mxW-Vy-hTo"/>
                         <outlet property="plusButton" destination="8zH-AQ-XaA" id="Oh7-Za-zl0"/>
                         <outlet property="showDescriptionView" destination="kko-eV-nDn" id="iPF-1Q-G7s"/>
+                        <outlet property="slidePageControl" destination="l5e-2a-58R" id="Yo2-Ms-VpF"/>
                         <outlet property="starLabel" destination="vQY-dc-H3d" id="Wvh-2U-JE6"/>
                         <outlet property="totalLabel" destination="AzN-kw-oj9" id="6Es-ve-Qfd"/>
                         <outlet property="unitProductLabel" destination="rpM-xY-5FE" id="pp0-y2-BB2"/>

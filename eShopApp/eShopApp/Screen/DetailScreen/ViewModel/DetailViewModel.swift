@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DetailViewModelEvents: AnyObject {
-    func gotData()
+    func gotData(isData: Bool)
     func gotError(messageError: ErrorModel)
 }
 
@@ -22,6 +22,7 @@ class DetailViewModel {
     var productId: String = ""
     var productImage: String = ""
     var productRate: Int = 0
+    var arrayImageProduct: [String] = []
     weak var delegate: DetailViewModelEvents?
     
     func getData() {
@@ -32,7 +33,14 @@ class DetailViewModel {
         self.productImage = itemProduct.imageProduct ?? ""
         self.productId = itemProduct.productId ?? ""
         self.productRate = Int(itemProduct.rate ?? "") ?? 0
-        delegate?.gotData()
+        delegate?.gotData(isData: true)
+    }
+    
+    func loadItemImageProduct() {
+        arrayImageProduct.append(productImage)
+        arrayImageProduct.append(productImage)
+        arrayImageProduct.append(productImage)
+        delegate?.gotData(isData: false)
     }
     
     //var arrayImageProduct: [ImageProduct] = []
