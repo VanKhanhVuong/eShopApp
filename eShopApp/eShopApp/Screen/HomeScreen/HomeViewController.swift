@@ -75,11 +75,18 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if #available(iOS 13.0, *) {
-            let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
-            guard let detailView = storyBoard.instantiateViewController(identifier: "DetailView") as? DetailViewController else { return }
-            detailView.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[indexPath.item]
-            self.navigationController?.pushViewController(detailView, animated: true)
+        switch collectionView {
+        case slideCollectionView:
+            return
+        case categoryCollectionView:
+            return
+        default:
+            if #available(iOS 13.0, *) {
+                let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
+                guard let detailView = storyBoard.instantiateViewController(identifier: "DetailView") as? DetailViewController else { return }
+                detailView.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[indexPath.item]
+                self.navigationController?.pushViewController(detailView, animated: true)
+            }
         }
     }
 }
