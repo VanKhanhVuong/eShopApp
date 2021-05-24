@@ -37,4 +37,19 @@ class APIClient {
             }
         }
     }
+    
+    func getBrandFromAPI(completionHandler: @escaping (_ result: Result<[Brand], ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.getBrand) { (result: Result<DataBrand?, ErrorModel>) in
+            switch result {
+            case .success(let data):
+                guard let brands = data?.brand else {
+                    completionHandler(.failure(ErrorModel.noData))
+                    return
+                }
+                completionHandler(.success(brands))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
 }

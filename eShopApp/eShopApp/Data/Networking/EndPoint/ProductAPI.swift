@@ -10,6 +10,7 @@ import Alamofire
 enum ProductAPI {
     case getProduct
     case getCategory
+    case getBrand
 }
 
 extension ProductAPI: TargetType {
@@ -25,7 +26,7 @@ extension ProductAPI: TargetType {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProduct,.getCategory:
+        case .getProduct, .getCategory, .getBrand:
             return URLEncoding.default
         }
     }
@@ -40,6 +41,8 @@ extension ProductAPI: TargetType {
             return "get_all_product.php"
         case .getCategory:
             return "get_all_category.php"
+        case .getBrand:
+            return "get_all_brand.php"
         }
     }
     
@@ -50,7 +53,7 @@ extension ProductAPI: TargetType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getProduct, .getCategory:
+        case .getProduct, .getCategory, .getBrand:
             return .get
         }
     }

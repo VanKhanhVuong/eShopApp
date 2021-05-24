@@ -21,5 +21,4 @@ class ExploreCollectionViewCell: UICollectionViewCell {
         nameLabel.text = item.categoryName
         categoryImageView.getImage(urlString: item.imageCategory ?? "")
     }
-
 }

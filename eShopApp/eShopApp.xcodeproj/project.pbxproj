@@ -24,6 +24,10 @@
 		6678D9EB26561DD4006E09D3 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678D9EA26561DD4006E09D3 /* CustomView.swift */; };
 		6678D9ED26561DE5006E09D3 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6678D9EC26561DE5006E09D3 /* CustomView.xib */; };
 		6684DA5D265B41ED00912B60 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA5C265B41ED00912B60 /* HomeViewModel.swift */; };
+		6684DA5F265B4B8900912B60 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA5E265B4B8900912B60 /* Brand.swift */; };
+		6684DA63265B4DDB00912B60 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA62265B4DDB00912B60 /* FilterViewController.swift */; };
+		6684DA65265B4E0D00912B60 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6684DA64265B4E0D00912B60 /* Filter.storyboard */; };
+		6684DA67265B4E5800912B60 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA66265B4E5800912B60 /* FilterViewModel.swift */; };
 		669C116E26575C0400FC72E6 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669C116C26575C0400FC72E6 /* SignIn.storyboard */; };
 		669C116F26575C0400FC72E6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C116D26575C0400FC72E6 /* SignInViewController.swift */; };
 		669C117226576A7500FC72E6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C117126576A7500FC72E6 /* CategoryView.swift */; };
@@ -83,6 +87,10 @@
 		6678D9EA26561DD4006E09D3 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		6678D9EC26561DE5006E09D3 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		6684DA5C265B41ED00912B60 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6684DA5E265B4B8900912B60 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		6684DA62265B4DDB00912B60 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		6684DA64265B4E0D00912B60 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
+		6684DA66265B4E5800912B60 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		669C116C26575C0400FC72E6 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		669C116D26575C0400FC72E6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		669C117126576A7500FC72E6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -176,6 +184,7 @@
 				665B3F3026574A6300A22671 /* Product.swift */,
 				665B3F3126574A6300A22671 /* ErrorModel.swift */,
 				66B5F7472658C80A007BA088 /* Category.swift */,
+				6684DA5E265B4B8900912B60 /* Brand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +256,24 @@
 			);
 			name = ViewModel;
 			path = ../../../../../../../Downloads/ViewModel;
+			sourceTree = "<group>";
+		};
+		6684DA60265B4D5800912B60 /* FilterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6684DA61265B4D9F00912B60 /* ViewModel */,
+				6684DA62265B4DDB00912B60 /* FilterViewController.swift */,
+				6684DA64265B4E0D00912B60 /* Filter.storyboard */,
+			);
+			path = FilterScreen;
+			sourceTree = "<group>";
+		};
+		6684DA61265B4D9F00912B60 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6684DA66265B4E5800912B60 /* FilterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		669C116B26575C0400FC72E6 /* SignInScreen */ = {
@@ -445,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				66D873342659CCF2006150F0 /* Main.storyboard */,
+				6684DA60265B4D5800912B60 /* FilterScreen */,
 				66A490C0265A316A0095B60F /* TypeProductScreen */,
 				66A490B0265A244C0095B60F /* ExploreScreen */,
 				66D8733B2659CF26006150F0 /* OnboardingScreen */,
@@ -580,6 +608,7 @@
 				669C117426576A8500FC72E6 /* CategoryView.xib in Resources */,
 				66A490BC265A26070095B60F /* ExploreCollectionViewCell.xib in Resources */,
 				66E576E526536E5F00C767AB /* TestCollectionViewCell.xib in Resources */,
+				6684DA65265B4E0D00912B60 /* Filter.storyboard in Resources */,
 				6678D9DE2654FC40006E09D3 /* Verification.storyboard in Resources */,
 				6678D9E826561CF0006E09D3 /* SignUp.storyboard in Resources */,
 				6678D9D92654EED8006E09D3 /* Number.storyboard in Resources */,
@@ -665,6 +694,7 @@
 				66D8733F2659CF26006150F0 /* OnboardingViewController.swift in Sources */,
 				66E576D32652787800C767AB /* UIImageView+Extention.swift in Sources */,
 				6684DA5D265B41ED00912B60 /* HomeViewModel.swift in Sources */,
+				6684DA5F265B4B8900912B60 /* Brand.swift in Sources */,
 				66A490CD265A323A0095B60F /* TypeProductModel.swift in Sources */,
 				66E576E426536E5F00C767AB /* TestCollectionViewCell.swift in Sources */,
 				66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */,
@@ -675,7 +705,9 @@
 				66D873372659CCF2006150F0 /* HomeViewController.swift in Sources */,
 				66E5769F2652597E00C767AB /* SceneDelegate.swift in Sources */,
 				665B3F3726574A6300A22671 /* ProductAPI.swift in Sources */,
+				6684DA67265B4E5800912B60 /* FilterViewModel.swift in Sources */,
 				66D87323265935E2006150F0 /* DetailViewModel.swift in Sources */,
+				6684DA63265B4DDB00912B60 /* FilterViewController.swift in Sources */,
 				669C116F26575C0400FC72E6 /* SignInViewController.swift in Sources */,
 				66A490BF265A27410095B60F /* ExploreViewModel.swift in Sources */,
 				6678D9DC2654FC35006E09D3 /* VerificationViewController.swift in Sources */,
