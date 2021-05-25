@@ -356,14 +356,54 @@
         <!--Favourite-->
         <scene sceneID="hkY-Ii-Llc">
             <objects>
-                <viewController id="Vvc-A7-3RE" sceneMemberID="viewController">
+                <viewController id="Vvc-A7-3RE" customClass="FavoritesViewController" customModule="eShopApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y1s-Jw-HSY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RRY-eM-rFo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="658"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-n4-UjA">
+                                <rect key="frame" x="0.0" y="746" width="414" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoQ-Jj-xui">
+                                        <rect key="frame" x="25" y="-15" width="364" height="67"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Add All To Cart">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="zoQ-Jj-xui" firstAttribute="height" secondItem="jEb-n4-UjA" secondAttribute="height" multiplier="1:1" id="MdJ-nm-S0e"/>
+                                    <constraint firstAttribute="bottom" secondItem="zoQ-Jj-xui" secondAttribute="bottom" constant="15" id="Ru4-yg-tjr"/>
+                                    <constraint firstItem="zoQ-Jj-xui" firstAttribute="leading" secondItem="jEb-n4-UjA" secondAttribute="leading" constant="25" id="SNv-es-VLr"/>
+                                    <constraint firstAttribute="trailing" secondItem="zoQ-Jj-xui" secondAttribute="trailing" constant="25" id="y5B-xS-n1w"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9ZH-sk-GTo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RRY-eM-rFo" firstAttribute="top" secondItem="9ZH-sk-GTo" secondAttribute="top" id="0vq-9K-bLQ"/>
+                            <constraint firstItem="jEb-n4-UjA" firstAttribute="leading" secondItem="9ZH-sk-GTo" secondAttribute="leading" id="6ae-5t-hkn"/>
+                            <constraint firstItem="9ZH-sk-GTo" firstAttribute="trailing" secondItem="RRY-eM-rFo" secondAttribute="trailing" id="QSf-N0-mYU"/>
+                            <constraint firstItem="RRY-eM-rFo" firstAttribute="leading" secondItem="9ZH-sk-GTo" secondAttribute="leading" id="WWr-fJ-FsH"/>
+                            <constraint firstItem="9ZH-sk-GTo" firstAttribute="trailing" secondItem="jEb-n4-UjA" secondAttribute="trailing" id="au2-RR-JeL"/>
+                            <constraint firstItem="jEb-n4-UjA" firstAttribute="height" secondItem="Y1s-Jw-HSY" secondAttribute="height" multiplier="1/13.4" id="dX7-M0-kj7"/>
+                            <constraint firstItem="jEb-n4-UjA" firstAttribute="top" secondItem="RRY-eM-rFo" secondAttribute="bottom" id="mPP-YD-xqO"/>
+                            <constraint firstItem="jEb-n4-UjA" firstAttribute="bottom" secondItem="9ZH-sk-GTo" secondAttribute="bottom" id="nXk-XL-OU5"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favourite" image="love" id="Iyj-6x-atI"/>
+                    <connections>
+                        <outlet property="addAllButton" destination="zoQ-Jj-xui" id="g63-hm-a6y"/>
+                        <outlet property="favoriteTableView" destination="RRY-eM-rFo" id="7xT-io-bba"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umB-T1-Lg7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
