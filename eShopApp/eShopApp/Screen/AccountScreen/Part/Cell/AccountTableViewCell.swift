@@ -8,7 +8,12 @@
 import UIKit
 
 class AccountTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemImageView: UIImageView!
+    
+    @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var nameItemLabel: UILabel!
     
+    func configure(item: CategoryUser) {
+        iconLabel.text = item.imageCategoryUser
+        nameItemLabel.text = item.nameCategoryUser
+    }
 }

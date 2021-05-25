@@ -8,5 +8,6 @@
 import Foundation
 
 struct CategoryUser {
-    
+    var nameCategoryUser: String?
+    var imageCategoryUser: String?
 }

@@ -8,22 +8,47 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var userCategoryTableView: UITableView!
+    @IBOutlet weak var editLabel: UILabel!
+    @IBOutlet weak var emailUser: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    var accountViewModel = AccountViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupView() {
+        userCategoryTableView.delegate = self
+        userCategoryTableView.dataSource = self
+        userCategoryTableView.register(cellType: AccountTableViewCell.self)
+        
+        logoutButton.clipsToBounds = true
+        logoutButton.layer.cornerRadius = 15
     }
-    */
+}
 
+extension AccountViewController: UITableViewDelegate {
+    
+}
+
+extension AccountViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return accountViewModel.arrayCategoryUser.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let itemCell = tableView.dequeueReusableCell(with: AccountTableViewCell.self, for: indexPath)
+        let image = accountViewModel.arrayCategoryUser[indexPath.row]
+        itemCell.configure(item: image)
+        return itemCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }
