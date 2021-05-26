@@ -23,6 +23,8 @@ class SignUpViewController: UIViewController {
     }
     
     func setupView() {
+        signUpButton.clipsToBounds = true
+        signUpButton.layer.cornerRadius = 15
     }
     
     func validateField() -> String? {
