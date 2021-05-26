@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Order Success View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="OrderSuccessViewController" customModule="eShopApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_success" translatesAutoresizingMaskIntoConstraints="NO" id="M3c-VK-l5P">
+                                <rect key="frame" x="50" y="94" width="314" height="314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="M3c-VK-l5P" secondAttribute="height" multiplier="1:1" id="F36-lj-pBf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAo-wS-vnC">
+                                <rect key="frame" x="25" y="522.5" width="364" height="33.5"/>
+                                <string key="text">Your items has been place and is on 
+it’s way to being processed</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccu-yt-FTH">
+                                <rect key="frame" x="25" y="668.5" width="363" height="66.5"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.78039217000000005" blue="0.34901961679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Track Order">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4f-7h-8Fe">
+                                <rect key="frame" x="25" y="765" width="364" height="67"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Back to home">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0x-AB-qVM">
+                                <rect key="frame" x="25" y="438" width="364" height="64.5"/>
+                                <string key="text">Your Order has been 
+accepted</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ccu-yt-FTH" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/13.4" id="1yo-3f-AbQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="M3c-VK-l5P" secondAttribute="trailing" constant="50" id="4Ir-Cq-xNp"/>
+                            <constraint firstItem="M3c-VK-l5P" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="BWG-gM-sXM"/>
+                            <constraint firstItem="I0x-AB-qVM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="M4p-a0-yxS"/>
+                            <constraint firstItem="I0x-AB-qVM" firstAttribute="top" secondItem="M3c-VK-l5P" secondAttribute="bottom" constant="30" id="Q9i-9g-87M"/>
+                            <constraint firstItem="I0x-AB-qVM" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Va0-8T-Ipf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="I0x-AB-qVM" secondAttribute="trailing" constant="25" id="bXt-En-MyU"/>
+                            <constraint firstItem="XAo-wS-vnC" firstAttribute="top" secondItem="I0x-AB-qVM" secondAttribute="bottom" constant="20" id="eLD-kg-6Ts"/>
+                            <constraint firstItem="F4f-7h-8Fe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="fKV-tx-WjT"/>
+                            <constraint firstItem="F4f-7h-8Fe" firstAttribute="top" secondItem="ccu-yt-FTH" secondAttribute="bottom" constant="30" id="gZL-cw-71x"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="F4f-7h-8Fe" secondAttribute="bottom" constant="30" id="huu-rz-qmJ"/>
+                            <constraint firstItem="M3c-VK-l5P" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="mla-EX-1Xl"/>
+                            <constraint firstItem="XAo-wS-vnC" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="oea-0h-y5F"/>
+                            <constraint firstItem="F4f-7h-8Fe" firstAttribute="height" secondItem="ccu-yt-FTH" secondAttribute="height" multiplier="1:1" id="s2l-Q7-WdY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F4f-7h-8Fe" secondAttribute="trailing" constant="25" id="s5I-2z-HU6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ccu-yt-FTH" secondAttribute="trailing" constant="26" id="sUp-U2-Q2Y"/>
+                            <constraint firstItem="ccu-yt-FTH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="tft-5d-LX0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XAo-wS-vnC" secondAttribute="trailing" constant="25" id="xBY-tU-ef6"/>
+                            <constraint firstItem="XAo-wS-vnC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="xcl-hg-Ek1"/>
+                            <constraint firstItem="M3c-VK-l5P" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="y45-6Z-FWy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backToHomeButton" destination="F4f-7h-8Fe" id="Exz-sF-Ebd"/>
+                        <outlet property="trackOrderButton" destination="ccu-yt-FTH" id="V82-mQ-FIp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89.855072463768124" y="37.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="order_success" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
