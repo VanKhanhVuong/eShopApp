@@ -196,6 +196,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		660E3FF3265F78470074B229 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				660E3FEF265F5D050074B229 /* MainViewController.swift */,
+				66D873342659CCF2006150F0 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		664262A3265DDD64000283EB /* OrderSuccessScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,8 +657,7 @@
 		66E576B226525A8400C767AB /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				660E3FEF265F5D050074B229 /* MainViewController.swift */,
-				66D873342659CCF2006150F0 /* Main.storyboard */,
+				660E3FF3265F78470074B229 /* Main */,
 				667B7F83265E580D00BD4EC8 /* LoginScreen */,
 				664262A9265DF4BB000283EB /* DialogView */,
 				664262A3265DDD64000283EB /* OrderSuccessScreen */,

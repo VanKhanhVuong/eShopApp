@@ -176,13 +176,13 @@
                                     <constraint firstAttribute="bottom" secondItem="jb5-gf-qqA" secondAttribute="bottom" id="y5u-Z0-tzf"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BV7-5c-MGH">
-                                <rect key="frame" x="0.0" y="817" width="273" height="45"/>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BV7-5c-MGH">
+                                <rect key="frame" x="0.0" y="817" width="223.5" height="45"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Do you want to login ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5No-DH-87b">
-                                        <rect key="frame" x="0.0" y="0.0" width="273" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="223.5" height="45"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -204,7 +204,7 @@
                             <constraint firstItem="BV7-5c-MGH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ITT-IC-qaw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yTf-04-cij" secondAttribute="trailing" id="KIg-H0-oRI"/>
                             <constraint firstItem="dJy-Xn-Tls" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.0574777" id="M6M-IA-epG"/>
-                            <constraint firstItem="BV7-5c-MGH" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="3.3/5" id="d9u-MO-OuD"/>
+                            <constraint firstItem="BV7-5c-MGH" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="2.7/5" id="d9u-MO-OuD"/>
                             <constraint firstItem="BV7-5c-MGH" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/20" id="dsX-gE-NJJ"/>
                             <constraint firstItem="yTf-04-cij" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.950893" id="eZv-5a-50g"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BV7-5c-MGH" secondAttribute="bottom" id="mWw-YU-UDv"/>
@@ -16112,6 +16112,9 @@ gXYADoF7AA6BgwAOgYYADoGLAA6BkwAAAAAAAAQBAAAAAAAAAFYAAAAAAAAAAAAAAAAADoGWA
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

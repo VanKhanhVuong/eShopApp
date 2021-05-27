@@ -30,7 +30,7 @@ class TestCollectionViewCell: UICollectionViewCell {
     func configure(item: Product) {
         itemImageView.getImage(urlString: item.imageProduct ?? "")
         nameItemLabel.text = item.productName
-        //unitItemLabel.text = item.
-        priceItemLabel.text = item.price
+        guard let price = item.price else { return }
+        priceItemLabel.text = "$" + price
     }
 }

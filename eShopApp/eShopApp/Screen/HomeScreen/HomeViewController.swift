@@ -70,15 +70,14 @@ class HomeViewController: UIViewController {
         searchView.layer.cornerRadius = 15
         
         navigationSignIn()
+        cornerRadiusLoginView()
     }
     
-    //    private func showViewLogin(isShow: Bool) {
-    //        if isShow {
-    //            loginView.isHidden = false
-    //        } else {
-    //            loginView.isHidden = true
-    //        }
-    //    }
+    func cornerRadiusLoginView() {
+        loginView.clipsToBounds = true
+        loginView.layer.cornerRadius = 15
+        loginView.layer.maskedCorners = .layerMaxXMinYCorner
+    }
     
     @available(iOS 13.0, *)
     func navigationSignIn() {
@@ -114,10 +113,11 @@ extension HomeViewController: UICollectionViewDelegate {
             return
         default:
             if #available(iOS 13.0, *) {
-                let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
-                guard let detailView = storyBoard.instantiateViewController(identifier: "DetailView") as? DetailViewController else { return }
-                detailView.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[indexPath.item]
-                self.navigationController?.pushViewController(detailView, animated: true)
+                let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
+                guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+                detailViewController.modalPresentationStyle = .fullScreen
+                detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[indexPath.item]
+                present(detailViewController, animated: true, completion: nil)
             }
         }
     }
@@ -180,7 +180,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         case slideCollectionView:
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         case categoryCollectionView:
-            return CGSize(width: collectionView.frame.width - 150, height: collectionView.frame.height)
+            return CGSize(width: collectionView.frame.width - 120, height: collectionView.frame.height)
         default:
             return CGSize(width: (collectionView.frame.width - 45) / 2, height: collectionView.frame.height)
         }
