@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var starLabel: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var backToHomeImageView: UIImageView!
     @IBOutlet weak var slidePageControl: UIPageControl!
     
     private var priceProduct: Float = 0
@@ -62,15 +63,20 @@ class DetailViewController: UIViewController {
         detailViewModel.getData()
         detailViewModel.loadItemImageProduct()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
-        likeLabel.addGestureRecognizer(tap)
-        
         imageCollectionView.register(cellType: ImageProductCollectionViewCell.self)
         minusButton.setTitleColor(.gray, for: .normal)
         descriptionLabel.isHidden = true
-        actionClickShowDetail()
+        actionClickShowDescriptionProduct()
+        actionLikeProduct()
+        actionBackHome()
         addToCartButton.clipsToBounds = true
         addToCartButton.layer.cornerRadius = 15
+    }
+    
+    // Like Product
+    private func actionLikeProduct() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
+        likeLabel.addGestureRecognizer(tap)
     }
     
     @objc func tapFunction(sender:UITapGestureRecognizer) {
@@ -84,14 +90,16 @@ class DetailViewController: UIViewController {
         }
     }
     
-    private func changeColorText(number: Int, color: UIColor) -> NSMutableAttributedString{
+    // Show star of the Product
+    private func changeColorText(number: Int, color: UIColor) -> NSMutableAttributedString {
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: "★★★★★" as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: CGFloat(18.0)) as Any])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: NSRange(location:0, length: number))
         return myMutableString
     }
     
-    private func actionClickShowDetail() {
+    // Show description of the Product
+    private func actionClickShowDescriptionProduct() {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
         self.showDescriptionView.addGestureRecognizer(gesture)
     }
@@ -117,6 +125,16 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+    // Button Back Home
+    private func actionBackHome() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(navigationHome))
+        backToHomeImageView.addGestureRecognizer(tap)
+    }
+    
+    @objc func navigationHome(sender : UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 @available(iOS 13.0, *)
@@ -130,6 +148,18 @@ extension DetailViewController: UICollectionViewDataSource {
         let image = detailViewModel.arrayImageProduct[indexPath.row]
         imageCell.configure(imageProduct: image)
         return imageCell
+    }
+}
+
+@available(iOS 13.0, *)
+extension DetailViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isEqual(imageCollectionView), scrollView.isDragging {
+            currentIndex = Int((scrollView.contentOffset.x) / imageCollectionView.frame.size.width)
+            slidePageControl.currentPage = currentIndex
+        } else {
+            // When Scrolling other CollectionViews slideCollectionView.
+        }
     }
 }
 
@@ -167,14 +197,4 @@ extension DetailViewController: DetailViewModelEvents {
     }
 }
 
-@available(iOS 13.0, *)
-extension DetailViewController: UICollectionViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.isEqual(imageCollectionView), scrollView.isDragging {
-            currentIndex = Int((scrollView.contentOffset.x) / imageCollectionView.frame.size.width)
-            slidePageControl.currentPage = currentIndex
-        } else {
-            // When Scrolling other CollectionViews slideCollectionView.
-        }
-    }
-}
+

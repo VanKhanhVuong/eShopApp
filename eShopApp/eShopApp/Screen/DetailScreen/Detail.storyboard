@@ -108,7 +108,7 @@
                                                     <constraint firstItem="8zH-AQ-XaA" firstAttribute="leading" secondItem="uYl-m3-Aq2" secondAttribute="trailing" id="yaP-aV-dyx"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpM-xY-5FE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpM-xY-5FE">
                                                 <rect key="frame" x="15" y="388.66666666666669" width="322" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -228,10 +228,20 @@
                                             <constraint firstItem="N9t-OG-OoH" firstAttribute="top" secondItem="Qlu-dN-qI6" secondAttribute="top" id="wRd-xl-pD4"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lessthan" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u0P-05-j9L">
+                                        <rect key="frame" x="25" y="3.6666666666666643" width="24" height="17.000000000000004"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="dug-TL-LPS"/>
+                                            <constraint firstAttribute="width" constant="24" id="iuU-jn-Fda"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Qlu-dN-qI6" firstAttribute="top" secondItem="8uJ-wO-Fe8" secondAttribute="top" id="1wb-xn-n9v"/>
+                                    <constraint firstItem="u0P-05-j9L" firstAttribute="leading" secondItem="8uJ-wO-Fe8" secondAttribute="leading" constant="25" id="6dT-oK-4l7"/>
+                                    <constraint firstItem="u0P-05-j9L" firstAttribute="top" secondItem="N9t-OG-OoH" secondAttribute="top" id="TFo-4X-Cgg"/>
                                     <constraint firstAttribute="trailing" secondItem="Qlu-dN-qI6" secondAttribute="trailing" id="YA4-3f-T94"/>
                                     <constraint firstAttribute="bottom" secondItem="Qlu-dN-qI6" secondAttribute="bottom" id="fIo-WX-uwK"/>
                                     <constraint firstItem="Qlu-dN-qI6" firstAttribute="leading" secondItem="8uJ-wO-Fe8" secondAttribute="leading" id="n0R-K5-2EZ"/>
@@ -267,6 +277,7 @@
                     <connections>
                         <outlet property="addToCartButton" destination="35n-Ov-2hV" id="g4O-YA-WwO"/>
                         <outlet property="amountNumberLabel" destination="jBH-5n-AN6" id="xeA-4e-r0N"/>
+                        <outlet property="backToHomeImageView" destination="u0P-05-j9L" id="mol-a7-l2w"/>
                         <outlet property="descriptionLabel" destination="NPX-Ph-DVs" id="Tgl-Vg-n8T"/>
                         <outlet property="dropImageView" destination="Edu-a8-IZ5" id="PoQ-CW-8KW"/>
                         <outlet property="imageCollectionView" destination="N9t-OG-OoH" id="xdr-B9-WzS"/>
@@ -288,6 +299,7 @@
     </scenes>
     <resources>
         <image name="greaterthan" catalog="system" width="128" height="111"/>
+        <image name="lessthan" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

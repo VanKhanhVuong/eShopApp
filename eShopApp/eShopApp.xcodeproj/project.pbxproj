@@ -722,10 +722,10 @@
 		66E576F92653ABBA00C767AB /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
+				66D87321265935CE006150F0 /* ViewModel */,
 				66D873442659F6A7006150F0 /* Part */,
 				66D873402659D004006150F0 /* Detail.storyboard */,
 				66D873412659D004006150F0 /* DetailViewController.swift */,
-				66D87321265935CE006150F0 /* ViewModel */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
