@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
     @IBOutlet weak var slideCollectionView: UICollectionView!
     @IBOutlet weak var slidePageControl: UIPageControl!
@@ -19,15 +20,22 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var cheapProductsCollectionView: UICollectionView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var loginView: UIView!
     
     private var homeViewModel = HomeViewModel()
     private var currentIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        if #available(iOS 13.0, *) {
+            setupView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
+    @available(iOS 13.0, *)
     private func setupView() {
         slideCollectionView.delegate = self
         exclusiveOfferCollectionView.delegate = self
@@ -60,6 +68,30 @@ class HomeViewController: UIViewController {
         slidePageControl.numberOfPages = homeViewModel.arrayPoster.count
         searchView.clipsToBounds = true
         searchView.layer.cornerRadius = 15
+        
+        navigationSignIn()
+    }
+    
+    //    private func showViewLogin(isShow: Bool) {
+    //        if isShow {
+    //            loginView.isHidden = false
+    //        } else {
+    //            loginView.isHidden = true
+    //        }
+    //    }
+    
+    @available(iOS 13.0, *)
+    func navigationSignIn() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction))
+        loginLabel.addGestureRecognizer(tap)
+    }
+    
+    @available(iOS 13.0, *)
+    @objc func tapFunction(sender:UITapGestureRecognizer) {
+        let mainStoryboard = UIStoryboard(name: "SignIn", bundle: .main)
+        guard let signInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
+        signInViewController.modalPresentationStyle = .fullScreen
+        present(signInViewController, animated: true, completion: nil)
     }
 }
 
@@ -90,6 +122,7 @@ extension HomeViewController: UICollectionViewDelegate {
         }
     }
 }
+
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
@@ -140,24 +173,26 @@ extension HomeViewController: UICollectionViewDataSource {
         }
     }
 }
+
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.slideCollectionView {
+        switch collectionView {
+        case slideCollectionView:
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-        } else if (collectionView == self.categoryCollectionView){
-            return CGSize(width: collectionView.frame.width - 100, height: collectionView.frame.height)
-        } else {
+        case categoryCollectionView:
+            return CGSize(width: collectionView.frame.width - 150, height: collectionView.frame.height)
+        default:
             return CGSize(width: (collectionView.frame.width - 45) / 2, height: collectionView.frame.height)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if collectionView == self.slideCollectionView {
+        switch collectionView {
+        case slideCollectionView:
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        } else if (collectionView == self.categoryCollectionView){
-            return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        } else {
+        case categoryCollectionView:
+            return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        default:
             return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         }
     }

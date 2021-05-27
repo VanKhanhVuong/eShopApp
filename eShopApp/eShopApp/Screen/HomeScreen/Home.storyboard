@@ -176,6 +176,24 @@
                                     <constraint firstAttribute="bottom" secondItem="jb5-gf-qqA" secondAttribute="bottom" id="y5u-Z0-tzf"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BV7-5c-MGH">
+                                <rect key="frame" x="0.0" y="817" width="273" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Do you want to login ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5No-DH-87b">
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="45"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5No-DH-87b" firstAttribute="leading" secondItem="BV7-5c-MGH" secondAttribute="leading" id="EZl-WL-XmW"/>
+                                    <constraint firstItem="5No-DH-87b" firstAttribute="top" secondItem="BV7-5c-MGH" secondAttribute="top" id="fWO-Nf-dQq"/>
+                                    <constraint firstAttribute="trailing" secondItem="5No-DH-87b" secondAttribute="trailing" id="y09-aX-A88"/>
+                                    <constraint firstAttribute="bottom" secondItem="5No-DH-87b" secondAttribute="bottom" id="znB-sn-KJJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,9 +201,13 @@
                             <constraint firstItem="SvO-Tm-HSb" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/17.5" id="3wM-2H-Qs1"/>
                             <constraint firstItem="5Z9-Yj-1XS" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/6.9" id="6ol-yN-j2d"/>
                             <constraint firstItem="yTf-04-cij" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9q8-Wu-Fas"/>
+                            <constraint firstItem="BV7-5c-MGH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ITT-IC-qaw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yTf-04-cij" secondAttribute="trailing" id="KIg-H0-oRI"/>
                             <constraint firstItem="dJy-Xn-Tls" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.0574777" id="M6M-IA-epG"/>
+                            <constraint firstItem="BV7-5c-MGH" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="3.3/5" id="d9u-MO-OuD"/>
+                            <constraint firstItem="BV7-5c-MGH" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/20" id="dsX-gE-NJJ"/>
                             <constraint firstItem="yTf-04-cij" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.950893" id="eZv-5a-50g"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BV7-5c-MGH" secondAttribute="bottom" id="mWw-YU-UDv"/>
                             <constraint firstItem="yTf-04-cij" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zaB-hq-XxQ"/>
                         </constraints>
                     </view>
@@ -200,6 +222,8 @@
                         <outlet property="cheapProductsView" destination="bQW-uJ-2FP" id="9M9-cH-7Rc"/>
                         <outlet property="exclusiveOfferCollectionView" destination="iID-Gg-N5K" id="CXS-3d-tZV"/>
                         <outlet property="exclusiveOfferView" destination="SvO-Tm-HSb" id="ych-Ls-iab"/>
+                        <outlet property="loginLabel" destination="5No-DH-87b" id="Qso-0n-Ef8"/>
+                        <outlet property="loginView" destination="BV7-5c-MGH" id="rne-Oh-Up9"/>
                         <outlet property="searchView" destination="dJy-Xn-Tls" id="hZv-K5-7Mi"/>
                         <outlet property="slideCollectionView" destination="5Z9-Yj-1XS" id="Udt-1n-sXO"/>
                         <outlet property="slidePageControl" destination="1cr-AQ-1lo" id="70g-oz-0LE"/>

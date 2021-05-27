@@ -26,8 +26,9 @@ class SignInViewController: UIViewController {
     }
     
     @objc func checkAction(sender : UITapGestureRecognizer) {
-        let storyBoard = UIStoryboard(name: "Number", bundle: nil)
-        guard let numberView = storyBoard.instantiateViewController(identifier: "NumberView") as? NumberViewController else { return }
-        self.navigationController?.pushViewController(numberView, animated: true)
+        let mainStoryboard = UIStoryboard(name: "Number", bundle: .main)
+        guard let numberViewController = mainStoryboard.instantiateViewController(withIdentifier: "NumberView") as? NumberViewController else { return }
+        numberViewController.modalPresentationStyle = .fullScreen
+        present(numberViewController, animated: true, completion: nil)
     }
 }
