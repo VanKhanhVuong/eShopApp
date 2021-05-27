@@ -21,8 +21,8 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func getStartedTapped(_ sender: Any) {
-        let mainStoryboard = UIStoryboard(name: "Home", bundle: .main)
-        guard let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeView") as? HomeViewController else { return }
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
+        guard let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
         homeViewController.modalPresentationStyle = .fullScreen
         present(homeViewController, animated: true, completion: nil)
     }
