@@ -45,7 +45,15 @@ class TypeProductViewController: UIViewController {
 }
 
 extension TypeProductViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            if #available(iOS 13.0, *) {
+                let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
+                guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+                detailViewController.modalPresentationStyle = .fullScreen
+                detailViewController.detailViewModel.itemProduct = typeProductViewModel.arrayProduct[indexPath.item]
+                present(detailViewController, animated: true, completion: nil)
+            }
+    }
 }
 
 extension TypeProductViewController: UICollectionViewDataSource {
