@@ -21,6 +21,9 @@ class FilterViewController: UIViewController {
         setupUIView()
     }
     
+    @IBAction func closeFilterTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     func setupView() {
         filterTableView.delegate = self
         filterTableView.dataSource = self
@@ -35,7 +38,7 @@ class FilterViewController: UIViewController {
         applyFilterButton.layer.cornerRadius = 15
     }
     
-    func test(str: String, index: Int) -> String {
+    func showCategory(str: String, index: Int) -> String {
         if str == "Category" {
             return filterViewModel.arrayCategory[index].categoryName ?? ""
         } else {
@@ -46,7 +49,7 @@ class FilterViewController: UIViewController {
 
 extension FilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(test(str: filterViewModel.headerTitles[indexPath.section], index: indexPath.row))")
+        print("\(showCategory(str: filterViewModel.headerTitles[indexPath.section], index: indexPath.row))")
     }
 }
 
