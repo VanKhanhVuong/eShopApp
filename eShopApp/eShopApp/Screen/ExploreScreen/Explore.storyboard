@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q1s-2P-iOc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,15 +14,15 @@
             <objects>
                 <viewController id="4NC-pc-dqe" customClass="ExploreViewController" customModule="eShopApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T0c-gQ-WCR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zuk-9g-23u">
-                                <rect key="frame" x="25" y="44" width="364" height="74.5"/>
+                                <rect key="frame" x="25" y="88" width="364" height="74.5"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="57W-zi-feb">
-                                <rect key="frame" x="0.0" y="118.5" width="414" height="694.5"/>
+                                <rect key="frame" x="0.0" y="162.5" width="414" height="699.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XNY-N9-qPu">
                                     <size key="itemSize" width="128" height="128"/>
@@ -58,10 +60,10 @@
         <!--Item-->
         <scene sceneID="8Xi-8l-ybd">
             <objects>
-                <navigationController navigationBarHidden="YES" id="q1s-2P-iOc" sceneMemberID="viewController">
+                <navigationController id="q1s-2P-iOc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="GI6-Uc-eYJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="44G-CB-lAx">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

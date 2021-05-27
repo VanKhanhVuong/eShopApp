@@ -19,9 +19,11 @@ class ExploreViewController: UIViewController {
     }
     
     func setupView() {
+        self.title = "Find Product"
         categoryProductCollectionView.delegate = self
         categoryProductCollectionView.dataSource = self
         exploreViewModel.delegate = self
+        
         categoryProductCollectionView.register(cellType: ExploreCollectionViewCell.self)
         exploreViewModel.loadItemCategory()
     }
@@ -50,6 +52,15 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
+        guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
+        guard let nameCategory = exploreViewModel.arrayCategory[indexPath.row].categoryName else { return }
+        typeProductViewController.nameCategory = nameCategory
+        typeProductViewController.modalPresentationStyle = .fullScreen
+        present(typeProductViewController, animated: true, completion: nil)
     }
 }
 
