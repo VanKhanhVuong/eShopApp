@@ -8,8 +8,22 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-
+    @IBOutlet weak var getStartButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+    }
+    
+    func setUpView() {
+        getStartButton.clipsToBounds = true
+        getStartButton.layer.cornerRadius = 15
+    }
+    
+    @IBAction func getStartedTapped(_ sender: Any) {
+        let mainStoryboard = UIStoryboard(name: "Home", bundle: .main)
+        guard let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeView") as? HomeViewController else { return }
+        homeViewController.modalPresentationStyle = .fullScreen
+        present(homeViewController, animated: true, completion: nil)
     }
 }

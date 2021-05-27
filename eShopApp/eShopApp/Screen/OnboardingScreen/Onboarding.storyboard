@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -20,26 +20,55 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devices" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-ts-Ue2">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbm-fC-Ith">
+                                <rect key="frame" x="25" y="695" width="364" height="67"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="getStartedTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ep5-Gl-5Ne"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to our store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JID-46-Zyv">
+                                <rect key="frame" x="35" y="432" width="344" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Bbm-fC-Ith" secondAttribute="bottom" constant="100" id="7RB-vX-0hC"/>
                             <constraint firstItem="TkB-ts-Ue2" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="7oy-Zm-hak"/>
                             <constraint firstAttribute="bottom" secondItem="TkB-ts-Ue2" secondAttribute="bottom" id="AYV-hU-y3y"/>
+                            <constraint firstItem="JID-46-Zyv" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="EVb-1W-7Kk"/>
+                            <constraint firstItem="Bbm-fC-Ith" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/13.4" id="avO-sR-505"/>
                             <constraint firstItem="TkB-ts-Ue2" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="lPd-nR-NnT"/>
+                            <constraint firstItem="Bbm-fC-Ith" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="sAx-mZ-DS1"/>
                             <constraint firstAttribute="trailing" secondItem="TkB-ts-Ue2" secondAttribute="trailing" id="sZu-ur-qhx"/>
+                            <constraint firstItem="JID-46-Zyv" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="tKy-9t-T3S"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Bbm-fC-Ith" secondAttribute="trailing" constant="25" id="yAS-cp-k5Q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="getStartButton" destination="Bbm-fC-Ith" id="p19-bH-2fp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="74"/>
+            <point key="canvasLocation" x="28.985507246376812" y="73.660714285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="devices" width="750" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
