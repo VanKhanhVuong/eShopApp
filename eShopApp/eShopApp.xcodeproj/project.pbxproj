@@ -89,13 +89,12 @@
 		66E576E126535C7300C767AB /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E576DF26535C7300C767AB /* SlideCollectionViewCell.xib */; };
 		66E576E426536E5F00C767AB /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576E226536E5F00C767AB /* TestCollectionViewCell.swift */; };
 		66E576E526536E5F00C767AB /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E576E326536E5F00C767AB /* TestCollectionViewCell.xib */; };
-		6DF63C80001CF143D85D8A8B /* Pods_eShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58822FA8CED77AEA95868D70 /* Pods_eShopApp.framework */; };
+		9DAE49D33C6CDECAE16EBFA6 /* Pods_eShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55125FAF33B8F02D4F6E2B07 /* Pods_eShopApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		093D8159D3EFCD5E0895355F /* Pods-eShopApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopApp.release.xcconfig"; path = "Target Support Files/Pods-eShopApp/Pods-eShopApp.release.xcconfig"; sourceTree = "<group>"; };
-		161988C061831B299D8BAD95 /* Pods-eShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopApp.debug.xcconfig"; path = "Target Support Files/Pods-eShopApp/Pods-eShopApp.debug.xcconfig"; sourceTree = "<group>"; };
-		58822FA8CED77AEA95868D70 /* Pods_eShopApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShopApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E0F6477C9B4D8E37ECF370 /* Pods-eShopApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopApp.release.xcconfig"; path = "Target Support Files/Pods-eShopApp/Pods-eShopApp.release.xcconfig"; sourceTree = "<group>"; };
+		55125FAF33B8F02D4F6E2B07 /* Pods_eShopApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShopApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		664262A4265DDDB9000283EB /* OrderSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSuccessViewController.swift; sourceTree = "<group>"; };
 		664262A6265DDDD6000283EB /* OrderSuccess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderSuccess.storyboard; sourceTree = "<group>"; };
 		664262AA265DF4E0000283EB /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
@@ -180,6 +179,7 @@
 		66E576E226536E5F00C767AB /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		66E576E326536E5F00C767AB /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		66F0377D265B36120001BF0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D5EC15B94C9779414719E3 /* Pods-eShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopApp.debug.xcconfig"; path = "Target Support Files/Pods-eShopApp/Pods-eShopApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,21 +187,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DF63C80001CF143D85D8A8B /* Pods_eShopApp.framework in Frameworks */,
+				9DAE49D33C6CDECAE16EBFA6 /* Pods_eShopApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E7C69998545E08A3963954A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				58822FA8CED77AEA95868D70 /* Pods_eShopApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		664262A3265DDD64000283EB /* OrderSuccessScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,7 +598,7 @@
 				66E5769B2652597E00C767AB /* eShopApp */,
 				66E5769A2652597E00C767AB /* Products */,
 				733CD55B1D1860FFBE23038D /* Pods */,
-				2E7C69998545E08A3963954A /* Frameworks */,
+				8FE39DD9DF616F2AE56FD655 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -730,10 +722,18 @@
 		733CD55B1D1860FFBE23038D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				161988C061831B299D8BAD95 /* Pods-eShopApp.debug.xcconfig */,
-				093D8159D3EFCD5E0895355F /* Pods-eShopApp.release.xcconfig */,
+				79D5EC15B94C9779414719E3 /* Pods-eShopApp.debug.xcconfig */,
+				27E0F6477C9B4D8E37ECF370 /* Pods-eShopApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8FE39DD9DF616F2AE56FD655 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55125FAF33B8F02D4F6E2B07 /* Pods_eShopApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -743,11 +743,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66E576AD2652598000C767AB /* Build configuration list for PBXNativeTarget "eShopApp" */;
 			buildPhases = (
-				0704622FE35543E3BC0B81B2 /* [CP] Check Pods Manifest.lock */,
+				D6C55147EEE5647AAC849B9C /* [CP] Check Pods Manifest.lock */,
 				66E576952652597E00C767AB /* Sources */,
 				66E576962652597E00C767AB /* Frameworks */,
 				66E576972652597E00C767AB /* Resources */,
-				BF9C3B5C11E46C42857B2DBE /* [CP] Embed Pods Frameworks */,
+				3B342FF91C584C524ED65EA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -831,7 +831,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0704622FE35543E3BC0B81B2 /* [CP] Check Pods Manifest.lock */ = {
+		3B342FF91C584C524ED65EA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShopApp/Pods-eShopApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShopApp/Pods-eShopApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eShopApp/Pods-eShopApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6C55147EEE5647AAC849B9C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -851,23 +868,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BF9C3B5C11E46C42857B2DBE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eShopApp/Pods-eShopApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eShopApp/Pods-eShopApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eShopApp/Pods-eShopApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1064,7 +1064,7 @@
 		};
 		66E576AE2652598000C767AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 161988C061831B299D8BAD95 /* Pods-eShopApp.debug.xcconfig */;
+			baseConfigurationReference = 79D5EC15B94C9779414719E3 /* Pods-eShopApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1085,7 +1085,7 @@
 		};
 		66E576AF2652598000C767AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 093D8159D3EFCD5E0895355F /* Pods-eShopApp.release.xcconfig */;
+			baseConfigurationReference = 27E0F6477C9B4D8E37ECF370 /* Pods-eShopApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
