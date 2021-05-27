@@ -9,8 +9,10 @@ import UIKit
 
 class TypeProductViewController: UIViewController {
     @IBOutlet weak var productCollectionView: UICollectionView!
+    @IBOutlet weak var titleNavigationItem: UINavigationItem!
     
     private var typeProductViewModel = TypeProductModel()
+    var nameCategory: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,12 +20,27 @@ class TypeProductViewController: UIViewController {
     }
     
     func setupView() {
+        titleNavigationItem.title = nameCategory
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         typeProductViewModel.delegate = self
         
         productCollectionView.register(cellType: TestCollectionViewCell.self)
         typeProductViewModel.loadItemProduct()
+    }
+    @IBAction func backExploreTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func filterTapped(_ sender: Any) {
+        showFilterScreen()
+    }
+    
+    func showFilterScreen() {
+        let mainStoryboard = UIStoryboard(name: "Filter", bundle: .main)
+        guard let filterViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterView") as? FilterViewController else { return }
+        filterViewController.modalPresentationStyle = .fullScreen
+        present(filterViewController, animated: true, completion: nil)
     }
 }
 
@@ -50,7 +67,7 @@ extension TypeProductViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        return UIEdgeInsets(top: 15, left: 15, bottom: 0, right: 15)
     }
 }
 
