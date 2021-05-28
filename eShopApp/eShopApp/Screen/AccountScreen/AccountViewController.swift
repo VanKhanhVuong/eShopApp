@@ -12,8 +12,9 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userCategoryTableView: UITableView!
     @IBOutlet weak var editLabel: UILabel!
-    @IBOutlet weak var emailUser: UILabel!
+    @IBOutlet weak var emailUserLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var contentAvatarView: UIView!
     
     var accountViewModel = AccountViewModel()
     
@@ -23,17 +24,16 @@ class AccountViewController: UIViewController {
     }
     
     func setupView() {
-        userCategoryTableView.delegate = self
+
         userCategoryTableView.dataSource = self
         userCategoryTableView.register(cellType: AccountTableViewCell.self)
         
         logoutButton.clipsToBounds = true
         logoutButton.layer.cornerRadius = 15
+        
+        contentAvatarView.clipsToBounds = true
+        contentAvatarView.layer.cornerRadius = contentAvatarView.bounds.size.height/2
     }
-}
-
-extension AccountViewController: UITableViewDelegate {
-    
 }
 
 extension AccountViewController: UITableViewDataSource {
