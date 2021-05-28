@@ -18,6 +18,31 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+
+    @IBAction func loginTapped(_ sender: Any) {
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        
+        let error = validateField()
+        if error != nil {
+            self.showAlert(message: error ?? "")
+        } else {
+            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                if error != nil {
+                    self.showAlert(message: "Login Fail !")
+                } else {
+                    self.navigationHomeScreen()
+                }
+            }
+        }
+    }
+    
+    func navigationHomeScreen() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
+        guard let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
+        mainViewController.modalPresentationStyle = .fullScreen
+        present(mainViewController, animated: true, completion: nil)
+    }
     
     func setupView() {
         messageLoginView.titleLabel.text = "Loging"
@@ -35,23 +60,5 @@ class LoginViewController: UIViewController {
             return "Please make sure your password is at least 8 characters, 1 Uppercase alphabet, 1 Lowercase alphabet and 1 Number."
         }
         return nil
-    }
-    
-    @IBAction func loginTapped(_ sender: Any) {
-        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        
-        let error = validateField()
-        if error != nil {
-            // Show message Error
-        } else {
-            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-                if error != nil {
-                    print("Sign in Fail")
-                } else {
-                    print("Sign in Success")
-                }
-            }
-        }
     }
 }
