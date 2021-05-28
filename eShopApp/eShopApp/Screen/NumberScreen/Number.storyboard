@@ -18,24 +18,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your mobile number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8Q-WD-uSm">
-                                <rect key="frame" x="25" y="228" width="287" height="32"/>
+                                <rect key="frame" x="25" y="184" width="287" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E4-Jr-c9H">
-                                <rect key="frame" x="25" y="287" width="117" height="21"/>
+                                <rect key="frame" x="25" y="243" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJY-ug-2cF">
-                                <rect key="frame" x="25" y="311" width="364" height="39.5"/>
+                                <rect key="frame" x="25" y="267" width="364" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6m-Fd-9gL">
-                                <rect key="frame" x="322" y="450.5" width="67" height="67"/>
+                                <rect key="frame" x="322" y="406.5" width="67" height="67"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="u6m-Fd-9gL" secondAttribute="height" multiplier="1:1" id="2c2-bx-FCW"/>
@@ -49,16 +49,30 @@
                                     <action selector="vetificationNumberPhone:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2cV-nJ-sCx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LvT-dX-PkA">
+                                <rect key="frame" x="25" y="44" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="IB2-Mp-C4r"/>
+                                    <constraint firstAttribute="height" constant="18" id="W6T-Ut-odC"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="lessthan" catalog="system"/>
+                                <connections>
+                                    <action selector="backSignInTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rom-RS-PDx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HJY-ug-2cF" firstAttribute="top" secondItem="6E4-Jr-c9H" secondAttribute="bottom" constant="3" id="7RA-vE-9TF"/>
+                            <constraint firstItem="LvT-dX-PkA" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="25" id="AOB-9z-kPu"/>
                             <constraint firstItem="HJY-ug-2cF" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/22.55" id="H7B-nZ-6Mb"/>
                             <constraint firstItem="6E4-Jr-c9H" firstAttribute="top" secondItem="f8Q-WD-uSm" secondAttribute="bottom" constant="27" id="O0t-bo-K5c"/>
                             <constraint firstItem="u6m-Fd-9gL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="322" id="Tdg-mI-lHa"/>
                             <constraint firstItem="f8Q-WD-uSm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="140" id="Tn4-B7-Wxo"/>
                             <constraint firstItem="f8Q-WD-uSm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="clc-03-tSh"/>
+                            <constraint firstItem="LvT-dX-PkA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="eIQ-vb-oHe"/>
                             <constraint firstItem="HJY-ug-2cF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="ea3-o0-adR"/>
                             <constraint firstItem="u6m-Fd-9gL" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/13.4" id="kEN-ns-C9m"/>
                             <constraint firstItem="6E4-Jr-c9H" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="miI-ar-PcY"/>
@@ -68,6 +82,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hmf-Iu-YnJ"/>
                     <connections>
+                        <outlet property="backButton" destination="LvT-dX-PkA" id="kqu-rn-daz"/>
                         <outlet property="phoneNumberTextField" destination="HJY-ug-2cF" id="aZJ-Nl-sJn"/>
                         <outlet property="vetificationButton" destination="u6m-Fd-9gL" id="JoU-FR-OfX"/>
                     </connections>
@@ -79,10 +94,9 @@
         <!--Navigation Controller-->
         <scene sceneID="Moo-uM-aAQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O55-7c-M1b" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="O55-7c-M1b" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqx-Dv-14v">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -97,6 +111,7 @@
     </scenes>
     <resources>
         <image name="greaterthan" catalog="system" width="128" height="111"/>
+        <image name="lessthan" catalog="system" width="128" height="111"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
