@@ -54,9 +54,9 @@ class HomeViewController: UIViewController {
         homeViewModel.loadItemCategory()
         
         slideCollectionView.register(cellType: SlideCollectionViewCell.self)
-        exclusiveOfferCollectionView.register(cellType: TestCollectionViewCell.self)
-        bestSellingCollectionView.register(cellType: TestCollectionViewCell.self)
-        cheapProductsCollectionView.register(cellType: TestCollectionViewCell.self)
+        exclusiveOfferCollectionView.register(cellType: ItemCollectionViewCell.self)
+        bestSellingCollectionView.register(cellType: ItemCollectionViewCell.self)
+        cheapProductsCollectionView.register(cellType: ItemCollectionViewCell.self)
         categoryCollectionView.register(cellType: CategoryCollectionViewCell.self)
         
         categoryProductView.categoryTitleLabel.text = "Category Product"
@@ -144,17 +144,17 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case exclusiveOfferCollectionView:
-            let productCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
+            let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
             let product = homeViewModel.arrayProductExclusive[indexPath.item]
             productCell.configure(item: product)
             return productCell
         case cheapProductsCollectionView:
-            let productCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
+            let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
             let product = homeViewModel.arrayProductCheap[indexPath.item]
             productCell.configure(item: product)
             return productCell
         case bestSellingCollectionView:
-            let productCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
+            let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
             let product = homeViewModel.arrayProductBestSelling[indexPath.item]
             productCell.configure(item: product)
             return productCell
