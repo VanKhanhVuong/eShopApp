@@ -25,7 +25,7 @@ class TypeProductViewController: UIViewController {
         productCollectionView.dataSource = self
         typeProductViewModel.delegate = self
         
-        productCollectionView.register(cellType: TestCollectionViewCell.self)
+        productCollectionView.register(cellType: ItemCollectionViewCell.self)
         typeProductViewModel.loadItemProduct()
     }
     @IBAction func backExploreTapped(_ sender: Any) {
@@ -62,7 +62,7 @@ extension TypeProductViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let itemCell = collectionView.dequeueReusableCell(with: TestCollectionViewCell.self, for: indexPath)
+        let itemCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
         let image = typeProductViewModel.arrayProduct[indexPath.row]
         itemCell.configure(item: image)
         return itemCell
