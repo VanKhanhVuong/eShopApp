@@ -76,5 +76,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Gilroy-Black.ttf</string>
+		<string>Gilroy-Bold.ttf</string>
+		<string>Gilroy-ExtraBold.otf</string>
+		<string>Gilroy-Light.otf</string>
+	</array>
 </dict>
 </plist>

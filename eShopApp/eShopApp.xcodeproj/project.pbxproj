@@ -55,6 +55,10 @@
 		6684DA8B265C9FB500912B60 /* AccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6684DA89265C9FB500912B60 /* AccountTableViewCell.xib */; };
 		6684DA8D265CA4E700912B60 /* CategoryUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA8C265CA4E700912B60 /* CategoryUser.swift */; };
 		6684DA8F265CB2D100912B60 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA8E265CB2D100912B60 /* AccountViewModel.swift */; };
+		6695E10A266093A3000D69B7 /* Gilroy-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10926609382000D69B7 /* Gilroy-Black.ttf */; };
+		6695E10B266093A6000D69B7 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10826609381000D69B7 /* Gilroy-Bold.ttf */; };
+		6695E10E26609780000D69B7 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10C26609778000D69B7 /* Gilroy-Light.otf */; };
+		6695E10F26609782000D69B7 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10D26609778000D69B7 /* Gilroy-ExtraBold.otf */; };
 		669C116E26575C0400FC72E6 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669C116C26575C0400FC72E6 /* SignIn.storyboard */; };
 		669C116F26575C0400FC72E6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C116D26575C0400FC72E6 /* SignInViewController.swift */; };
 		669C117226576A7500FC72E6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C117126576A7500FC72E6 /* CategoryView.swift */; };
@@ -144,6 +148,10 @@
 		6684DA89265C9FB500912B60 /* AccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTableViewCell.xib; sourceTree = "<group>"; };
 		6684DA8C265CA4E700912B60 /* CategoryUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUser.swift; sourceTree = "<group>"; };
 		6684DA8E265CB2D100912B60 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		6695E10826609381000D69B7 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
+		6695E10926609382000D69B7 /* Gilroy-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Black.ttf"; sourceTree = "<group>"; };
+		6695E10C26609778000D69B7 /* Gilroy-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
+		6695E10D26609778000D69B7 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		669C116C26575C0400FC72E6 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		669C116D26575C0400FC72E6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		669C117126576A7500FC72E6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -467,6 +475,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		6695E1072660934E000D69B7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6695E10926609382000D69B7 /* Gilroy-Black.ttf */,
+				6695E10D26609778000D69B7 /* Gilroy-ExtraBold.otf */,
+				6695E10C26609778000D69B7 /* Gilroy-Light.otf */,
+				6695E10826609381000D69B7 /* Gilroy-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		669C116B26575C0400FC72E6 /* SignInScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +625,7 @@
 		66E576902652597E00C767AB = {
 			isa = PBXGroup;
 			children = (
+				6695E1072660934E000D69B7 /* Fonts */,
 				66E5769B2652597E00C767AB /* eShopApp */,
 				66E5769A2652597E00C767AB /* Products */,
 				733CD55B1D1860FFBE23038D /* Pods */,
@@ -819,7 +839,11 @@
 				6678D9D92654EED8006E09D3 /* Number.storyboard in Resources */,
 				6678D9ED26561DE5006E09D3 /* CustomView.xib in Resources */,
 				66D873492659F702006150F0 /* ImageProductCollectionViewCell.xib in Resources */,
+				6695E10F26609782000D69B7 /* Gilroy-ExtraBold.otf in Resources */,
+				6695E10A266093A3000D69B7 /* Gilroy-Black.ttf in Resources */,
+				6695E10E26609780000D69B7 /* Gilroy-Light.otf in Resources */,
 				667B7F7D265E526700BD4EC8 /* Favorites.storyboard in Resources */,
+				6695E10B266093A6000D69B7 /* Gilroy-Bold.ttf in Resources */,
 				66D8733E2659CF26006150F0 /* Onboarding.storyboard in Resources */,
 				667B7F81265E528B00BD4EC8 /* Home.storyboard in Resources */,
 				664262AD265DF4ED000283EB /* DialogView.xib in Resources */,
