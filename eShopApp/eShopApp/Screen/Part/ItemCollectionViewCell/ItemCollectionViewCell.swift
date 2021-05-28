@@ -1,5 +1,5 @@
 //
-//  TestCollectionViewCell.swift
+//  ItemCollectionViewCell.swift
 //  eShopApp
 //
 //  Created by Văn Khánh Vương on 18/05/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestCollectionViewCell: UICollectionViewCell {
+class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var nameItemLabel: UILabel!
     @IBOutlet weak var unitItemLabel: UILabel!

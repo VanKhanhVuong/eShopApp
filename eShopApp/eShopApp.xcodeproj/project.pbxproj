@@ -59,6 +59,8 @@
 		6695E10B266093A6000D69B7 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10826609381000D69B7 /* Gilroy-Bold.ttf */; };
 		6695E10E26609780000D69B7 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10C26609778000D69B7 /* Gilroy-Light.otf */; };
 		6695E10F26609782000D69B7 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10D26609778000D69B7 /* Gilroy-ExtraBold.otf */; };
+		6695E1132660A7B6000D69B7 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6695E1112660A7B6000D69B7 /* ItemCollectionViewCell.swift */; };
+		6695E1142660A7B6000D69B7 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6695E1122660A7B6000D69B7 /* ItemCollectionViewCell.xib */; };
 		669C116E26575C0400FC72E6 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669C116C26575C0400FC72E6 /* SignIn.storyboard */; };
 		669C116F26575C0400FC72E6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C116D26575C0400FC72E6 /* SignInViewController.swift */; };
 		669C117226576A7500FC72E6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C117126576A7500FC72E6 /* CategoryView.swift */; };
@@ -92,8 +94,6 @@
 		66E576D32652787800C767AB /* UIImageView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576D22652787800C767AB /* UIImageView+Extention.swift */; };
 		66E576E026535C7300C767AB /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576DE26535C7300C767AB /* SlideCollectionViewCell.swift */; };
 		66E576E126535C7300C767AB /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E576DF26535C7300C767AB /* SlideCollectionViewCell.xib */; };
-		66E576E426536E5F00C767AB /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576E226536E5F00C767AB /* TestCollectionViewCell.swift */; };
-		66E576E526536E5F00C767AB /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E576E326536E5F00C767AB /* TestCollectionViewCell.xib */; };
 		9DAE49D33C6CDECAE16EBFA6 /* Pods_eShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55125FAF33B8F02D4F6E2B07 /* Pods_eShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +152,8 @@
 		6695E10926609382000D69B7 /* Gilroy-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Black.ttf"; sourceTree = "<group>"; };
 		6695E10C26609778000D69B7 /* Gilroy-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
 		6695E10D26609778000D69B7 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
+		6695E1112660A7B6000D69B7 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		6695E1122660A7B6000D69B7 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		669C116C26575C0400FC72E6 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		669C116D26575C0400FC72E6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		669C117126576A7500FC72E6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -186,8 +188,6 @@
 		66E576D22652787800C767AB /* UIImageView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extention.swift"; sourceTree = "<group>"; };
 		66E576DE26535C7300C767AB /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		66E576DF26535C7300C767AB /* SlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCollectionViewCell.xib; sourceTree = "<group>"; };
-		66E576E226536E5F00C767AB /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
-		66E576E326536E5F00C767AB /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		66F0377D265B36120001BF0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79D5EC15B94C9779414719E3 /* Pods-eShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopApp.debug.xcconfig"; path = "Target Support Files/Pods-eShopApp/Pods-eShopApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,7 +308,7 @@
 		6678D9E12655FED8006E09D3 /* Part */ = {
 			isa = PBXGroup;
 			children = (
-				66E576D626534DD700C767AB /* TestCollectionViewCell */,
+				6695E1102660A7B6000D69B7 /* ItemCollectionViewCell */,
 			);
 			path = Part;
 			sourceTree = "<group>";
@@ -484,6 +484,15 @@
 				6695E10826609381000D69B7 /* Gilroy-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6695E1102660A7B6000D69B7 /* ItemCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6695E1112660A7B6000D69B7 /* ItemCollectionViewCell.swift */,
+				6695E1122660A7B6000D69B7 /* ItemCollectionViewCell.xib */,
+			);
+			path = ItemCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		669C116B26575C0400FC72E6 /* SignInScreen */ = {
@@ -721,15 +730,6 @@
 			path = Parts;
 			sourceTree = "<group>";
 		};
-		66E576D626534DD700C767AB /* TestCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				66E576E226536E5F00C767AB /* TestCollectionViewCell.swift */,
-				66E576E326536E5F00C767AB /* TestCollectionViewCell.xib */,
-			);
-			path = TestCollectionViewCell;
-			sourceTree = "<group>";
-		};
 		66E576DD26535BEF00C767AB /* SlideCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,7 +830,6 @@
 				66A490BC265A26070095B60F /* ExploreCollectionViewCell.xib in Resources */,
 				667B7F7B265E524300BD4EC8 /* Cart.storyboard in Resources */,
 				667B7F79265E520700BD4EC8 /* Explore.storyboard in Resources */,
-				66E576E526536E5F00C767AB /* TestCollectionViewCell.xib in Resources */,
 				6684DA65265B4E0D00912B60 /* Filter.storyboard in Resources */,
 				667B7F7F265E527C00BD4EC8 /* Account.storyboard in Resources */,
 				6678D9DE2654FC40006E09D3 /* Verification.storyboard in Resources */,
@@ -844,6 +843,7 @@
 				6695E10E26609780000D69B7 /* Gilroy-Light.otf in Resources */,
 				667B7F7D265E526700BD4EC8 /* Favorites.storyboard in Resources */,
 				6695E10B266093A6000D69B7 /* Gilroy-Bold.ttf in Resources */,
+				6695E1142660A7B6000D69B7 /* ItemCollectionViewCell.xib in Resources */,
 				66D8733E2659CF26006150F0 /* Onboarding.storyboard in Resources */,
 				667B7F81265E528B00BD4EC8 /* Home.storyboard in Resources */,
 				664262AD265DF4ED000283EB /* DialogView.xib in Resources */,
@@ -913,6 +913,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6684DA8F265CB2D100912B60 /* AccountViewModel.swift in Sources */,
+				6695E1132660A7B6000D69B7 /* ItemCollectionViewCell.swift in Sources */,
 				665B3F3826574A6300A22671 /* Product.swift in Sources */,
 				665B3F3626574A6300A22671 /* APIClient.swift in Sources */,
 				66A490B2265A248C0095B60F /* ExploreViewController.swift in Sources */,
@@ -941,7 +942,6 @@
 				6684DA5D265B41ED00912B60 /* HomeViewModel.swift in Sources */,
 				6684DA5F265B4B8900912B60 /* Brand.swift in Sources */,
 				66A490CD265A323A0095B60F /* TypeProductModel.swift in Sources */,
-				66E576E426536E5F00C767AB /* TestCollectionViewCell.swift in Sources */,
 				667B7F85265E583900BD4EC8 /* LoginViewController.swift in Sources */,
 				66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */,
 				669C117226576A7500FC72E6 /* CategoryView.swift in Sources */,
