@@ -33,7 +33,17 @@ class FavoritesViewController: UIViewController {
 }
 
 extension FavoritesViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
+        if #available(iOS 13.0, *) {
+            guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+            detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.detailViewModel.itemProduct = favoritesViewModel.arrayProduct[indexPath.item]
+            present(detailViewController, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 }
 
 extension FavoritesViewController: UITableViewDataSource {
