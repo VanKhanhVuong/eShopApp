@@ -8,6 +8,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Bold.ttf">
+            <string>Gilroy-Bold</string>
+        </array>
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,23 +27,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RUN-4q-JfO">
-                        <rect key="frame" x="5" y="30" width="126.5" height="126.5"/>
+                        <rect key="frame" x="25" y="48" width="90" height="90"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="RUN-4q-JfO" secondAttribute="height" multiplier="1:1" id="9BD-X0-vck"/>
+                            <constraint firstAttribute="width" constant="90" id="4QO-L9-EXj"/>
+                            <constraint firstAttribute="width" secondItem="RUN-4q-JfO" secondAttribute="height" multiplier="1:1" id="Xia-TD-XqC"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Samsung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZr-ul-yeC">
-                        <rect key="frame" x="136.5" y="30" width="328" height="27.5"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <rect key="frame" x="140" y="30" width="320" height="16"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3r-dF-hfS">
-                        <rect key="frame" x="136.5" y="93" width="168.5" height="63.5"/>
+                        <rect key="frame" x="140" y="111" width="133" height="45"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8A-fN-YbE">
-                                <rect key="frame" x="0.0" y="0.0" width="56" height="63.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="45"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
                                 <state key="normal" title="-">
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
@@ -44,11 +53,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gub-8r-Ojy">
-                                <rect key="frame" x="56" y="0.0" width="56.5" height="63.5"/>
+                                <rect key="frame" x="44.5" y="0.0" width="44" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf7-7S-PAZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="63.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -62,8 +71,8 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esQ-iM-lK4">
-                                <rect key="frame" x="112.5" y="0.0" width="56" height="63.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <rect key="frame" x="88.5" y="0.0" width="44.5" height="45"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
@@ -73,67 +82,55 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="M8A-fN-YbE" firstAttribute="top" secondItem="Q3r-dF-hfS" secondAttribute="top" id="00G-bx-sAk"/>
-                            <constraint firstItem="gub-8r-Ojy" firstAttribute="top" secondItem="Q3r-dF-hfS" secondAttribute="top" id="0jg-V0-fU5"/>
-                            <constraint firstAttribute="bottom" secondItem="gub-8r-Ojy" secondAttribute="bottom" id="5BN-BB-uoo"/>
                             <constraint firstItem="gub-8r-Ojy" firstAttribute="leading" secondItem="M8A-fN-YbE" secondAttribute="trailing" id="DKK-OY-6oc"/>
-                            <constraint firstItem="M8A-fN-YbE" firstAttribute="leading" secondItem="Q3r-dF-hfS" secondAttribute="leading" id="Dne-9Q-4MV"/>
                             <constraint firstItem="esQ-iM-lK4" firstAttribute="leading" secondItem="gub-8r-Ojy" secondAttribute="trailing" id="Ev7-v9-Cfp"/>
-                            <constraint firstAttribute="bottom" secondItem="esQ-iM-lK4" secondAttribute="bottom" id="Wml-7n-Ltq"/>
-                            <constraint firstAttribute="bottom" secondItem="M8A-fN-YbE" secondAttribute="bottom" id="bJn-vd-8VR"/>
-                            <constraint firstItem="M8A-fN-YbE" firstAttribute="width" secondItem="Q3r-dF-hfS" secondAttribute="width" multiplier="1/3" id="d8G-9V-A4H"/>
+                            <constraint firstItem="esQ-iM-lK4" firstAttribute="width" secondItem="Q3r-dF-hfS" secondAttribute="width" multiplier="1/3" id="IIT-I9-cCt"/>
+                            <constraint firstAttribute="width" constant="133" id="W3l-dg-ZWn"/>
+                            <constraint firstAttribute="height" constant="45" id="YeG-NG-ppa"/>
+                            <constraint firstItem="M8A-fN-YbE" firstAttribute="width" secondItem="Q3r-dF-hfS" secondAttribute="width" multiplier="1/3" id="g6T-XG-8L5"/>
                             <constraint firstItem="gub-8r-Ojy" firstAttribute="leading" secondItem="M8A-fN-YbE" secondAttribute="trailing" id="gF4-bT-7DA"/>
-                            <constraint firstItem="esQ-iM-lK4" firstAttribute="top" secondItem="Q3r-dF-hfS" secondAttribute="top" id="l6l-V9-BpO"/>
-                            <constraint firstAttribute="trailing" secondItem="esQ-iM-lK4" secondAttribute="trailing" id="llg-ZW-InD"/>
                             <constraint firstItem="esQ-iM-lK4" firstAttribute="leading" secondItem="gub-8r-Ojy" secondAttribute="trailing" id="mFx-7s-vVC"/>
-                            <constraint firstItem="gub-8r-Ojy" firstAttribute="width" secondItem="Q3r-dF-hfS" secondAttribute="width" multiplier="1/3" id="vgg-4T-mrg"/>
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUO-Xu-1Og">
-                        <rect key="frame" x="136.5" y="59.5" width="328" height="31.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="140" y="51" width="341" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2.3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tH3-Q0-O2m">
-                        <rect key="frame" x="310" y="131" width="191" height="25.5"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                        <rect key="frame" x="446.5" y="124.5" width="34.5" height="18"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry5-oC-D2u">
-                        <rect key="frame" x="469.5" y="30" width="31.5" height="31.5"/>
+                        <rect key="frame" x="465" y="30" width="16" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="ry5-oC-D2u" secondAttribute="height" multiplier="1:1" id="DH2-Yt-1Bc"/>
+                            <constraint firstAttribute="width" constant="16" id="aEM-0g-wuk"/>
+                            <constraint firstAttribute="height" constant="16" id="aGQ-rR-jc6"/>
                         </constraints>
                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" title="X">
+                        <state key="normal" image="close3x">
                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Q3r-dF-hfS" firstAttribute="top" secondItem="KUO-Xu-1Og" secondAttribute="bottom" constant="2" id="1Gr-tk-alz"/>
-                    <constraint firstItem="ZZr-ul-yeC" firstAttribute="top" secondItem="RUN-4q-JfO" secondAttribute="top" id="4Tj-vx-b6P"/>
-                    <constraint firstItem="Q3r-dF-hfS" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/3" id="67W-yW-uwH"/>
-                    <constraint firstItem="ry5-oC-D2u" firstAttribute="leading" secondItem="ZZr-ul-yeC" secondAttribute="trailing" constant="5" id="6gC-Ym-4AP"/>
-                    <constraint firstItem="Q3r-dF-hfS" firstAttribute="leading" secondItem="RUN-4q-JfO" secondAttribute="trailing" constant="5" id="9IS-Rr-GN1"/>
-                    <constraint firstItem="tH3-Q0-O2m" firstAttribute="bottom" secondItem="RUN-4q-JfO" secondAttribute="bottom" id="A5E-qY-VhO"/>
-                    <constraint firstItem="RUN-4q-JfO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ggs-oF-QpA"/>
-                    <constraint firstAttribute="trailing" secondItem="tH3-Q0-O2m" secondAttribute="trailing" constant="5" id="HN0-jo-ciY"/>
-                    <constraint firstItem="Q3r-dF-hfS" firstAttribute="bottom" secondItem="RUN-4q-JfO" secondAttribute="bottom" id="I5F-6S-qnS"/>
-                    <constraint firstItem="ZZr-ul-yeC" firstAttribute="leading" secondItem="RUN-4q-JfO" secondAttribute="trailing" constant="5" id="RZT-rL-pCo"/>
-                    <constraint firstItem="RUN-4q-JfO" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/4" id="SEk-DJ-DHH"/>
-                    <constraint firstItem="Q3r-dF-hfS" firstAttribute="height" secondItem="RUN-4q-JfO" secondAttribute="height" multiplier="1/2" id="dar-9H-gLO"/>
-                    <constraint firstItem="KUO-Xu-1Og" firstAttribute="leading" secondItem="RUN-4q-JfO" secondAttribute="trailing" constant="5" id="eVy-gC-ori"/>
-                    <constraint firstItem="ry5-oC-D2u" firstAttribute="top" secondItem="RUN-4q-JfO" secondAttribute="top" id="eef-21-hLu"/>
-                    <constraint firstAttribute="trailing" secondItem="ry5-oC-D2u" secondAttribute="trailing" constant="5" id="feI-fG-Px8"/>
-                    <constraint firstItem="KUO-Xu-1Og" firstAttribute="height" secondItem="RUN-4q-JfO" secondAttribute="height" multiplier="1/4" id="gAP-L5-bG6"/>
-                    <constraint firstItem="ry5-oC-D2u" firstAttribute="width" secondItem="RUN-4q-JfO" secondAttribute="width" multiplier="1/4" id="hQo-xX-DFS"/>
-                    <constraint firstItem="KUO-Xu-1Og" firstAttribute="top" secondItem="ZZr-ul-yeC" secondAttribute="bottom" constant="2" id="ihF-uR-0Np"/>
-                    <constraint firstItem="tH3-Q0-O2m" firstAttribute="leading" secondItem="Q3r-dF-hfS" secondAttribute="trailing" constant="5" id="jch-gn-dmB"/>
-                    <constraint firstItem="KUO-Xu-1Og" firstAttribute="trailing" secondItem="ZZr-ul-yeC" secondAttribute="trailing" id="kPb-lr-MgU"/>
-                    <constraint firstItem="RUN-4q-JfO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="oAM-NA-wPb"/>
+                    <constraint firstItem="KUO-Xu-1Og" firstAttribute="top" secondItem="ZZr-ul-yeC" secondAttribute="bottom" constant="5" id="7DD-aS-21q"/>
+                    <constraint firstAttribute="trailing" secondItem="KUO-Xu-1Og" secondAttribute="trailing" constant="25" id="8j9-4L-re4"/>
+                    <constraint firstAttribute="bottom" secondItem="Q3r-dF-hfS" secondAttribute="bottom" constant="30" id="9qV-Wi-QX0"/>
+                    <constraint firstItem="ry5-oC-D2u" firstAttribute="leading" secondItem="ZZr-ul-yeC" secondAttribute="trailing" constant="5" id="Df8-sH-JdA"/>
+                    <constraint firstItem="RUN-4q-JfO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FsW-Z1-Stk"/>
+                    <constraint firstAttribute="trailing" secondItem="tH3-Q0-O2m" secondAttribute="trailing" constant="25" id="HN0-jo-ciY"/>
+                    <constraint firstItem="ZZr-ul-yeC" firstAttribute="leading" secondItem="RUN-4q-JfO" secondAttribute="trailing" constant="25" id="Rbx-m0-9Gm"/>
+                    <constraint firstItem="KUO-Xu-1Og" firstAttribute="leading" secondItem="RUN-4q-JfO" secondAttribute="trailing" constant="25" id="UbU-2P-JlH"/>
+                    <constraint firstItem="Q3r-dF-hfS" firstAttribute="leading" secondItem="RUN-4q-JfO" secondAttribute="trailing" constant="25" id="W6O-ot-hiA"/>
+                    <constraint firstItem="ZZr-ul-yeC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="WoX-Nt-lhh"/>
+                    <constraint firstItem="tH3-Q0-O2m" firstAttribute="centerY" secondItem="Q3r-dF-hfS" secondAttribute="centerY" id="YXv-w7-lAy"/>
+                    <constraint firstItem="RUN-4q-JfO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="rP0-4s-j1j"/>
+                    <constraint firstAttribute="trailing" secondItem="ry5-oC-D2u" secondAttribute="trailing" constant="25" id="t59-U4-lil"/>
+                    <constraint firstItem="ry5-oC-D2u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="v1u-hF-g8w"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -151,6 +148,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="close3x" width="44" height="44"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
