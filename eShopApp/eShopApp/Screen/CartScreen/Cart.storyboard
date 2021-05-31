@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YrA-jn-juP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,15 +14,15 @@
             <objects>
                 <viewController id="EZX-O1-LnT" customClass="CartViewController" customModule="eShopApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ie1-bG-wdu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nXS-Z5-78I">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yt0-lx-2D9">
-                                <rect key="frame" x="0.0" y="746" width="414" height="67"/>
+                                <rect key="frame" x="0.0" y="795" width="414" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71J-qg-6FM">
                                         <rect key="frame" x="25" y="-15" width="364" height="67"/>
@@ -53,7 +55,7 @@
                             <constraint firstItem="g7D-6F-Ago" firstAttribute="bottom" secondItem="nXS-Z5-78I" secondAttribute="bottom" id="yTO-Dh-oVB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cart" image="shopping-cart" selectedImage="shopping-cart" id="mrg-2T-eg6"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="Cart1xD" id="mrg-2T-eg6"/>
                     <navigationItem key="navigationItem" id="L3M-Z3-EWR"/>
                     <connections>
                         <outlet property="carTableView" destination="nXS-Z5-78I" id="vd1-zg-pHZ"/>
@@ -70,7 +72,6 @@
                 <navigationController navigationBarHidden="YES" id="YrA-jn-juP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="aCc-nK-qFf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rvi-cU-NAQ">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -83,7 +84,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="shopping-cart" width="24" height="24"/>
+        <image name="Cart1xD" width="23" height="21"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

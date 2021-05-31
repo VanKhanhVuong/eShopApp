@@ -180,7 +180,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         case slideCollectionView:
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         case categoryCollectionView:
-            return CGSize(width: collectionView.frame.width - 120, height: collectionView.frame.height)
+            return CGSize(width: (collectionView.frame.width - 15) / 1.5, height: collectionView.frame.height)
         default:
             return CGSize(width: (exclusiveOfferCollectionView.frame.width - 45) / 2, height: exclusiveOfferCollectionView.frame.height - 20)
         }
