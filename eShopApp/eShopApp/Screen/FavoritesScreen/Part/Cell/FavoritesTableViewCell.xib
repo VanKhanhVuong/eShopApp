@@ -7,66 +7,69 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Bold.ttf">
+            <string>Gilroy-Bold</string>
+        </array>
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="211" id="KGk-i7-Jjw" customClass="FavoritesTableViewCell" customModule="eShopApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="450" height="211"/>
+            <rect key="frame" x="0.0" y="0.0" width="413.5" height="115"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="450" height="211"/>
+                <rect key="frame" x="0.0" y="0.0" width="413.5" height="115"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewN-To-p85">
-                        <rect key="frame" x="5" y="49.5" width="112.5" height="112.5"/>
+                        <rect key="frame" x="25" y="15" width="85" height="85"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="ewN-To-p85" secondAttribute="height" multiplier="1:1" id="fiU-yu-Wcb"/>
+                            <constraint firstAttribute="width" secondItem="ewN-To-p85" secondAttribute="height" multiplier="1:1" id="yRh-OW-Iai"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsV-CV-JQX">
-                        <rect key="frame" x="127.5" y="49.5" width="191.5" height="56"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                        <rect key="frame" x="130" y="39.5" width="41" height="16"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljk-dd-EzO">
-                        <rect key="frame" x="127.5" y="107.5" width="191.5" height="54.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="130" y="60.5" width="32.5" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greaterthan" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fNW-uF-8dn">
-                        <rect key="frame" x="426.5" y="99" width="18.5" height="12.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detail3x" translatesAutoresizingMaskIntoConstraints="NO" id="fNW-uF-8dn">
+                        <rect key="frame" x="374.5" y="50.5" width="14" height="14"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="fNW-uF-8dn" secondAttribute="height" multiplier="1:1" id="3h1-aK-4hw"/>
+                            <constraint firstAttribute="height" constant="14" id="QCl-2J-HBe"/>
+                            <constraint firstAttribute="width" constant="14" id="bX4-Fd-c2G"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSM-Vf-Nuj">
-                        <rect key="frame" x="321" y="94" width="103.5" height="23"/>
+                        <rect key="frame" x="320" y="46" width="49.5" height="23"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ljk-dd-EzO" firstAttribute="leading" secondItem="ewN-To-p85" secondAttribute="trailing" constant="10" id="1Ul-rM-oyM"/>
-                    <constraint firstItem="KsV-CV-JQX" firstAttribute="height" secondItem="ewN-To-p85" secondAttribute="height" multiplier="1/2" id="5tC-xD-nk3"/>
-                    <constraint firstItem="fNW-uF-8dn" firstAttribute="height" secondItem="ewN-To-p85" secondAttribute="height" multiplier="1/6" id="76q-7g-3Ck"/>
-                    <constraint firstItem="Ljk-dd-EzO" firstAttribute="top" secondItem="KsV-CV-JQX" secondAttribute="bottom" constant="2" id="8wf-JD-f8e"/>
-                    <constraint firstItem="ewN-To-p85" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="G5e-PE-fUJ"/>
-                    <constraint firstItem="KsV-CV-JQX" firstAttribute="leading" secondItem="ewN-To-p85" secondAttribute="trailing" constant="10" id="IBV-0y-PRD"/>
-                    <constraint firstItem="ewN-To-p85" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/4" id="OCP-gv-aDT"/>
-                    <constraint firstItem="TSM-Vf-Nuj" firstAttribute="centerY" secondItem="ewN-To-p85" secondAttribute="centerY" id="SFs-GL-Gis"/>
-                    <constraint firstItem="ewN-To-p85" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="VfW-M0-8Xz"/>
-                    <constraint firstItem="TSM-Vf-Nuj" firstAttribute="leading" secondItem="KsV-CV-JQX" secondAttribute="trailing" constant="2" id="dKC-dP-XXX"/>
-                    <constraint firstItem="Ljk-dd-EzO" firstAttribute="bottom" secondItem="ewN-To-p85" secondAttribute="bottom" id="fBt-4v-dt9"/>
-                    <constraint firstItem="Ljk-dd-EzO" firstAttribute="width" secondItem="KsV-CV-JQX" secondAttribute="width" multiplier="1:1" id="iDN-7D-GmU"/>
-                    <constraint firstAttribute="trailing" secondItem="fNW-uF-8dn" secondAttribute="trailing" constant="5" id="kaB-Tw-bqV"/>
-                    <constraint firstItem="fNW-uF-8dn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lRU-5s-eUA"/>
-                    <constraint firstItem="KsV-CV-JQX" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1.7/4" id="mkl-8C-Fyp"/>
-                    <constraint firstItem="KsV-CV-JQX" firstAttribute="top" secondItem="ewN-To-p85" secondAttribute="top" id="r6H-le-BB8"/>
-                    <constraint firstItem="fNW-uF-8dn" firstAttribute="leading" secondItem="TSM-Vf-Nuj" secondAttribute="trailing" constant="2" id="tPN-7n-jnK"/>
+                    <constraint firstAttribute="bottom" secondItem="ewN-To-p85" secondAttribute="bottom" constant="15" id="Hiv-fJ-AkW"/>
+                    <constraint firstAttribute="trailing" secondItem="fNW-uF-8dn" secondAttribute="trailing" constant="25" id="Ia8-07-VhQ"/>
+                    <constraint firstItem="ewN-To-p85" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="JRN-HS-VbS"/>
+                    <constraint firstItem="Ljk-dd-EzO" firstAttribute="top" secondItem="KsV-CV-JQX" secondAttribute="bottom" constant="5" id="OOf-If-yWl"/>
+                    <constraint firstItem="KsV-CV-JQX" firstAttribute="centerY" secondItem="ewN-To-p85" secondAttribute="centerY" constant="-10" id="Zrp-px-OLL"/>
+                    <constraint firstItem="Ljk-dd-EzO" firstAttribute="leading" secondItem="ewN-To-p85" secondAttribute="trailing" constant="20" id="cqW-Rv-1Rp"/>
+                    <constraint firstItem="KsV-CV-JQX" firstAttribute="leading" secondItem="ewN-To-p85" secondAttribute="trailing" constant="20" id="hCp-W3-IvG"/>
+                    <constraint firstItem="TSM-Vf-Nuj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mDo-mY-KZg"/>
+                    <constraint firstItem="fNW-uF-8dn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ogf-7b-ZXD"/>
+                    <constraint firstItem="fNW-uF-8dn" firstAttribute="leading" secondItem="TSM-Vf-Nuj" secondAttribute="trailing" constant="5" id="q54-xN-Gir"/>
+                    <constraint firstItem="ewN-To-p85" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="xLE-3m-yHG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -80,6 +83,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="greaterthan" catalog="system" width="128" height="111"/>
+        <image name="detail3x" width="26" height="43"/>
     </resources>
 </document>
