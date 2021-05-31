@@ -47,6 +47,9 @@ class LoginViewController: UIViewController {
     func setupView() {
         messageLoginView.titleLabel.text = "Loging"
         messageLoginView.subtitleLabel.text = "Enter your emails and password"
+        
+        loginButton.clipsToBounds = true
+        loginButton.layer.cornerRadius = 15
     }
     
     func validateField() -> String? {
