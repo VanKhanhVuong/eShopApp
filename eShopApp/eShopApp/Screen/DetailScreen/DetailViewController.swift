@@ -9,7 +9,6 @@ import UIKit
 
 @available(iOS 13.0, *)
 class DetailViewController: UIViewController {
-    @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var showDescriptionView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dropImageView: UIImageView!
@@ -20,10 +19,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var amountNumberLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var starLabel: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var backToHomeImageView: UIImageView!
     @IBOutlet weak var slidePageControl: UIPageControl!
+    @IBOutlet weak var amountView: UIView!
     
     private var priceProduct: Float = 0
     private var currentIndex: Int = 0
@@ -71,22 +72,24 @@ class DetailViewController: UIViewController {
         actionBackHome()
         addToCartButton.clipsToBounds = true
         addToCartButton.layer.cornerRadius = 15
+        
+        amountView.clipsToBounds = true
+        amountView.layer.cornerRadius = 15
+        amountView.layer.borderWidth = 0.5
+        amountView.layer.borderColor = UIColor.gray.cgColor
     }
     
     // Like Product
     private func actionLikeProduct() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
-        likeLabel.addGestureRecognizer(tap)
+        likeImageView.addGestureRecognizer(tap)
     }
     
     @objc func tapFunction(sender:UITapGestureRecognizer) {
-        guard let nameProduct: String = nameProductLabel.text else { return }
-        if likeLabel.text == "❤️" {
-            print("Unlike " + nameProduct)
-            likeLabel.text = "🤍"
+        if likeImageView.image == UIImage(named: "heart"){
+            likeImageView.image = UIImage(named: "heart1xD")
         } else {
-            print("Like " + nameProduct)
-            likeLabel.text = "❤️"
+            likeImageView.image = UIImage(named: "heart")
         }
     }
     
@@ -116,12 +119,12 @@ class DetailViewController: UIViewController {
         if toogle {
             UIView.animate(withDuration: 0.3) {
                 self.descriptionLabel.isHidden = false
-                self.dropImageView.image = UIImage(systemName:"chevron.down")
+                self.dropImageView.image = UIImage(named: "downArrow3x")
             }
         } else {
             UIView.animate(withDuration: 0.3) {
                 self.descriptionLabel.isHidden = true
-                self.dropImageView.image = UIImage(systemName:"greaterthan")
+                self.dropImageView.image = UIImage(named: "upArrow3x")
             }
         }
     }
