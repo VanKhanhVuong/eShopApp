@@ -23,45 +23,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-CX-UM0">
-                        <rect key="frame" x="58" y="46" width="293" height="18"/>
+                        <rect key="frame" x="70" y="46" width="46" height="18"/>
                         <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greaterthan" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NB9-B4-zJw">
-                        <rect key="frame" x="356" y="48" width="20" height="13.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detail3x" translatesAutoresizingMaskIntoConstraints="NO" id="NB9-B4-zJw">
+                        <rect key="frame" x="347.5" y="48" width="8.5" height="14"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="NB9-B4-zJw" secondAttribute="height" multiplier="1:1" id="gBj-J2-E6F"/>
+                            <constraint firstAttribute="height" constant="14" id="CIh-9N-BRd"/>
+                            <constraint firstAttribute="width" constant="8.4000000000000004" id="jYR-E5-fMm"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🛎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-0W-CtK">
-                        <rect key="frame" x="10" y="44.5" width="38" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G8k-7N-RQ0">
+                        <rect key="frame" x="25" y="45" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="5JR-NN-xY3"/>
+                            <constraint firstAttribute="width" constant="20" id="sgj-JZ-OWM"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OM4-CX-UM0" firstAttribute="leading" secondItem="Y2p-0W-CtK" secondAttribute="trailing" constant="10" id="1th-s1-p9z"/>
-                    <constraint firstAttribute="trailing" secondItem="NB9-B4-zJw" secondAttribute="trailing" constant="5" id="8Rj-dU-DaS"/>
-                    <constraint firstItem="Y2p-0W-CtK" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/10" id="Mf1-Ev-yaY"/>
-                    <constraint firstItem="Y2p-0W-CtK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ngb-MH-Tcq"/>
+                    <constraint firstItem="OM4-CX-UM0" firstAttribute="leading" secondItem="G8k-7N-RQ0" secondAttribute="trailing" constant="25" id="0pQ-EA-Mu7"/>
+                    <constraint firstItem="G8k-7N-RQ0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="Dw6-wz-tmK"/>
+                    <constraint firstAttribute="trailing" secondItem="NB9-B4-zJw" secondAttribute="trailing" constant="25" id="EKK-hA-PWM"/>
+                    <constraint firstItem="G8k-7N-RQ0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="I1w-KO-z6y"/>
                     <constraint firstItem="OM4-CX-UM0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PmQ-GU-UfP"/>
-                    <constraint firstItem="Y2p-0W-CtK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="URb-Ro-cMg"/>
-                    <constraint firstItem="NB9-B4-zJw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UvG-eB-A4F"/>
-                    <constraint firstItem="NB9-B4-zJw" firstAttribute="leading" secondItem="OM4-CX-UM0" secondAttribute="trailing" constant="5" id="crC-WR-YxC"/>
+                    <constraint firstItem="NB9-B4-zJw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fEZ-cV-qPr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="iconLabel" destination="Y2p-0W-CtK" id="eli-D3-3LR"/>
+                <outlet property="iconImageView" destination="G8k-7N-RQ0" id="iFY-RH-8qZ"/>
                 <outlet property="nameItemLabel" destination="OM4-CX-UM0" id="9m1-e5-MjL"/>
             </connections>
-            <point key="canvasLocation" x="132.60869565217394" y="146.65178571428569"/>
+            <point key="canvasLocation" x="132.60869565217394" y="145.98214285714286"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="greaterthan" catalog="system" width="128" height="111"/>
+        <image name="detail3x" width="26" height="43"/>
     </resources>
 </document>

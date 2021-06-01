@@ -53,7 +53,6 @@
 		6684DA87265C9F3500912B60 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA86265C9F3500912B60 /* AccountViewController.swift */; };
 		6684DA8A265C9FB500912B60 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA88265C9FB500912B60 /* AccountTableViewCell.swift */; };
 		6684DA8B265C9FB500912B60 /* AccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6684DA89265C9FB500912B60 /* AccountTableViewCell.xib */; };
-		6684DA8D265CA4E700912B60 /* CategoryUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA8C265CA4E700912B60 /* CategoryUser.swift */; };
 		6684DA8F265CB2D100912B60 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA8E265CB2D100912B60 /* AccountViewModel.swift */; };
 		6695E10A266093A3000D69B7 /* Gilroy-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10926609382000D69B7 /* Gilroy-Black.ttf */; };
 		6695E10B266093A6000D69B7 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6695E10826609381000D69B7 /* Gilroy-Bold.ttf */; };
@@ -146,7 +145,6 @@
 		6684DA86265C9F3500912B60 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		6684DA88265C9FB500912B60 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		6684DA89265C9FB500912B60 /* AccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTableViewCell.xib; sourceTree = "<group>"; };
-		6684DA8C265CA4E700912B60 /* CategoryUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUser.swift; sourceTree = "<group>"; };
 		6684DA8E265CB2D100912B60 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		6695E10826609381000D69B7 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
 		6695E10926609382000D69B7 /* Gilroy-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Black.ttf"; sourceTree = "<group>"; };
@@ -266,7 +264,6 @@
 				665B3F3126574A6300A22671 /* ErrorModel.swift */,
 				66B5F7472658C80A007BA088 /* Category.swift */,
 				6684DA5E265B4B8900912B60 /* Brand.swift */,
-				6684DA8C265CA4E700912B60 /* CategoryUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -946,7 +943,6 @@
 				66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */,
 				669C117226576A7500FC72E6 /* CategoryView.swift in Sources */,
 				665B3F3926574A6300A22671 /* ErrorModel.swift in Sources */,
-				6684DA8D265CA4E700912B60 /* CategoryUser.swift in Sources */,
 				66E576CB2652744A00C767AB /* ClassName+Extention.swift in Sources */,
 				66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */,
 				66D873372659CCF2006150F0 /* HomeViewController.swift in Sources */,

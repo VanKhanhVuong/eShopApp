@@ -38,13 +38,14 @@ class AccountViewController: UIViewController {
 
 extension AccountViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accountViewModel.arrayCategoryUser.count
+        return accountViewModel.arrayText.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(with: AccountTableViewCell.self, for: indexPath)
-        let image = accountViewModel.arrayCategoryUser[indexPath.row]
-        itemCell.configure(item: image)
+        let image = accountViewModel.arrayImage[indexPath.row]
+        let text = accountViewModel.arrayText[indexPath.row]
+        itemCell.configure(image: image, text: text)
         return itemCell
     }
     
