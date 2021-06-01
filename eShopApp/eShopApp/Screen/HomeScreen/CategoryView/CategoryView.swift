@@ -6,11 +6,20 @@
 //
 
 import UIKit
+protocol CategoryViewEvents: AnyObject {
+    func gotData(title: String)
+}
 
 class CategoryView: UIView {
     @IBOutlet weak var categoryTitleLabel: UILabel!
     @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet var contentView: UIView!
+    
+    weak var delegate: CategoryViewEvents?
+    
+    @IBAction func touchSeeAllProduct(_ sender: Any) {
+        delegate?.gotData(title: categoryTitleLabel.text ?? "")
+    }
     
     override init (frame: CGRect){
         super.init(frame: frame)

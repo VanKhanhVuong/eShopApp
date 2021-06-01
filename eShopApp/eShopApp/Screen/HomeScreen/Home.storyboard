@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jb5-gf-qqA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1420"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1467"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJy-Xn-Tls">
                                                 <rect key="frame" x="25" y="0.0" width="364" height="51.5"/>
@@ -104,7 +104,7 @@
                                                 <rect key="frame" x="146.5" y="168.5" width="121.5" height="28"/>
                                             </pageControl>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="imN-9m-Q87">
-                                                <rect key="frame" x="0.0" y="1326.5" width="414" height="93.5"/>
+                                                <rect key="frame" x="0.0" y="1326.5" width="414" height="140.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9cu-fn-fbD">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -133,7 +133,6 @@
                                             <constraint firstItem="6SW-6n-ig7" firstAttribute="height" secondItem="Fp3-RX-YPZ" secondAttribute="height" multiplier="1:1" id="DWq-IK-NVk"/>
                                             <constraint firstItem="imN-9m-Q87" firstAttribute="top" secondItem="a8w-M2-qQ3" secondAttribute="bottom" id="HBF-Pn-LdJ"/>
                                             <constraint firstItem="a8w-M2-qQ3" firstAttribute="leading" secondItem="jb5-gf-qqA" secondAttribute="leading" id="Iid-nz-B1r"/>
-                                            <constraint firstAttribute="height" constant="1420" id="KVD-L7-wXk"/>
                                             <constraint firstItem="qht-HT-Cfg" firstAttribute="top" secondItem="iID-Gg-N5K" secondAttribute="bottom" id="KfB-cI-cF3"/>
                                             <constraint firstAttribute="trailing" secondItem="imN-9m-Q87" secondAttribute="trailing" id="Mnl-o4-FZn"/>
                                             <constraint firstAttribute="trailing" secondItem="a8w-M2-qQ3" secondAttribute="trailing" id="O3f-wO-HkG"/>
@@ -149,6 +148,7 @@
                                             <constraint firstItem="imN-9m-Q87" firstAttribute="leading" secondItem="jb5-gf-qqA" secondAttribute="leading" id="XZW-aD-dpu"/>
                                             <constraint firstItem="bQW-uJ-2FP" firstAttribute="top" secondItem="Fp3-RX-YPZ" secondAttribute="bottom" id="cFa-bj-50M"/>
                                             <constraint firstAttribute="trailing" secondItem="SvO-Tm-HSb" secondAttribute="trailing" id="cd5-0g-BtK"/>
+                                            <constraint firstItem="imN-9m-Q87" firstAttribute="height" secondItem="6SW-6n-ig7" secondAttribute="height" multiplier="1/2" id="enu-oF-mDd"/>
                                             <constraint firstItem="iID-Gg-N5K" firstAttribute="leading" secondItem="jb5-gf-qqA" secondAttribute="leading" id="hXZ-sX-Fkc"/>
                                             <constraint firstAttribute="trailing" secondItem="qht-HT-Cfg" secondAttribute="trailing" id="hh9-71-diD"/>
                                             <constraint firstItem="1cr-AQ-1lo" firstAttribute="centerX" secondItem="5Z9-Yj-1XS" secondAttribute="centerX" id="hjh-2o-FoO"/>

@@ -71,6 +71,11 @@ class HomeViewController: UIViewController {
         
         navigationSignIn()
         cornerRadiusLoginView()
+        
+        exclusiveOfferView.delegate = self
+        bestSellingView.delegate = self
+        cheapProductsView.delegate = self
+        categoryProductView.delegate = self
     }
     
     func cornerRadiusLoginView() {
@@ -147,16 +152,19 @@ extension HomeViewController: UICollectionViewDataSource {
             let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
             let product = homeViewModel.arrayProductExclusive[indexPath.item]
             productCell.configure(item: product)
+            productCell.delegate = self
             return productCell
         case cheapProductsCollectionView:
             let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
             let product = homeViewModel.arrayProductCheap[indexPath.item]
             productCell.configure(item: product)
+            productCell.delegate = self
             return productCell
         case bestSellingCollectionView:
             let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
             let product = homeViewModel.arrayProductBestSelling[indexPath.item]
             productCell.configure(item: product)
+            productCell.delegate = self
             return productCell
         case slideCollectionView:
             let posterCell = collectionView.dequeueReusableCell(with: SlideCollectionViewCell.self, for: indexPath)
@@ -213,4 +221,18 @@ extension HomeViewController: HomeViewModelEvents {
     }
 }
 
+extension HomeViewController: ItemCollectionViewCellEvents {
+    func addCart(item: ItemCollectionViewCell) {
+    }
+}
+
+extension HomeViewController: CategoryViewEvents {
+    func gotData(title: String) {
+        let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
+        guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
+        typeProductViewController.nameCategory = title
+        typeProductViewController.modalPresentationStyle = .fullScreen
+        present(typeProductViewController, animated: true, completion: nil)
+    }
+}
 

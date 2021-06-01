@@ -38,6 +38,9 @@
                     <state key="normal" title="See all">
                         <color key="titleColor" systemColor="systemGreenColor"/>
                     </state>
+                    <connections>
+                        <action selector="touchSeeAllProduct:" destination="-1" eventType="touchUpInside" id="VGq-GG-qCh"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
