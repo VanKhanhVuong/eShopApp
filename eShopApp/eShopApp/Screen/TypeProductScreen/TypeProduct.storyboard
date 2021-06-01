@@ -32,13 +32,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="V4V-IL-1Dt">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="lessthan" catalog="system" id="6CP-XT-Urb">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backArrow1x" id="6CP-XT-Urb">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="backExploreTapped:" destination="Y6W-OH-hqX" id="pGN-6l-ju3"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="setting" id="tDu-Vz-u9n">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="Filter1x" id="tDu-Vz-u9n">
                                             <connections>
                                                 <action selector="filterTapped:" destination="Y6W-OH-hqX" id="N2N-79-RWy"/>
                                             </connections>
@@ -70,8 +70,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lessthan" catalog="system" width="128" height="111"/>
-        <image name="setting" width="24" height="24"/>
+        <image name="Filter1x" width="19" height="19"/>
+        <image name="backArrow1x" width="11" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
