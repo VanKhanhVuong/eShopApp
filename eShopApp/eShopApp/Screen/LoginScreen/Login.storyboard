@@ -26,11 +26,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IX-iW-Bxz" customClass="CustomView" customModule="eShopApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="298.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="298.5"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mvf-rk-Lsh">
-                                <rect key="frame" x="25" y="342.5" width="364" height="249"/>
+                                <rect key="frame" x="25" y="386.5" width="364" height="249"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdg-Oo-w0t">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
@@ -70,7 +70,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f03-JM-ih2">
-                                <rect key="frame" x="25" y="606.5" width="364" height="67"/>
+                                <rect key="frame" x="25" y="650.5" width="364" height="67"/>
                                 <color key="backgroundColor" red="0.42352938649999999" green="0.68627452850000004" blue="0.47843140360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
                                 <state key="normal" title="Log In">
@@ -80,8 +80,8 @@
                                     <action selector="loginTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rjl-s5-rbY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account? Singup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-X6-fiK">
-                                <rect key="frame" x="105" y="693.5" width="204.5" height="14"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account? Singup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-X6-fiK">
+                                <rect key="frame" x="105" y="737.5" width="204.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -106,19 +106,47 @@
                             <constraint firstItem="f03-JM-ih2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="o65-DR-9qV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yBN-yP-72B">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="close" id="obI-jF-WRt">
+                            <connections>
+                                <action selector="closeScreenTapped:" destination="Y6W-OH-hqX" id="eTv-vV-N8f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="closeScreenButton" destination="obI-jF-WRt" id="9fC-hz-XFr"/>
                         <outlet property="emailTextField" destination="0DI-Kb-NhS" id="rmS-kv-9Fj"/>
                         <outlet property="loginButton" destination="f03-JM-ih2" id="D3Q-sB-q66"/>
                         <outlet property="messageLoginView" destination="7IX-iW-Bxz" id="wOc-x7-odk"/>
                         <outlet property="passwordTextField" destination="rkv-xO-q4K" id="hJf-EI-YvX"/>
+                        <outlet property="signUpLabel" destination="P6Q-X6-fiK" id="Tea-wD-tdM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91" y="55"/>
+            <point key="canvasLocation" x="1000.0000000000001" y="54.910714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l0G-MJ-1kN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2wa-4k-Ulr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="umR-rC-NNe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="KHl-eb-pH4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wa7-WO-QUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89.855072463768124" y="54.910714285714285"/>
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="12" height="12"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
