@@ -11,6 +11,7 @@ enum ProductAPI {
     case getProduct
     case getCategory
     case getBrand
+    case addCart(productId: String, userId: String, amount: Int)
 }
 
 extension ProductAPI: TargetType {
@@ -26,13 +27,22 @@ extension ProductAPI: TargetType {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProduct, .getCategory, .getBrand:
+        case .getProduct, .getCategory, .getBrand, .addCart:
             return URLEncoding.default
         }
     }
     
     var parameters: Parameters? {
-        [:]
+        switch self {
+            case .addCart(let productId, let userId, let amount):
+                return [
+                    "productId": productId,
+                    "userId": userId,
+                    "amount": amount
+                ]
+            case .getProduct, .getCategory, .getBrand:
+                return [:]
+        }
     }
     
     var path: String {
@@ -43,6 +53,8 @@ extension ProductAPI: TargetType {
             return "get_all_category.php"
         case .getBrand:
             return "get_all_brand.php"
+        case .addCart:
+            return "cart.php"
         }
     }
     
@@ -53,7 +65,7 @@ extension ProductAPI: TargetType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getProduct, .getCategory, .getBrand:
+        case .getProduct, .getCategory, .getBrand, .addCart:
             return .get
         }
     }

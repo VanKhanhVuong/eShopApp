@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import KeychainAccess
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var slideCollectionView: UICollectionView!
@@ -107,6 +107,9 @@ class HomeViewController: UIViewController {
     }
     
     func addCart(id: String) {
+//        let keychain = Keychain()
+//        let token = keychain["token"] ?? ""
+//        homeViewModel.addCart(productId: id, userId: token, amount: 2)
 //        guard let mainViewController = tabBarController as? MainViewController else { return }
     }
 }
