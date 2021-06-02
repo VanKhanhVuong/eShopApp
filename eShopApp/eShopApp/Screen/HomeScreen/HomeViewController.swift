@@ -97,6 +97,18 @@ class HomeViewController: UIViewController {
         signInViewController.modalPresentationStyle = .fullScreen
         present(signInViewController, animated: true, completion: nil)
     }
+    
+    func navigationTypeProductScreen(title: String) {
+        let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
+        guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
+        typeProductViewController.nameCategory = title
+        typeProductViewController.modalPresentationStyle = .fullScreen
+        present(typeProductViewController, animated: true, completion: nil)
+    }
+    
+    func addCart(id: String) {
+//        guard let mainViewController = tabBarController as? MainViewController else { return }
+    }
 }
 
 
@@ -115,7 +127,7 @@ extension HomeViewController: UICollectionViewDelegate {
         case slideCollectionView:
             return
         case categoryCollectionView:
-            return
+            navigationTypeProductScreen(title: homeViewModel.arrayCategory[indexPath.row].categoryName ?? "")
         default:
             if #available(iOS 13.0, *) {
                 let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
@@ -223,16 +235,13 @@ extension HomeViewController: HomeViewModelEvents {
 
 extension HomeViewController: ItemCollectionViewCellEvents {
     func addCart(item: ItemCollectionViewCell) {
+        self.addCart(id: item.idProduct)
     }
 }
 
 extension HomeViewController: CategoryViewEvents {
     func gotData(title: String) {
-        let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
-        guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
-        typeProductViewController.nameCategory = title
-        typeProductViewController.modalPresentationStyle = .fullScreen
-        present(typeProductViewController, animated: true, completion: nil)
+        self.navigationTypeProductScreen(title: title)
     }
 }
 
