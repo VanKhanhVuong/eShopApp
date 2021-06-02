@@ -9,4 +9,5 @@ target 'eShopApp' do
   pod 'Kingfisher', '~> 6.0'
   pod 'Firebase/Auth'
   pod 'Alamofire', '~> 5.2'
+  pod 'KeychainAccess'
 end

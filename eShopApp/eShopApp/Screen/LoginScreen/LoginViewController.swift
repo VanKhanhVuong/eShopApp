@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import KeychainAccess
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var messageLoginView: CustomView!
@@ -38,10 +39,14 @@ class LoginViewController: UIViewController {
     }
     
     func navigationHomeScreen() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-        guard let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
-        mainViewController.modalPresentationStyle = .fullScreen
-        present(mainViewController, animated: true, completion: nil)
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        let keychain = Keychain()
+        keychain[string: "token"] = userID
+        
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
+//        guard let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
+//        mainViewController.modalPresentationStyle = .fullScreen
+//        present(mainViewController, animated: true, completion: nil)
     }
     
     func setupView() {
