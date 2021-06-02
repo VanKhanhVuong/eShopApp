@@ -14,6 +14,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var signInLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,29 @@ class SignUpViewController: UIViewController {
         setupView()
     }
     
+    @IBAction func signUpTapped(_ sender: Any) {
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        // Validate the fields
+        let error = validateField()
+        if error != nil {
+            // Show message Error
+        } else {
+            Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+                if error != nil {
+                    print("Sign up Fail")
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
+    
     func setupView() {
         signUpButton.clipsToBounds = true
         signUpButton.layer.cornerRadius = 15
+        
+//        signInLabel.attributedText = changeColorText()
     }
     
     func validateField() -> String? {
@@ -42,21 +63,10 @@ class SignUpViewController: UIViewController {
         return nil
     }
     
-    @IBAction func signUpTapped(_ sender: Any) {
-        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        // Validate the fields
-        let error = validateField()
-        if error != nil {
-            // Show message Error
-        } else {
-            Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-                if error != nil {
-                    print("Sign up Fail")
-                } else {
-                    print("Sign up Success")
-                }
-            }
-        }
+    private func changeColorText() -> NSMutableAttributedString {
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: "Already have an account? Sign In" as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Gilroy-Bold", size: CGFloat(14.0)) as Any])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location:26, length: 7))
+        return myMutableString
     }
 }
