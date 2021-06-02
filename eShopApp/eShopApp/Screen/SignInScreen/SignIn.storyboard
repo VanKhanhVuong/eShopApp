@@ -51,24 +51,15 @@ in your home.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="34b-qq-mrh">
-                                <rect key="frame" x="25" y="44" width="18" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="18" id="hsY-eq-VSa"/>
-                                    <constraint firstAttribute="height" constant="18" id="iVG-Xf-AbR"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zb3-cV-LQi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5hK-8d-be5"/>
                             <constraint firstItem="HWC-Z1-PaB" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="8EK-XR-JgI"/>
-                            <constraint firstItem="34b-qq-mrh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9fe-UU-mfH"/>
                             <constraint firstItem="eaV-B3-7mZ" firstAttribute="top" secondItem="zb3-cV-LQi" secondAttribute="bottom" constant="30" id="GO2-xc-svB"/>
                             <constraint firstItem="zb3-cV-LQi" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/2" id="HGn-5e-Jah"/>
                             <constraint firstItem="zb3-cV-LQi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="NO2-xB-6aa"/>
-                            <constraint firstItem="34b-qq-mrh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="Q9w-IB-oCN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Itk-73-KXN" secondAttribute="trailing" constant="25" id="Ty3-o7-Ubq"/>
                             <constraint firstItem="eaV-B3-7mZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="WD5-Jf-M6a"/>
                             <constraint firstItem="Itk-73-KXN" firstAttribute="top" secondItem="eaV-B3-7mZ" secondAttribute="bottom" constant="30" id="WkF-40-QTY"/>
@@ -77,9 +68,16 @@ in your home.</string>
                             <constraint firstItem="zb3-cV-LQi" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="y81-PM-yAe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="spf-GJ-Nry"/>
+                    <navigationItem key="navigationItem" id="spf-GJ-Nry">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="close" id="qZ0-O9-toM">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="closeSignScreenTapped:" destination="Y6W-OH-hqX" id="b8O-zQ-B2c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="closeImageView" destination="34b-qq-mrh" id="Owx-gb-loe"/>
+                        <outlet property="closeSignButton" destination="qZ0-O9-toM" id="XP1-df-9qX"/>
                         <outlet property="loginLabel" destination="HWC-Z1-PaB" id="8ea-7h-Jwp"/>
                         <outlet property="phoneNumberView" destination="Itk-73-KXN" id="DcL-S8-19E"/>
                     </connections>
@@ -91,9 +89,10 @@ in your home.</string>
         <!--Navigation Controller-->
         <scene sceneID="I8p-9B-8EC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1AA-gb-fNM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1AA-gb-fNM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2lY-Y8-qe8">
+                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" id="2lY-Y8-qe8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
