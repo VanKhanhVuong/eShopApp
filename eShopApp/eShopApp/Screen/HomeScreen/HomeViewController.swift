@@ -20,8 +20,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var cheapProductsCollectionView: UICollectionView!
     @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var loginView: UIView!
     
     private var homeViewModel = HomeViewModel()
     private var currentIndex: Int = 0
@@ -69,33 +67,10 @@ class HomeViewController: UIViewController {
         searchView.clipsToBounds = true
         searchView.layer.cornerRadius = 15
         
-        navigationSignIn()
-        cornerRadiusLoginView()
-        
         exclusiveOfferView.delegate = self
         bestSellingView.delegate = self
         cheapProductsView.delegate = self
         categoryProductView.delegate = self
-    }
-    
-    func cornerRadiusLoginView() {
-        loginView.clipsToBounds = true
-        loginView.layer.cornerRadius = 15
-        loginView.layer.maskedCorners = .layerMaxXMinYCorner
-    }
-    
-    @available(iOS 13.0, *)
-    func navigationSignIn() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction))
-        loginLabel.addGestureRecognizer(tap)
-    }
-    
-    @available(iOS 13.0, *)
-    @objc func tapFunction(sender:UITapGestureRecognizer) {
-        let mainStoryboard = UIStoryboard(name: "SignIn", bundle: .main)
-        guard let signInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
-        signInViewController.modalPresentationStyle = .fullScreen
-        present(signInViewController, animated: true, completion: nil)
     }
     
     func navigationTypeProductScreen(title: String) {

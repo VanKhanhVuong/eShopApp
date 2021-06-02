@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uds-ri-8FO">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="153"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjJ-Lq-mX6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjJ-Lq-mX6">
                                 <rect key="frame" x="0.0" y="0.0" width="381" height="153"/>
                             </imageView>
                         </subviews>
@@ -38,8 +38,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="uds-ri-8FO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5tN-b9-BOy"/>
+                <constraint firstAttribute="trailing" secondItem="uds-ri-8FO" secondAttribute="trailing" id="7iI-fq-EVi"/>
+                <constraint firstItem="uds-ri-8FO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="E7N-Ze-cmH"/>
                 <constraint firstAttribute="bottom" secondItem="uds-ri-8FO" secondAttribute="bottom" id="JM6-Ks-A9Q"/>
                 <constraint firstItem="uds-ri-8FO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="L3n-FR-JgD"/>
+                <constraint firstItem="uds-ri-8FO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="atm-Og-aiW"/>
+                <constraint firstAttribute="bottom" secondItem="uds-ri-8FO" secondAttribute="bottom" id="tRI-o2-LD4"/>
                 <constraint firstAttribute="trailing" secondItem="uds-ri-8FO" secondAttribute="trailing" id="xWL-uo-Qd7"/>
             </constraints>
             <size key="customSize" width="381" height="153"/>
