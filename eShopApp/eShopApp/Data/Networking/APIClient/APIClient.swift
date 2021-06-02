@@ -8,6 +8,18 @@
 import Foundation
 
 class APIClient {
+    func addCartToAPI(productId: String, userId: String, amount: Int, completionHandler: @escaping (_ result: Result<DataCart, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.addCart(productId: productId, userId: userId, amount: amount)) { (result: Result<DataCart?, ErrorModel>) in
+            switch result {
+            case .success(let status):
+                guard let statusMessage = status else { return }
+                completionHandler(.success(statusMessage))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
     func getProductFromAPI(completionHandler: @escaping (_ result: Result<[Product], ErrorModel>) -> ()) {
         APIManager.shared.requestApi(type: ProductAPI.getProduct) { (result: Result<DataProduct?, ErrorModel>) in
             switch result {
