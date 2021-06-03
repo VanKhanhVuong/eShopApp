@@ -8,8 +8,32 @@
 import Foundation
 
 class APIClient {
-    func addCartToAPI(productId: String, userId: String, amount: Int, completionHandler: @escaping (_ result: Result<DataAddCart, ErrorModel>) -> ()) {
-        APIManager.shared.requestApi(type: ProductAPI.addCart(productId: productId, userId: userId, amount: amount)) { (result: Result<DataAddCart?, ErrorModel>) in
+    func addCartToAPI(productId: String, userId: String, amount: Int, completionHandler: @escaping (_ result: Result<CRUDCart, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.addCart(productId: productId, userId: userId, amount: amount)) { (result: Result<CRUDCart?, ErrorModel>) in
+            switch result {
+            case .success(let status):
+                guard let statusMessage = status else { return }
+                completionHandler(.success(statusMessage))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func updateAmountCartToAPI(id: String, amount: Int, completionHandler: @escaping (_ result: Result<CRUDCart, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.updateAmountInCart(id: id, amount: amount)) { (result: Result<CRUDCart?, ErrorModel>) in
+            switch result {
+            case .success(let status):
+                guard let statusMessage = status else { return }
+                completionHandler(.success(statusMessage))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func deleteProductCartToAPI(id: String, completionHandler: @escaping (_ result: Result<CRUDCart, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.deleteProductInCart(id: id)) { (result: Result<CRUDCart?, ErrorModel>) in
             switch result {
             case .success(let status):
                 guard let statusMessage = status else { return }

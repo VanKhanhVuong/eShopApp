@@ -13,6 +13,8 @@ enum ProductAPI {
     case getBrand
     case addCart(productId: String, userId: String, amount: Int)
     case findCart(userId: String)
+    case deleteProductInCart(id: String)
+    case updateAmountInCart(id: String, amount: Int)
 }
 
 extension ProductAPI: TargetType {
@@ -28,7 +30,7 @@ extension ProductAPI: TargetType {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart:
             return URLEncoding.default
         }
     }
@@ -43,6 +45,13 @@ extension ProductAPI: TargetType {
                 ]
             case .findCart(let userId):
                 return ["userId": userId]
+            case .deleteProductInCart(let id):
+                return ["id":id]
+            case .updateAmountInCart(let id, let amount):
+                return [
+                    "id": id,
+                    "amount": amount
+                ]
             case .getProduct, .getCategory, .getBrand:
                 return [:]
         }
@@ -60,6 +69,10 @@ extension ProductAPI: TargetType {
             return "cart.php"
         case .findCart:
             return "get_cart_by_user_id.php"
+        case .deleteProductInCart:
+            return "delete_product_cart.php"
+        case .updateAmountInCart:
+            return "update_amount_product_cart.php"
         }
     }
     
@@ -70,7 +83,7 @@ extension ProductAPI: TargetType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart:
             return .get
         }
     }
