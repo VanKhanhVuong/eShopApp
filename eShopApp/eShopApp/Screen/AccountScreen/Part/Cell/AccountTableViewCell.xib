@@ -28,7 +28,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detail3x" translatesAutoresizingMaskIntoConstraints="NO" id="NB9-B4-zJw">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GoArrow" translatesAutoresizingMaskIntoConstraints="NO" id="NB9-B4-zJw">
                         <rect key="frame" x="347.5" y="48" width="8.5" height="14"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -62,6 +62,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="detail3x" width="26" height="43"/>
+        <image name="GoArrow" width="9" height="14.5"/>
     </resources>
 </document>
