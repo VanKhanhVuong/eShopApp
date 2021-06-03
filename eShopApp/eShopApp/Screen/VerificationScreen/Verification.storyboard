@@ -80,7 +80,7 @@
                                     <constraint firstAttribute="height" constant="18" id="ZWG-yp-mT3"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button" image="lessthan" catalog="system"/>
+                                <state key="normal" title="Button" image="backArrow"/>
                                 <connections>
                                     <action selector="backToNumberTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Iu-l1-A9e"/>
                                 </connections>
@@ -141,8 +141,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backArrow" width="10.5" height="18.5"/>
         <image name="greaterthan" catalog="system" width="128" height="111"/>
-        <image name="lessthan" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

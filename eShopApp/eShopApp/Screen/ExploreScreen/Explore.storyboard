@@ -46,7 +46,7 @@
                             <constraint firstItem="zuk-9g-23u" firstAttribute="top" secondItem="uE6-ZI-8qk" secondAttribute="top" id="edy-KG-sxb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Explore" image="Explore1xD" id="PZu-Fq-HbR"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="exploreGreen" id="PZu-Fq-HbR"/>
                     <navigationItem key="navigationItem" id="jef-XP-eOn"/>
                     <connections>
                         <outlet property="categoryProductCollectionView" destination="57W-zi-feb" id="LYU-XA-1sQ"/>
@@ -76,7 +76,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Explore1xD" width="29" height="19"/>
+        <image name="exploreGreen" width="29" height="18.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

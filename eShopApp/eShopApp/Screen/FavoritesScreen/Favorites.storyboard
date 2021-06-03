@@ -51,7 +51,7 @@
                             <constraint firstItem="9ZH-sk-GTo" firstAttribute="bottom" secondItem="RRY-eM-rFo" secondAttribute="bottom" id="rif-ux-KPl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourite" image="heart1xD" id="Iyj-6x-atI"/>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="heartGreen" id="Iyj-6x-atI"/>
                     <navigationItem key="navigationItem" title="Favorurite" id="std-0R-2VZ"/>
                     <connections>
                         <outlet property="addAllButton" destination="zoQ-Jj-xui" id="g63-hm-a6y"/>
@@ -81,7 +81,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart1xD" width="25" height="24"/>
+        <image name="heartGreen" width="24.5" height="24.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

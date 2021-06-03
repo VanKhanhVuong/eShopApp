@@ -73,7 +73,7 @@
                             <constraint firstItem="g7D-6F-Ago" firstAttribute="bottom" secondItem="nXS-Z5-78I" secondAttribute="bottom" id="yTO-Dh-oVB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cart" image="Cart1xD" id="mrg-2T-eg6"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cartGreen" id="mrg-2T-eg6"/>
                     <navigationItem key="navigationItem" title="Cart" id="L3M-Z3-EWR"/>
                     <connections>
                         <outlet property="carTableView" destination="nXS-Z5-78I" id="vd1-zg-pHZ"/>
@@ -103,7 +103,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cart1xD" width="23" height="21"/>
+        <image name="cartGreen" width="22.5" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

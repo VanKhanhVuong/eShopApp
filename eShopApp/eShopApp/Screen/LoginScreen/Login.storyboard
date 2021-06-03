@@ -107,7 +107,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yBN-yP-72B">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="close" id="obI-jF-WRt">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="backArrow" id="obI-jF-WRt">
                             <connections>
                                 <action selector="closeScreenTapped:" destination="Y6W-OH-hqX" id="eTv-vV-N8f"/>
                             </connections>
@@ -146,7 +146,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close" width="12" height="12"/>
+        <image name="backArrow" width="10.5" height="18.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

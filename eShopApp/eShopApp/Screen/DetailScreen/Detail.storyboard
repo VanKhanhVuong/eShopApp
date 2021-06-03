@@ -122,7 +122,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kko-eV-nDn">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="65"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upArrow3x" translatesAutoresizingMaskIntoConstraints="NO" id="Edu-a8-IZ5">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Edu-a8-IZ5">
                                                                 <rect key="frame" x="326" y="28.333333333333368" width="14" height="8.3333333333333321"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -193,7 +193,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart1xD" translatesAutoresizingMaskIntoConstraints="NO" id="El3-ob-k4T">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartBlack" translatesAutoresizingMaskIntoConstraints="NO" id="El3-ob-k4T">
                                                 <rect key="frame" x="341" y="347.66666666666669" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="Drk-bH-Uo4"/>
@@ -229,7 +229,7 @@
                                             <constraint firstItem="N9t-OG-OoH" firstAttribute="top" secondItem="Qlu-dN-qI6" secondAttribute="top" id="wRd-xl-pD4"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backArrow3x" translatesAutoresizingMaskIntoConstraints="NO" id="u0P-05-j9L">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backArrow" translatesAutoresizingMaskIntoConstraints="NO" id="u0P-05-j9L">
                                         <rect key="frame" x="25" y="0.0" width="10" height="18"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -302,9 +302,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backArrow3x" width="31" height="55"/>
-        <image name="heart1xD" width="25" height="24"/>
-        <image name="upArrow3x" width="44" height="27"/>
+        <image name="backArrow" width="10.333333015441895" height="18.333333969116211"/>
+        <image name="heartBlack" width="24.333333969116211" height="24"/>
+        <image name="upArrow" width="14.666666984558105" height="9"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

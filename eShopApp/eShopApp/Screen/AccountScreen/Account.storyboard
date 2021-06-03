@@ -39,7 +39,7 @@
                                             <action selector="touchLogOutTapped:" destination="pJ2-T2-uEz" eventType="touchUpInside" id="Qgz-He-srq"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exit" translatesAutoresizingMaskIntoConstraints="NO" id="Iay-IX-cXv">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoutGreen" translatesAutoresizingMaskIntoConstraints="NO" id="Iay-IX-cXv">
                                         <rect key="frame" x="35" y="68.5" width="22.5" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Iay-IX-cXv" secondAttribute="height" multiplier="1:1" id="lKz-dJ-416"/>
@@ -66,7 +66,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDA-0T-Qzo">
                                         <rect key="frame" x="5" y="17" width="103.5" height="103.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2021-05-26 at 10.22.37" translatesAutoresizingMaskIntoConstraints="NO" id="t7Z-fY-Oka">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devices" translatesAutoresizingMaskIntoConstraints="NO" id="t7Z-fY-Oka">
                                                 <rect key="frame" x="0.0" y="0.0" width="103.5" height="103.5"/>
                                             </imageView>
                                         </subviews>
@@ -91,7 +91,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="7R1-QL-qcE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7R1-QL-qcE">
                                         <rect key="frame" x="252.5" y="46.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="Vns-hP-W0G"/>
@@ -133,7 +133,7 @@
                             <constraint firstItem="M1g-vq-Wzb" firstAttribute="top" secondItem="IHO-hf-Ew1" secondAttribute="bottom" id="yIy-fb-EPP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="user1xD" id="kU2-Fu-EJ5"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="userGreen" id="kU2-Fu-EJ5"/>
                     <navigationItem key="navigationItem" id="PvL-EP-gw8"/>
                     <connections>
                         <outlet property="avatarImageView" destination="t7Z-fY-Oka" id="0RW-Mc-wjw"/>
@@ -168,10 +168,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2021-05-26 at 10.22.37" width="1464" height="886"/>
-        <image name="exit" width="24" height="24"/>
-        <image name="pen" width="46" height="46"/>
-        <image name="user1xD" width="25" height="25"/>
+        <image name="devices" width="750" height="1000"/>
+        <image name="logoutGreen" width="20.5" height="20.5"/>
+        <image name="userGreen" width="24.5" height="24.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

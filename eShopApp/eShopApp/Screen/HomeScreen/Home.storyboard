@@ -201,7 +201,7 @@
                             <constraint firstItem="yTf-04-cij" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zaB-hq-XxQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shop" image="Shop1xD" id="QT1-Gk-KdV"/>
+                    <tabBarItem key="tabBarItem" title="Shop" image="shopGreen" id="QT1-Gk-KdV"/>
                     <navigationItem key="navigationItem" id="qJ3-6q-QFZ"/>
                     <connections>
                         <outlet property="bestSellingCollectionView" destination="Fp3-RX-YPZ" id="Ynu-gE-f6a"/>
@@ -239,8 +239,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Shop1xD" width="25" height="25"/>
         <image name="grass" width="18.5" height="18.5"/>
+        <image name="shopGreen" width="36.5" height="36.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
