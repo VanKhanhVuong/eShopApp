@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         categoryCollectionView.dataSource = self
         
         homeViewModel.loadItemProduct()
-        homeViewModel.loadItemCategory()
+        homeViewModel.loadCategory()
         
         slideCollectionView.register(cellType: SlideCollectionViewCell.self)
         exclusiveOfferCollectionView.register(cellType: ItemCollectionViewCell.self)
@@ -108,7 +108,7 @@ extension HomeViewController: UICollectionViewDelegate {
         case slideCollectionView:
             return
         case categoryCollectionView:
-            navigationTypeProductScreen(title: homeViewModel.arrayCategory[indexPath.row].categoryName ?? "")
+            navigationTypeProductScreen(title: homeViewModel.arrayNameCategory[indexPath.row])
         default:
             if #available(iOS 13.0, *) {
                 let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
@@ -133,7 +133,7 @@ extension HomeViewController: UICollectionViewDataSource {
         case slideCollectionView:
             return homeViewModel.arrayPoster.count
         case categoryCollectionView:
-            return homeViewModel.arrayCategory.count
+            return homeViewModel.arrayImageCategory.count
         default:
             return 0
         }
@@ -166,8 +166,10 @@ extension HomeViewController: UICollectionViewDataSource {
             return posterCell
         case categoryCollectionView:
             let categoryCell = collectionView.dequeueReusableCell(with: CategoryCollectionViewCell.self, for: indexPath)
-            let category = homeViewModel.arrayCategory[indexPath.item]
-            categoryCell.configure(item: category)
+            let image = homeViewModel.arrayImageCategory[indexPath.item]
+            let name = homeViewModel.arrayNameCategory[indexPath.item]
+            let color = homeViewModel.arrayColorBackground[indexPath.item]
+            categoryCell.configure(name: name, image: image, color: color)
             return categoryCell
         default:
             return UICollectionViewCell()
@@ -206,7 +208,6 @@ extension HomeViewController: HomeViewModelEvents {
                 self.exclusiveOfferCollectionView.reloadData()
                 self.bestSellingCollectionView.reloadData()
                 self.cheapProductsCollectionView.reloadData()
-                self.categoryCollectionView.reloadData()
             }
         } else {
             DispatchQueue.main.async {

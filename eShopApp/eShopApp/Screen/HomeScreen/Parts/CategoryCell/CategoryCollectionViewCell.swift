@@ -18,9 +18,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 15
     }
     
-    func configure(item: Category) {
-        categoryImageView.getImage(urlString: item.imageCategory ?? "")
-        categoryNameLabel.text = item.categoryName
+    func configure(name: String, image: UIImage, color: UIColor) {
+        categoryImageView.image = image
+        categoryNameLabel.text = name
+        containerView.backgroundColor = color
     }
 
 }
