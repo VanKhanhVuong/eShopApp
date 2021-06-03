@@ -82,10 +82,13 @@ class HomeViewController: UIViewController {
     }
     
     func addCart(id: String) {
-//        let keychain = Keychain()
-//        let token = keychain["token"] ?? ""
-//        homeViewModel.addCart(productId: id, userId: token, amount: 2)
-//        guard let mainViewController = tabBarController as? MainViewController else { return }
+        let keychain = Keychain()
+        let token = keychain["token"] ?? ""
+        if !token.isEmpty {
+            homeViewModel.addCart(productId: id, userId: token, amount: 2)
+        }
+        
+        //guard let mainViewController = tabBarController as? MainViewController else { return }
     }
 }
 
@@ -197,12 +200,18 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeViewController: HomeViewModelEvents {
-    func gotData() {
-        DispatchQueue.main.async {
-            self.exclusiveOfferCollectionView.reloadData()
-            self.bestSellingCollectionView.reloadData()
-            self.cheapProductsCollectionView.reloadData()
-            self.categoryCollectionView.reloadData()
+    func gotData(isAddCart: Bool) {
+        if isAddCart == false {
+            DispatchQueue.main.async {
+                self.exclusiveOfferCollectionView.reloadData()
+                self.bestSellingCollectionView.reloadData()
+                self.cheapProductsCollectionView.reloadData()
+                self.categoryCollectionView.reloadData()
+            }
+        } else {
+            DispatchQueue.main.async {
+                print(self.homeViewModel.messageAddCart)
+            }
         }
     }
     
