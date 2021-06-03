@@ -14,11 +14,13 @@ class ExploreCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        categoryView.clipsToBounds = true
+        categoryView.layer.cornerRadius = 15
     }
     
-    func configure(item: Category) {
-        nameLabel.text = item.categoryName
-        categoryImageView.getImage(urlString: item.imageCategory ?? "")
+    func configure(name: String, image: UIImage, color: UIColor) {
+        categoryImageView.image = image
+        nameLabel.text = name
+        categoryView.backgroundColor = color
     }
 }
