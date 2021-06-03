@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="carTableView" destination="nXS-Z5-78I" id="vd1-zg-pHZ"/>
                         <outlet property="checkoutButton" destination="71J-qg-6FM" id="S2u-Xf-DMq"/>
+                        <outlet property="totalPriceLabel" destination="Lm9-Sm-rJP" id="5yu-A3-shn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tVX-Ah-0H1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

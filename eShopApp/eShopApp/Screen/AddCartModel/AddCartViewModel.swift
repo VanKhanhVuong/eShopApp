@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AddCartViewModelEvents: AnyObject {
-    func gotData(isAddCart: Bool)
+    func gotData(option: EnumApiCart)
     func gotError(messageError: ErrorModel)
 }
 
@@ -20,6 +20,7 @@ class AddCartViewModel {
     
     // Find Cart By UserID
     func findCart(userId: String) {
+        arrayCart = []
         api.findCartToAPI(userId: userId) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -29,7 +30,7 @@ class AddCartViewModel {
                         self.arrayCart.append(cart)
                     }
                     print(self.arrayCart)
-                    self.delegate?.gotData(isAddCart: false)
+                    self.delegate?.gotData(option: .showCart)
                 }
             case .failure(_):
                 //self.delegate?.gotError(messageError: error.rawValue)
@@ -45,7 +46,7 @@ class AddCartViewModel {
             case .success(let result):
                 guard let self = self else { return }
                 self.messageAddCart = result.status ?? ""
-                self.delegate?.gotData(isAddCart: true)
+                self.delegate?.gotData(option: .createCart)
             case .failure(_):
                 //self.delegate?.gotError(messageError: error.)
                 break

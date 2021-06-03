@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CartTableViewCellEvents: AnyObject {
-    func plusOrMinusButton(item: CartTableViewCell, calculation: Bool)
+    func clickPlusOrMinusButton()
 }
 
 class CartTableViewCell: UITableViewCell {
@@ -28,13 +28,19 @@ class CartTableViewCell: UITableViewCell {
         setupUI()
     }
     
-    func configure(item: Product) {
+    func configure(item: Cart) {
         itemImageView.getImage(urlString: item.imageProduct ?? "")
         nameLabel.text = item.productName
 //        unitLabel.text = item.unit
-        guard let price = item.price else { return }
-        priceLabel.text = "$" + price
-        minusButton.setTitleColor(.gray, for: .normal)
+        guard let price: Double = Double(item.price ?? "") else { return }
+        guard let amount: Double = Double(item.amount ?? "") else { return }
+        let total = price * amount
+        priceLabel.text = "$" + "\(total)"
+        let amountProduct = Int(amount)
+        amountItemLabel.text = "\(amountProduct)"
+        if amountItemLabel.text == "1" {
+            minusButton.setTitleColor(.gray, for: .normal)
+        }
     }
     
     func setupUI() {
@@ -58,7 +64,9 @@ class CartTableViewCell: UITableViewCell {
         let str: String = priceLabel.text ?? ""
         let int: Double = Double(str.dropFirst()) ?? 0.0
         priceLabel.text = "$\((Double(amount + 1)) * round(int))"
+        delegate?.clickPlusOrMinusButton()
     }
+    
     @IBAction func minusTouchButton(_ sender: Any) {
         let amount: Int = Int(amountItemLabel.text ?? "") ?? 0
         if amount <= 1 {
@@ -73,5 +81,6 @@ class CartTableViewCell: UITableViewCell {
             }
             priceLabel.text = "$\(round(int / (Double(amount))))"
         }
+        delegate?.clickPlusOrMinusButton()
     }
 }
