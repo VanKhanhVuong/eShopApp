@@ -87,7 +87,7 @@ class DetailViewController: UIViewController {
     
     @objc func tapFunction(sender:UITapGestureRecognizer) {
         if likeImageView.image == UIImage(named: "heart"){
-            likeImageView.image = UIImage(named: "heart1xD")
+            likeImageView.image = UIImage(named: "heartBlack")
         } else {
             likeImageView.image = UIImage(named: "heart")
         }
@@ -119,12 +119,12 @@ class DetailViewController: UIViewController {
         if toogle {
             UIView.animate(withDuration: 0.3) {
                 self.descriptionLabel.isHidden = false
-                self.dropImageView.image = UIImage(named: "downArrow3x")
+                self.dropImageView.image = UIImage(named: "downArrow")
             }
         } else {
             UIView.animate(withDuration: 0.3) {
                 self.descriptionLabel.isHidden = true
-                self.dropImageView.image = UIImage(named: "upArrow3x")
+                self.dropImageView.image = UIImage(named: "upArrow")
             }
         }
     }
