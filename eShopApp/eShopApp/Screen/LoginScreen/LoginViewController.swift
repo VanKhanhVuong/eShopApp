@@ -103,7 +103,6 @@ class LoginViewController: UIViewController {
     }
 }
 
-@available(iOS 13.0, *)
 extension LoginViewController: SignUpViewEvents {
     func signUpSuccess() {
         DispatchQueue.main.async {
