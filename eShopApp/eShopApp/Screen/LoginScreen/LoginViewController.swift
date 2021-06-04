@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var closeScreenButton: UIBarButtonItem!
+    @IBOutlet weak var closeScreenButton: UIButton!
     @IBOutlet weak var signUpLabel: UILabel!
     
     var delegate: LoginViewEvents?
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func closeScreenTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func loginTapped(_ sender: Any) {
@@ -58,7 +58,9 @@ class LoginViewController: UIViewController {
     @objc func navigationSignUpScreen(sender : UITapGestureRecognizer) {
         let mainStoryboard = UIStoryboard(name: "SignUp", bundle: .main)
         guard let signUpViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignUpView") as? SignUpViewController else { return }
-        self.navigationController?.pushViewController(signUpViewController, animated: true)
+        signUpViewController.modalPresentationStyle = .fullScreen
+        signUpViewController.delegate = self
+        self.present(signUpViewController, animated: true, completion: nil)
     }
     
     func navigationHomeScreen() {
@@ -98,5 +100,14 @@ class LoginViewController: UIViewController {
             return "Please make sure your password is at least 8 characters, 1 Uppercase alphabet, 1 Lowercase alphabet and 1 Number."
         }
         return nil
+    }
+}
+
+@available(iOS 13.0, *)
+extension LoginViewController: SignUpViewEvents {
+    func signUpSuccess() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
