@@ -27,51 +27,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IX-iW-Bxz" customClass="CustomView" customModule="eShopApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="298.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="vST-cJ-BHr"/>
+                                </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mvf-rk-Lsh">
-                                <rect key="frame" x="25" y="386.5" width="364" height="249"/>
+                                <rect key="frame" x="25" y="300" width="364" height="195"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdg-Oo-w0t">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="tCa-sa-umh"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0DI-Kb-NhS">
-                                        <rect key="frame" x="0.0" y="50" width="364" height="49.5"/>
+                                        <rect key="frame" x="0.0" y="39" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="e5H-sI-nm1"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3e-Ln-gsS">
-                                        <rect key="frame" x="0.0" y="99.5" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="78" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="hNi-BY-GZ7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rkv-xO-q4K">
-                                        <rect key="frame" x="0.0" y="149.5" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="117" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="BUF-8D-E5v"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzx-14-Xhd">
-                                        <rect key="frame" x="0.0" y="199.5" width="364" height="49.5"/>
+                                        <rect key="frame" x="0.0" y="156" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="ANM-so-jQZ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="rkv-xO-q4K" firstAttribute="height" secondItem="Mvf-rk-Lsh" secondAttribute="height" multiplier="1/5" id="6LL-AP-51I"/>
-                                    <constraint firstItem="Xdg-Oo-w0t" firstAttribute="height" secondItem="Mvf-rk-Lsh" secondAttribute="height" multiplier="1/5" id="BpE-7A-NTX"/>
-                                    <constraint firstItem="nzx-14-Xhd" firstAttribute="height" secondItem="Mvf-rk-Lsh" secondAttribute="height" multiplier="1/5" id="doL-34-I3c"/>
-                                    <constraint firstItem="0DI-Kb-NhS" firstAttribute="height" secondItem="Mvf-rk-Lsh" secondAttribute="height" multiplier="1/5" id="fH6-05-6Sr"/>
-                                    <constraint firstItem="U3e-Ln-gsS" firstAttribute="height" secondItem="Mvf-rk-Lsh" secondAttribute="height" multiplier="1/5" id="rI6-yx-6uh"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f03-JM-ih2">
-                                <rect key="frame" x="25" y="650.5" width="364" height="67"/>
+                                <rect key="frame" x="25" y="510" width="364" height="67"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
                                 <state key="normal" title="Log In">
@@ -82,7 +93,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account? Singup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-X6-fiK">
-                                <rect key="frame" x="108.5" y="737.5" width="197" height="16.5"/>
+                                <rect key="frame" x="105" y="597" width="204.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,16 +105,14 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mvf-rk-Lsh" secondAttribute="trailing" constant="25" id="1DM-yD-jE3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7IX-iW-Bxz" secondAttribute="trailing" id="5CK-P5-ElN"/>
                             <constraint firstItem="f03-JM-ih2" firstAttribute="top" secondItem="Mvf-rk-Lsh" secondAttribute="bottom" constant="15" id="9j3-i4-5qZ"/>
-                            <constraint firstItem="Mvf-rk-Lsh" firstAttribute="height" secondItem="7IX-iW-Bxz" secondAttribute="height" multiplier="2.5/3" id="9wt-a2-fnI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="f03-JM-ih2" secondAttribute="trailing" constant="25" id="DJg-Wm-L9l"/>
-                            <constraint firstItem="7IX-iW-Bxz" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/3" id="GNF-oJ-sAm"/>
                             <constraint firstItem="7IX-iW-Bxz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="J22-mt-SXR"/>
                             <constraint firstItem="Mvf-rk-Lsh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="R5B-xp-hSP"/>
                             <constraint firstItem="P6Q-X6-fiK" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Wob-vK-G8y"/>
                             <constraint firstItem="f03-JM-ih2" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/13.4" id="aez-d0-z6o"/>
                             <constraint firstItem="Mvf-rk-Lsh" firstAttribute="top" secondItem="7IX-iW-Bxz" secondAttribute="bottom" id="af0-eu-eh6"/>
                             <constraint firstItem="P6Q-X6-fiK" firstAttribute="top" secondItem="f03-JM-ih2" secondAttribute="bottom" constant="20" id="fFf-Vy-0UZ"/>
-                            <constraint firstItem="7IX-iW-Bxz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="jnm-r5-CwK"/>
+                            <constraint firstItem="7IX-iW-Bxz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="hGr-2R-UXv"/>
                             <constraint firstItem="f03-JM-ih2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="o65-DR-9qV"/>
                         </constraints>
                     </view>
