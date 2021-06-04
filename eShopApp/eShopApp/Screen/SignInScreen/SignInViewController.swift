@@ -11,14 +11,14 @@ import UIKit
 class SignInViewController: UIViewController {
     @IBOutlet weak var phoneNumberView: UIView!
     @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var closeSignButton: UIBarButtonItem!
+    @IBOutlet weak var closeSignButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     @IBAction func closeSignScreenTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setupView() {
@@ -47,7 +47,7 @@ class SignInViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Login", bundle: .main)
         guard let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else { return }
         loginViewController.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(loginViewController, animated: true)
+        self.present(loginViewController, animated: true, completion: nil)
     }
     
     @objc func close(sender : UITapGestureRecognizer) {
