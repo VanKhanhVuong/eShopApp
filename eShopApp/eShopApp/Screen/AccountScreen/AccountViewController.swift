@@ -38,7 +38,8 @@ class AccountViewController: UIViewController {
         } else {
             let mainStoryboard = UIStoryboard(name: "SignIn", bundle: .main)
             guard let signInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
-            self.navigationController?.pushViewController(signInViewController, animated: true)
+            signInViewController.modalPresentationStyle = .fullScreen
+            self.present(signInViewController, animated: true, completion: nil)
         }
     }
     
