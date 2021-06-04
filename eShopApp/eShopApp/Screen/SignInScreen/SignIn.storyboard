@@ -69,7 +69,7 @@ in your home.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="spf-GJ-Nry">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="backArrow" id="qZ0-O9-toM">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="closeScreen" id="qZ0-O9-toM">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="closeSignScreenTapped:" destination="Y6W-OH-hqX" id="b8O-zQ-B2c"/>
@@ -106,7 +106,7 @@ in your home.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="backArrow" width="10.5" height="18.5"/>
+        <image name="closeScreen" width="16.5" height="16.5"/>
         <image name="devices" width="750" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
