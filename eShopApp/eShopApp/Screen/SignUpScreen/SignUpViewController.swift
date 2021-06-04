@@ -8,6 +8,10 @@
 import UIKit
 import FirebaseAuth
 
+protocol SignUpViewEvents: AnyObject {
+    func signUpSuccess()
+}
+
 class SignUpViewController: UIViewController {
     @IBOutlet weak var messageSignUpView: CustomView!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -15,6 +19,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var signInLabel: UILabel!
+    
+    var delegate: SignUpViewEvents?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +41,8 @@ class SignUpViewController: UIViewController {
                 if error != nil {
                     print("Sign up Fail")
                 } else {
-                    self.navigationController?.popViewController(animated: true)
+                    self.delegate?.signUpSuccess()
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
