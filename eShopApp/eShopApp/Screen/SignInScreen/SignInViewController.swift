@@ -47,10 +47,20 @@ class SignInViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Login", bundle: .main)
         guard let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else { return }
         loginViewController.modalPresentationStyle = .fullScreen
+        loginViewController.delegate = self
         self.present(loginViewController, animated: true, completion: nil)
     }
     
     @objc func close(sender : UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+@available(iOS 13.0, *)
+extension SignInViewController: LoginViewEvents {
+    func loginSuccess() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
