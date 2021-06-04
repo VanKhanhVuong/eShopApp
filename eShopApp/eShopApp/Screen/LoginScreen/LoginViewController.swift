@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
     private func changeColorText() -> NSMutableAttributedString {
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: "Don’t have an account? Singup" as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Gilroy-Bold", size: CGFloat(14.0)) as Any])
-        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location:23, length: 6))
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(named: "AccentColor") ?? "", range: NSRange(location:23, length: 6))
         return myMutableString
     }
     
