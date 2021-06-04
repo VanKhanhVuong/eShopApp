@@ -9,6 +9,10 @@ import UIKit
 import FirebaseAuth
 import KeychainAccess
 
+protocol LoginViewEvents: AnyObject {
+    func loginSuccess()
+}
+
 class LoginViewController: UIViewController {
     @IBOutlet weak var messageLoginView: CustomView!
     @IBOutlet weak var loginButton: UIButton!
@@ -17,6 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var closeScreenButton: UIBarButtonItem!
     @IBOutlet weak var signUpLabel: UILabel!
     
+    var delegate: LoginViewEvents?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +65,8 @@ class LoginViewController: UIViewController {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let keychain = Keychain()
         keychain[string: "token"] = userID
-        self.navigationController?.popToRootViewController(animated: true)
+        delegate?.loginSuccess()
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func changeColorText() -> NSMutableAttributedString {
