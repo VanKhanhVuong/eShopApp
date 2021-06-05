@@ -9,6 +9,7 @@ import UIKit
 
 protocol CartTableViewCellEvents: AnyObject {
     func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell)
+    func clickToRemoveProductFromCart(idCart: String)
 }
 
 class CartTableViewCell: UITableViewCell {
@@ -22,6 +23,7 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     weak var delegate: CartTableViewCellEvents?
+    var cartId: String = ""
     var productId: String = ""
     
     override func awakeFromNib() {
@@ -30,6 +32,7 @@ class CartTableViewCell: UITableViewCell {
     }
     
     func configure(item: Cart) {
+        cartId = item.id ?? ""
         productId = item.productId ?? ""
         itemImageView.getImage(urlString: item.imageProduct ?? "")
         nameLabel.text = item.productName
@@ -55,6 +58,10 @@ class CartTableViewCell: UITableViewCell {
         plusButton.layer.borderColor = UIColor.gray.cgColor
         plusButton.clipsToBounds = true
         plusButton.layer.cornerRadius = 15
+    }
+    
+    @IBAction func deleteCartTapped(_ sender: Any) {
+        delegate?.clickToRemoveProductFromCart(idCart: cartId)
     }
     
     @IBAction func plusTouchButton(_ sender: Any) {

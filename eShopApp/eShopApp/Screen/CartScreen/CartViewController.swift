@@ -62,11 +62,9 @@ extension CartViewController: UITableViewDataSource {
 
 extension CartViewController: CartViewModelEvents {
     func gotData(option: EnumApiCart) {
-        if option == .showCart {
-            DispatchQueue.main.async {
-                self.carTableView.reloadData()
-                self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
-            }
+        DispatchQueue.main.async {
+            self.carTableView.reloadData()
+            self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
         }
     }
     
@@ -76,10 +74,18 @@ extension CartViewController: CartViewModelEvents {
 }
 
 extension CartViewController: CartTableViewCellEvents {
+    func clickToRemoveProductFromCart(idCart: String) {
+        DispatchQueue.main.async {
+            self.cartViewModel.findCart()
+            self.cartViewModel.deleteCart(idCart: idCart)
+        }
+    }
+    
     func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell ) {
-        self.cartViewModel.addOrUpdateAmountProductToCart(idProduct: cell.productId, amount: amount)
+        self.cartViewModel.addOrUpdateAmountProductToCart(productId: cell.productId, cartId: cell.cartId, amount: amount)
         DispatchQueue.main.async {
             self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
+            self.cartViewModel.findCart()
         }
     }
 }

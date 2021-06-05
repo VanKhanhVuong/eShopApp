@@ -32,24 +32,25 @@ class CartViewModel {
     }
     
     
-    func addOrUpdateAmountProductToCart(idProduct: String, amount: String) {
+    func addOrUpdateAmountProductToCart(productId: String, cartId: String, amount: String) {
         let token = keychain["token"] ?? ""
         if !token.isEmpty {
-            filterProductInCart(productId: idProduct, amount: amount)
+            filterProductInCart(productId: productId, cartId: cartId, amount: amount)
         }
     }
     
-    private func filterProductInCart(productId: String, amount: String) {
+    private func filterProductInCart(productId: String, cartId: String, amount: String) {
         let userId = keychain["token"] ?? ""
         let inCart = arrayCart.filter { $0.productId == productId && $0.userId == userId}
         if inCart.isEmpty {
             // add cart
-            print("add cart \(productId) \(amount)")
-            //addCart(productId: productId, userId: userId, amount: 1)
+            print("add cart \(cartId) \(amount)")
+            addCart(productId: productId, userId: userId, amount: 1)
         } else {
             // update amount
-            print("update amount product in cart product id :\(productId) \(amount)")
-            // updateCart(productId: productId, amount: amount)
+            print("update amount product in cart id :\(cartId) productid: \(productId) amount: \(amount)")
+            guard let amountProduct:Int = Int(amount) else { return }
+            updateAmountProduct(idCart: cartId, amount: amountProduct)
         }
     }
     
@@ -91,6 +92,32 @@ class CartViewModel {
     }
     
     // Update Cart
+    func updateAmountProduct(idCart: String, amount: Int) {
+        api.updateAmountCartToAPI(id: idCart, amount: amount) { [weak self] result in
+            switch result {
+            case .success(let result):
+                guard let self = self else { return }
+                self.messageAddCart = result.status ?? ""
+                self.delegate?.gotData(option: .updateCart)
+            case .failure(let error):
+                self?.delegate?.gotError(messageError: error)
+                break
+            }
+        }
+    }
     
     // Delete Cart
+    func deleteCart(idCart: String) {
+        api.deleteProductCartToAPI(id: idCart){ [weak self] result in
+            switch result {
+            case .success(let result):
+                guard let self = self else { return }
+                self.messageAddCart = result.status ?? ""
+                self.delegate?.gotData(option: .deleteCart)
+            case .failure(let error):
+                self?.delegate?.gotError(messageError: error)
+                break
+            }
+        }
+    }
 }
