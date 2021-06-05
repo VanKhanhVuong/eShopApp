@@ -66,7 +66,7 @@ extension ProductAPI: TargetType {
         case .getBrand:
             return "get_all_brand.php"
         case .addCart:
-            return "cart.php"
+            return "add_product_cart.php"
         case .findCart:
             return "get_cart_by_user_id.php"
         case .deleteProductInCart:
