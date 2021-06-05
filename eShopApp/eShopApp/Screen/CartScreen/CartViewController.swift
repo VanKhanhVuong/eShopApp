@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import KeychainAccess
+
 
 class CartViewController: UIViewController {
     @IBOutlet weak var carTableView: UITableView!
     @IBOutlet weak var checkoutButton: UIButton!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
-    var cartViewModel = AddCartViewModel()
+    var cartViewModel = CartViewModel()
     var cartTableViewCell = CartTableViewCell()
     
     override func viewDidLoad() {
@@ -23,10 +23,7 @@ class CartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let keychain = Keychain()
-        let token = keychain["token"] ?? ""
-        cartViewModel.findCart(userId: token)
+        cartViewModel.findCart()
     }
     
     func setupUIView() {
@@ -39,16 +36,6 @@ class CartViewController: UIViewController {
         
         checkoutButton.clipsToBounds = true
         checkoutButton.layer.cornerRadius = 15
-    }
-    
-    func totalPrice() {
-        var sum = 0.0
-        for item in cartViewModel.arrayCart {
-            guard let price: Double = Double(item.price ?? "") else { return }
-            guard let amount: Double = Double(item.amount ?? "") else { return }
-            sum += price * amount
-        }
-        totalPriceLabel.text = "$" + "\(sum)"
     }
 }
 
@@ -73,12 +60,12 @@ extension CartViewController: UITableViewDataSource {
     }
 }
 
-extension CartViewController: AddCartViewModelEvents {
+extension CartViewController: CartViewModelEvents {
     func gotData(option: EnumApiCart) {
         if option == .showCart {
             DispatchQueue.main.async {
                 self.carTableView.reloadData()
-                self.totalPrice()
+                self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
             }
         }
     }
@@ -89,9 +76,10 @@ extension CartViewController: AddCartViewModelEvents {
 }
 
 extension CartViewController: CartTableViewCellEvents {
-    func clickPlusOrMinusButton() {
+    func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell ) {
+        self.cartViewModel.addOrUpdateAmountProductToCart(idProduct: cell.productId, amount: amount)
         DispatchQueue.main.async {
-            self.totalPrice()
+            self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
         }
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CartTableViewCellEvents: AnyObject {
-    func clickPlusOrMinusButton()
+    func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell)
 }
 
 class CartTableViewCell: UITableViewCell {
@@ -22,6 +22,7 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     weak var delegate: CartTableViewCellEvents?
+    var productId: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,7 @@ class CartTableViewCell: UITableViewCell {
     }
     
     func configure(item: Cart) {
+        productId = item.productId ?? ""
         itemImageView.getImage(urlString: item.imageProduct ?? "")
         nameLabel.text = item.productName
 //        unitLabel.text = item.unit
@@ -64,7 +66,7 @@ class CartTableViewCell: UITableViewCell {
         let str: String = priceLabel.text ?? ""
         let int: Double = Double(str.dropFirst()) ?? 0.0
         priceLabel.text = "$\((Double(amount + 1)) * round(int))"
-        delegate?.clickPlusOrMinusButton()
+        delegate?.clickPlusOrMinusButton(amount: amountItemLabel.text ?? "", cell: self)
     }
     
     @IBAction func minusTouchButton(_ sender: Any) {
@@ -81,6 +83,6 @@ class CartTableViewCell: UITableViewCell {
             }
             priceLabel.text = "$\(round(int / (Double(amount))))"
         }
-        delegate?.clickPlusOrMinusButton()
+        delegate?.clickPlusOrMinusButton(amount: amountItemLabel.text ?? "", cell: self)
     }
 }
