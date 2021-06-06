@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
     
     private var homeViewModel = HomeViewModel()
+    private var cartViewModel = CartViewModel()
     private var currentIndex: Int = 0
     
     override func viewDidLoad() {
@@ -40,13 +41,19 @@ class HomeViewController: UIViewController {
         bestSellingCollectionView.delegate = self
         cheapProductsCollectionView.delegate = self
         categoryCollectionView.delegate = self
-        homeViewModel.delegate = self
         
         slideCollectionView.dataSource = self
         exclusiveOfferCollectionView.dataSource = self
         bestSellingCollectionView.dataSource = self
         cheapProductsCollectionView.dataSource = self
         categoryCollectionView.dataSource = self
+        
+        homeViewModel.delegate = self
+        cartViewModel.delegate = self
+        exclusiveOfferView.delegate = self
+        bestSellingView.delegate = self
+        cheapProductsView.delegate = self
+        categoryProductView.delegate = self
         
         homeViewModel.loadItemProduct()
         homeViewModel.loadCategory()
@@ -67,10 +74,7 @@ class HomeViewController: UIViewController {
         searchView.clipsToBounds = true
         searchView.layer.cornerRadius = 15
         
-        exclusiveOfferView.delegate = self
-        bestSellingView.delegate = self
-        cheapProductsView.delegate = self
-        categoryProductView.delegate = self
+        
     }
     
     func navigationTypeProductScreen(title: String) {
@@ -207,13 +211,27 @@ extension HomeViewController: HomeViewModelEvents {
 
 extension HomeViewController: ItemCollectionViewCellEvents {
     func addCart(item: ItemCollectionViewCell) {
-        //self.homeViewModel.addCart(id: item.idProduct)
+        self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false)
     }
 }
 
 extension HomeViewController: CategoryViewEvents {
     func gotData(title: String) {
         self.navigationTypeProductScreen(title: title)
+    }
+}
+
+extension HomeViewController: CartViewModelEvents {
+    func gotDataCart(messageChangeData: String) {
+        DispatchQueue.main.async {
+            if !messageChangeData.isEmpty {
+                self.showAlert(message: messageChangeData)
+            }
+        }
+    }
+    
+    func gotErrorCart(messageError: ErrorModel) {
+        print("")
     }
 }
 
