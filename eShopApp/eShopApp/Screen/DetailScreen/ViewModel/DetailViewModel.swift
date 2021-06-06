@@ -17,6 +17,7 @@ class DetailViewModel {
     var itemProduct: Product = Product()
     var productName: String = ""
     var productUnit: String = ""
+    var amountProduct: String = ""
     var productPrice: Float = 0.0
     var productDetail: String = ""
     var productId: String = ""
