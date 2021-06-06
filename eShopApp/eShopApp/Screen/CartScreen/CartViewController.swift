@@ -88,8 +88,12 @@ extension CartViewController: CartTableViewCellEvents {
     }
     
     func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell ) {
-        DispatchQueue.main.async {
-            self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true)
+        if amount == "1" {
+            self.cartViewModel.deleteCart(idCart: cell.cartId)
+        } else {
+            DispatchQueue.main.async {
+                self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true)
+            }
         }
     }
 }
