@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
     private var currentIndex: Int = 0
     private var arrayImageProduct: [String] = []
     var detailViewModel = DetailViewModel()
+    var cartViewModel = CartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,23 +50,32 @@ class DetailViewController: UIViewController {
         let amount: Int = Int(amountNumberLabel.text ?? "") ?? 0
         if amount == 1 {
             amountNumberLabel.text = "1"
-            minusButton.setTitleColor(.gray, for: .normal)
         } else {
             amountNumberLabel.text = "\(amount - 1)"
+            if (amount - 1) == 1 {
+                minusButton.setTitleColor(.gray, for: .normal)
+            }
             totalLabel.text = "$\((Float(amount - 1)) * priceProduct)"
         }
+    }
+    
+    @IBAction func addToCartTapped(_ sender: Any) {
+        print("add cart productID: \(detailViewModel.productId) amount: \(amountNumberLabel.text ?? "")")
+        cartViewModel.filterProductCart(productId: detailViewModel.productId, amount: amountNumberLabel.text ?? "", isCart: true)
     }
     
     private func setupView() {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
+        
         detailViewModel.delegate = self
+        cartViewModel.delegate = self
         
         detailViewModel.getData()
         detailViewModel.loadItemImageProduct()
         
         imageCollectionView.register(cellType: ImageProductCollectionViewCell.self)
-        minusButton.setTitleColor(.gray, for: .normal)
+        
         descriptionLabel.isHidden = true
         actionClickShowDescriptionProduct()
         actionLikeProduct()
@@ -138,6 +148,15 @@ class DetailViewController: UIViewController {
     @objc func navigationHome(sender : UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func showTotalPrice(amount: String) {
+        amountNumberLabel.text = amount
+        if amount == "1" {
+            minusButton.setTitleColor(.gray, for: .normal)
+        }
+        guard let amountProduct: Float = Float(amount) else { return }
+        totalLabel.text = "$\(self.detailViewModel.productPrice * amountProduct)"
+    }
 }
 
 @available(iOS 13.0, *)
@@ -145,7 +164,7 @@ extension DetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return detailViewModel.arrayImageProduct.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let imageCell = collectionView.dequeueReusableCell(with: ImageProductCollectionViewCell.self, for: indexPath)
         let image = detailViewModel.arrayImageProduct[indexPath.row]
@@ -184,9 +203,10 @@ extension DetailViewController: DetailViewModelEvents {
             DispatchQueue.main.async {
                 self.nameProductLabel.text = self.detailViewModel.productName
                 self.descriptionLabel.text = self.detailViewModel.productDetail
-                self.totalLabel.text = "$\(self.detailViewModel.productPrice)"
+                self.amountNumberLabel.text = self.detailViewModel.amountProduct
                 self.priceProduct = self.detailViewModel.productPrice
                 self.starLabel.attributedText = self.changeColorText(number: self.detailViewModel.productRate, color: .orange)
+                self.cartViewModel.findAmountProduct(productId: self.detailViewModel.productId)
             }
         } else {
             DispatchQueue.main.async {
@@ -200,4 +220,21 @@ extension DetailViewController: DetailViewModelEvents {
     }
 }
 
-
+@available(iOS 13.0, *)
+extension DetailViewController: CartViewModelEvents {
+    func gotAmountProduct(amount: String) {
+        DispatchQueue.main.async {
+            self.showTotalPrice(amount: amount)
+        }
+    }
+    
+    func gotDataCart(messageChangeData: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageChangeData)
+        }
+    }
+    
+    func gotErrorCart(messageError: ErrorModel) {
+        print("")
+    }
+}
