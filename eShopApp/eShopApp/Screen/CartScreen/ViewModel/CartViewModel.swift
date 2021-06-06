@@ -9,8 +9,8 @@ import Foundation
 import KeychainAccess
 
 protocol CartViewModelEvents: AnyObject {
-    func gotData(messageChangeData: String)
-    func gotError(messageError: ErrorModel)
+    func gotDataCart(messageChangeData: String)
+    func gotErrorCart(messageError: ErrorModel)
 }
 
 class CartViewModel {
@@ -41,22 +41,23 @@ class CartViewModel {
                     result.forEach { (cart) in
                         arrayFilterCart.append(cart)
                     }
-                    if arrayFilterCart.count == 0 {
-                        guard let amountProduct: Int = Int(amount) else { return }
-                        self.addCart(productId: productId, userId: userId, amount: amountProduct)
-                    } else {
+                    if arrayFilterCart.count != 0 {
                         if isCart {
-                            print("update amount product in Cart View cartId : \(arrayFilterCart.first?.id ?? "") productid: \(arrayFilterCart.first?.productId ?? "") amount: \(amount)")
+                            print("Update amount product in Cart View cartId : \(arrayFilterCart.first?.id ?? "") productid: \(arrayFilterCart.first?.productId ?? "") amount: \(amount)")
                             guard let amountProduct:Int = Int(amount) else { return }
                             self.updateAmountProduct(idCart: arrayFilterCart.first?.id ?? "", amount: amountProduct)
                         } else {
-                            guard let amountProduct: Int = Int(arrayFilterCart.first?.productId ?? "") else { return }
-                            print("update amount product in Home View cartId : \(arrayFilterCart.first?.id ?? "") productid: \(arrayFilterCart.first?.productId ?? "") amount: \(amountProduct + 1)")
+                            guard let amountProduct: Int = Int(arrayFilterCart.first?.amount ?? "") else { return }
+                            print("Update amount product cartId : \(arrayFilterCart.first?.id ?? "") productid: \(productId) amount: \(amountProduct + 1)")
+                            self.updateAmountProduct(idCart: arrayFilterCart.first?.id ?? "", amount: amountProduct + 1)
                         }
                     }
+                } else {
+                    guard let amountProduct: Int = Int(amount) else { return }
+                    self.addCart(productId: productId, userId: userId, amount: amountProduct)
                 }
             case .failure(let error):
-                self.delegate?.gotError(messageError: error)
+                self.delegate?.gotErrorCart(messageError: error)
                 break
             }
         }
@@ -75,10 +76,10 @@ class CartViewModel {
                         self.arrayCart.append(cart)
                     }
                     print(self.arrayCart)
-                    self.delegate?.gotData(messageChangeData: "")
+                    self.delegate?.gotDataCart(messageChangeData: "")
                 }
             case .failure(let error):
-                self.delegate?.gotError(messageError: error)
+                self.delegate?.gotErrorCart(messageError: error)
                 break
             }
         }
@@ -91,9 +92,9 @@ class CartViewModel {
             case .success(let result):
                 guard let self = self else { return }
                 self.messageAddCart = result.status ?? ""
-                self.delegate?.gotData(messageChangeData: "Product added to cart successfully")
+                self.delegate?.gotDataCart(messageChangeData: "Product added to cart successfully")
             case .failure(let error):
-                self?.delegate?.gotError(messageError: error)
+                self?.delegate?.gotErrorCart(messageError: error)
                 break
             }
         })
@@ -107,9 +108,9 @@ class CartViewModel {
                 guard let self = self else { return }
                 self.messageAddCart = result.status ?? ""
                 self.findCart()
-                self.delegate?.gotData(messageChangeData: "Change the number of products successfully")
+                self.delegate?.gotDataCart(messageChangeData: "Change the number of products successfully")
             case .failure(let error):
-                self?.delegate?.gotError(messageError: error)
+                self?.delegate?.gotErrorCart(messageError: error)
                 break
             }
         }
@@ -123,9 +124,9 @@ class CartViewModel {
                 guard let self = self else { return }
                 self.messageAddCart = result.status ?? ""
                 self.findCart()
-                self.delegate?.gotData(messageChangeData: "Product removed from cart successfully")
+                self.delegate?.gotDataCart(messageChangeData: "Product removed from cart successfully")
             case .failure(let error):
-                self?.delegate?.gotError(messageError: error)
+                self?.delegate?.gotErrorCart(messageError: error)
                 break
             }
         }
