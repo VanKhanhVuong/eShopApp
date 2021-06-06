@@ -13,6 +13,7 @@ enum ProductAPI {
     case getBrand
     case addCart(productId: String, userId: String, amount: Int)
     case findCart(userId: String)
+    case checkCart(productId: String, userId: String)
     case deleteProductInCart(id: String)
     case updateAmountInCart(id: String, amount: Int)
 }
@@ -30,7 +31,7 @@ extension ProductAPI: TargetType {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart:
             return URLEncoding.default
         }
     }
@@ -38,13 +39,17 @@ extension ProductAPI: TargetType {
     var parameters: Parameters? {
         switch self {
             case .addCart(let productId, let userId, let amount):
-                return [
-                    "productId": productId,
+                return ["productId": productId,
                     "userId": userId,
                     "amount": amount
                 ]
             case .findCart(let userId):
                 return ["userId": userId]
+            case .checkCart(let productId, let userId):
+                return ["productId":productId,
+                        "userId":userId
+                        
+                ]
             case .deleteProductInCart(let id):
                 return ["id":id]
             case .updateAmountInCart(let id, let amount):
@@ -69,6 +74,8 @@ extension ProductAPI: TargetType {
             return "add_product_cart.php"
         case .findCart:
             return "get_cart_by_user_id.php"
+        case .checkCart:
+            return "check_cart.php"
         case .deleteProductInCart:
             return "delete_product_cart.php"
         case .updateAmountInCart:
@@ -83,7 +90,7 @@ extension ProductAPI: TargetType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart:
             return .get
         }
     }
