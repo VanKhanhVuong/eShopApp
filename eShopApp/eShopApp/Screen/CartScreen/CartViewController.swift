@@ -61,6 +61,10 @@ extension CartViewController: UITableViewDataSource {
 }
 
 extension CartViewController: CartViewModelEvents {
+    func gotAmountProduct(amount: String) {
+        print("Get amount product in cart.")
+    }
+    
     func gotDataCart(messageChangeData: String) {
         DispatchQueue.main.async {
             if !messageChangeData.isEmpty {
