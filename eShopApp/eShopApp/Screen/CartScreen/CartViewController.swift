@@ -62,7 +62,7 @@ extension CartViewController: UITableViewDataSource {
 
 extension CartViewController: CartViewModelEvents {
     func gotAmountProduct(amount: String) {
-        print("Get amount product in cart")
+        print("Get amount product in cart.")
     }
     
     func gotDataCart(messageChangeData: String) {
