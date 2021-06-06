@@ -8,8 +8,5 @@
 import Foundation
 
 enum EnumApiCart {
-   case createCart
-   case updateCart
    case deleteCart
-   case showCart
 }
