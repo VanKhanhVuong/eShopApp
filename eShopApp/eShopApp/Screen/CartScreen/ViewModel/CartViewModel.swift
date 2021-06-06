@@ -10,6 +10,7 @@ import KeychainAccess
 
 protocol CartViewModelEvents: AnyObject {
     func gotDataCart(messageChangeData: String)
+    func gotAmountProduct(amount: String)
     func gotErrorCart(messageError: ErrorModel)
 }
 
@@ -29,6 +30,29 @@ class CartViewModel {
             sum += price * amount
         }
         return sum
+    }
+    
+    func findAmountProduct(productId: String) {
+        let userId = keychain["token"] ?? ""
+        api.checkCartToAPI(productId: productId, userId: userId) { result in
+            var array: [Cart] = []
+            switch result {
+            case .success(let result):
+                if !result.isEmpty {
+                    result.forEach { (cart) in
+                        array.append(cart)
+                    }
+                    if array.count != 0 {
+                        self.delegate?.gotAmountProduct(amount: "\(array.first?.amount ?? "")")
+                    }
+                } else {
+                    self.delegate?.gotAmountProduct(amount: "1")
+                }
+            case .failure(let error):
+                self.delegate?.gotErrorCart(messageError: error)
+                break
+            }
+        }
     }
     
     func filterProductCart(productId: String, amount: String, isCart: Bool) {
