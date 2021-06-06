@@ -61,7 +61,7 @@ extension CartViewController: UITableViewDataSource {
 }
 
 extension CartViewController: CartViewModelEvents {
-    func gotData(messageChangeData: String) {
+    func gotDataCart(messageChangeData: String) {
         DispatchQueue.main.async {
             if !messageChangeData.isEmpty {
                 self.showAlert(message: messageChangeData)
@@ -71,7 +71,7 @@ extension CartViewController: CartViewModelEvents {
         }
     }
     
-    func gotError(messageError: ErrorModel) {
+    func gotErrorCart(messageError: ErrorModel) {
         print("")
     }
 }
