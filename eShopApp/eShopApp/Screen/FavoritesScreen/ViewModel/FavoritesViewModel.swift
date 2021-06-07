@@ -10,7 +10,7 @@ import KeychainAccess
 
 protocol FavoritesViewModelEvents: AnyObject {
     func gotDataFavorite(messageChangeData: String)
-    func gotFavoriteProduct(isFavorite: Bool)
+    func gotFavoriteProduct(isFavorite: Bool, idFavorite: String)
     func gotErrorFavorite(messageError: ErrorModel)
 }
 
@@ -23,6 +23,7 @@ class FavoritesViewModel {
     
     // Show all favorite products
     func loadItemFavorite() {
+        arrayFavorite = []
         let userId = keychain["token"] ?? ""
         api.findFavoriteToAPI(userId: userId){ [weak self] result in
             guard let self = self else { return }
@@ -85,10 +86,10 @@ class FavoritesViewModel {
                         array.append(favorite)
                     }
                     if array.count != 0 {
-                        self.delegate?.gotFavoriteProduct(isFavorite: true)
+                        self.delegate?.gotFavoriteProduct(isFavorite: true, idFavorite: array.first?.id ?? "")
                     }
                 } else {
-                    self.delegate?.gotFavoriteProduct(isFavorite: false)
+                    self.delegate?.gotFavoriteProduct(isFavorite: false, idFavorite: "")
                 }
             case .failure(let error):
                 self.delegate?.gotErrorFavorite(messageError: error)
