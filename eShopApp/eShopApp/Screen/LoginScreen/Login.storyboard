@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Bold.ttf">
+            <string>Gilroy-Bold</string>
+        </array>
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginView" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="eShopApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IX-iW-Bxz" customClass="CustomView" customModule="eShopApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="vST-cJ-BHr"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkx-6S-eVn">
+                                <rect key="frame" x="25" y="44" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="dx4-vt-vNr"/>
+                                    <constraint firstAttribute="width" constant="16" id="rFt-9g-eGg"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="closeScreen"/>
+                                <connections>
+                                    <action selector="closeScreenTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Dp8-BQ-UAf"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mvf-rk-Lsh">
+                                <rect key="frame" x="25" y="300" width="364" height="195"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdg-Oo-w0t">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="tCa-sa-umh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0DI-Kb-NhS">
+                                        <rect key="frame" x="0.0" y="39" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="e5H-sI-nm1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3e-Ln-gsS">
+                                        <rect key="frame" x="0.0" y="78" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="hNi-BY-GZ7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rkv-xO-q4K">
+                                        <rect key="frame" x="0.0" y="117" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="BUF-8D-E5v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzx-14-Xhd">
+                                        <rect key="frame" x="0.0" y="156" width="364" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="ANM-so-jQZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f03-JM-ih2">
+                                <rect key="frame" x="25" y="510" width="364" height="67"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rjl-s5-rbY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account? Singup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-X6-fiK">
+                                <rect key="frame" x="108.5" y="597" width="197" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zkx-6S-eVn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0hm-4w-94O"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mvf-rk-Lsh" secondAttribute="trailing" constant="25" id="1DM-yD-jE3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7IX-iW-Bxz" secondAttribute="trailing" id="5CK-P5-ElN"/>
+                            <constraint firstItem="f03-JM-ih2" firstAttribute="top" secondItem="Mvf-rk-Lsh" secondAttribute="bottom" constant="15" id="9j3-i4-5qZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="f03-JM-ih2" secondAttribute="trailing" constant="25" id="DJg-Wm-L9l"/>
+                            <constraint firstItem="7IX-iW-Bxz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="J22-mt-SXR"/>
+                            <constraint firstItem="Mvf-rk-Lsh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="R5B-xp-hSP"/>
+                            <constraint firstItem="P6Q-X6-fiK" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Wob-vK-G8y"/>
+                            <constraint firstItem="f03-JM-ih2" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/13.4" id="aez-d0-z6o"/>
+                            <constraint firstItem="Mvf-rk-Lsh" firstAttribute="top" secondItem="7IX-iW-Bxz" secondAttribute="bottom" id="af0-eu-eh6"/>
+                            <constraint firstItem="P6Q-X6-fiK" firstAttribute="top" secondItem="f03-JM-ih2" secondAttribute="bottom" constant="20" id="fFf-Vy-0UZ"/>
+                            <constraint firstItem="7IX-iW-Bxz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="hGr-2R-UXv"/>
+                            <constraint firstItem="f03-JM-ih2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="o65-DR-9qV"/>
+                            <constraint firstItem="Zkx-6S-eVn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="uWo-Uj-vf2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yBN-yP-72B">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="backArrow" id="obI-jF-WRt">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeScreenButton" destination="Zkx-6S-eVn" id="DU9-pc-BH7"/>
+                        <outlet property="emailTextField" destination="0DI-Kb-NhS" id="rmS-kv-9Fj"/>
+                        <outlet property="loginButton" destination="f03-JM-ih2" id="D3Q-sB-q66"/>
+                        <outlet property="messageLoginView" destination="7IX-iW-Bxz" id="wOc-x7-odk"/>
+                        <outlet property="passwordTextField" destination="rkv-xO-q4K" id="hJf-EI-YvX"/>
+                        <outlet property="signUpLabel" destination="P6Q-X6-fiK" id="Tea-wD-tdM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000.0000000000001" y="54.910714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l0G-MJ-1kN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="2wa-4k-Ulr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="umR-rC-NNe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="KHl-eb-pH4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wa7-WO-QUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89.855072463768124" y="54.910714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backArrow" width="10.5" height="18.5"/>
+        <image name="closeScreen" width="16.5" height="16.5"/>
+        <namedColor name="AccentColor">
+            <color red="0.32499998807907104" green="0.69499999284744263" blue="0.46000000834465027" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

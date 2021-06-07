@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kzr-Xt-OHa">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Bold.ttf">
+            <string>Gilroy-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Favorurite-->
+        <scene sceneID="hkY-Ii-Llc">
+            <objects>
+                <viewController id="Vvc-A7-3RE" customClass="FavoritesViewController" customModule="eShopApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y1s-Jw-HSY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RRY-eM-rFo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoQ-Jj-xui">
+                                <rect key="frame" x="25" y="769.5" width="364" height="67.5"/>
+                                <color key="backgroundColor" red="0.42352938649999999" green="0.68627452850000004" blue="0.47843140360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zoQ-Jj-xui" secondAttribute="height" multiplier="5.4:1" id="0Lo-Yd-tNX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
+                                <state key="normal" title="Add All To Cart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAllToCartTapped:" destination="Vvc-A7-3RE" eventType="touchUpInside" id="kbL-22-ZYE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9ZH-sk-GTo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RRY-eM-rFo" firstAttribute="top" secondItem="9ZH-sk-GTo" secondAttribute="top" id="0vq-9K-bLQ"/>
+                            <constraint firstItem="9ZH-sk-GTo" firstAttribute="trailing" secondItem="zoQ-Jj-xui" secondAttribute="trailing" constant="25" id="HQ3-pD-84o"/>
+                            <constraint firstItem="9ZH-sk-GTo" firstAttribute="trailing" secondItem="RRY-eM-rFo" secondAttribute="trailing" id="QSf-N0-mYU"/>
+                            <constraint firstItem="9ZH-sk-GTo" firstAttribute="bottom" secondItem="zoQ-Jj-xui" secondAttribute="bottom" constant="25" id="V4H-PJ-oZw"/>
+                            <constraint firstItem="zoQ-Jj-xui" firstAttribute="leading" secondItem="9ZH-sk-GTo" secondAttribute="leading" constant="25" id="WIx-Pl-WfA"/>
+                            <constraint firstItem="RRY-eM-rFo" firstAttribute="leading" secondItem="9ZH-sk-GTo" secondAttribute="leading" id="WWr-fJ-FsH"/>
+                            <constraint firstItem="zoQ-Jj-xui" firstAttribute="centerX" secondItem="9ZH-sk-GTo" secondAttribute="centerX" id="h4J-I3-jZK"/>
+                            <constraint firstItem="9ZH-sk-GTo" firstAttribute="bottom" secondItem="RRY-eM-rFo" secondAttribute="bottom" id="rif-ux-KPl"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="heartGreen" id="Iyj-6x-atI"/>
+                    <navigationItem key="navigationItem" title="Favorurite" id="std-0R-2VZ"/>
+                    <connections>
+                        <outlet property="addAllButton" destination="zoQ-Jj-xui" id="g63-hm-a6y"/>
+                        <outlet property="favoriteTableView" destination="RRY-eM-rFo" id="7xT-io-bba"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="umB-T1-Lg7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2382.608695652174" y="1687.5"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="hTW-QS-XXh">
+            <objects>
+                <navigationController id="kzr-Xt-OHa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="eIo-gW-fFM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lhd-O2-Acc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Vvc-A7-3RE" kind="relationship" relationship="rootViewController" id="CRy-a7-b0H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wmy-c8-rdw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2383" y="854"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heartGreen" width="24.5" height="24.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

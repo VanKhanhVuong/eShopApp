@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DialogView" customModule="eShopApp" customModuleProvider="target">
+            <connections>
+                <outlet property="backToHomeButton" destination="RgQ-DH-50s" id="OPq-be-vDu"/>
+                <outlet property="tryAgainButton" destination="YdP-Ji-Oec" id="M8Z-Bm-hky"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="devices" translatesAutoresizingMaskIntoConstraints="NO" id="02w-Kv-KSi">
+                    <rect key="frame" x="97.5" y="118" width="219" height="218.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="02w-Kv-KSi" secondAttribute="height" multiplier="1:1" id="2Pe-qn-tuX"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFp-xe-p24">
+                    <rect key="frame" x="0.0" y="44" width="69" height="69"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="FFp-xe-p24" secondAttribute="height" multiplier="1:1" id="6yt-ob-yVy"/>
+                    </constraints>
+                    <state key="normal" image="closeScreen"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgQ-DH-50s">
+                    <rect key="frame" x="25" y="589" width="364" height="67"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="Back to home">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdP-Ji-Oec">
+                    <rect key="frame" x="25" y="522" width="364" height="67"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                    <state key="normal" title="Please try again">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Oops! Order Failed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDH-l2-WpL">
+                    <rect key="frame" x="103" y="366.5" width="208.5" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went trembly wrong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIQ-55-9LN">
+                    <rect key="frame" x="88" y="410.5" width="238" height="81.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="RgQ-DH-50s" firstAttribute="top" secondItem="YdP-Ji-Oec" secondAttribute="bottom" id="2U6-YX-AiR"/>
+                <constraint firstItem="02w-Kv-KSi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="9yh-L6-Ais"/>
+                <constraint firstItem="FFp-xe-p24" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="FRj-o3-bHl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YdP-Ji-Oec" secondAttribute="trailing" constant="25" id="ITa-qi-8cp"/>
+                <constraint firstItem="02w-Kv-KSi" firstAttribute="top" secondItem="FFp-xe-p24" secondAttribute="bottom" constant="5" id="J8m-B7-ggv"/>
+                <constraint firstItem="FDH-l2-WpL" firstAttribute="top" secondItem="02w-Kv-KSi" secondAttribute="bottom" constant="30" id="Je2-1w-ql7"/>
+                <constraint firstItem="XIQ-55-9LN" firstAttribute="top" secondItem="FDH-l2-WpL" secondAttribute="bottom" constant="15" id="K81-OG-hja"/>
+                <constraint firstItem="YdP-Ji-Oec" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="Me1-RC-Neh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="RgQ-DH-50s" secondAttribute="bottom" id="MwU-Iv-u0j"/>
+                <constraint firstItem="FFp-xe-p24" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1/6" id="TNl-Gx-7zr"/>
+                <constraint firstItem="02w-Kv-KSi" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1/3" id="Ug5-KZ-L3C"/>
+                <constraint firstItem="FDH-l2-WpL" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VoZ-7b-YVv"/>
+                <constraint firstItem="FFp-xe-p24" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YAY-LI-JSy"/>
+                <constraint firstItem="RgQ-DH-50s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="cza-SM-Cq3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RgQ-DH-50s" secondAttribute="trailing" constant="25" id="dGt-Lf-n9M"/>
+                <constraint firstItem="YdP-Ji-Oec" firstAttribute="top" secondItem="XIQ-55-9LN" secondAttribute="bottom" constant="30" id="eOh-aU-IwY"/>
+                <constraint firstItem="YdP-Ji-Oec" firstAttribute="height" secondItem="RgQ-DH-50s" secondAttribute="height" multiplier="1:1" id="hOL-kc-Atg"/>
+                <constraint firstItem="RgQ-DH-50s" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1/9.8" id="mDr-c3-8ro"/>
+                <constraint firstItem="XIQ-55-9LN" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="yV5-pv-JhV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="89.855072463768124" y="155.35714285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="closeScreen" width="16.5" height="16.5"/>
+        <image name="devices" width="750" height="1000"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
