@@ -20,8 +20,8 @@ class APIClient {
         }
     }
     
-    func addCartToAPI(productId: String, userId: String, amount: Int, completionHandler: @escaping (_ result: Result<CRUDCart, ErrorModel>) -> ()) {
-        APIManager.shared.requestApi(type: ProductAPI.addCart(productId: productId, userId: userId, amount: amount)) { (result: Result<CRUDCart?, ErrorModel>) in
+    func addCartToAPI(productId: String, userId: String, amount: Int, completionHandler: @escaping (_ result: Result<Crud, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.addCart(productId: productId, userId: userId, amount: amount)) { (result: Result<Crud?, ErrorModel>) in
             switch result {
             case .success(let status):
                 guard let statusMessage = status else { return }
@@ -32,8 +32,8 @@ class APIClient {
         }
     }
     
-    func updateAmountCartToAPI(id: String, amount: Int, completionHandler: @escaping (_ result: Result<CRUDCart, ErrorModel>) -> ()) {
-        APIManager.shared.requestApi(type: ProductAPI.updateAmountInCart(id: id, amount: amount)) { (result: Result<CRUDCart?, ErrorModel>) in
+    func updateAmountCartToAPI(id: String, amount: Int, completionHandler: @escaping (_ result: Result<Crud, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.updateAmountInCart(id: id, amount: amount)) { (result: Result<Crud?, ErrorModel>) in
             switch result {
             case .success(let status):
                 guard let statusMessage = status else { return }
