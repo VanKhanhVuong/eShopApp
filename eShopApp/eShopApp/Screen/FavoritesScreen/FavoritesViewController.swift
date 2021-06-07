@@ -20,6 +20,11 @@ class FavoritesViewController: UIViewController {
         setUpView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favoritesViewModel.loadItemFavorite()
+    }
+    
     @IBAction func addAllToCartTapped(_ sender: Any) {
         addAllToCart()
     }
@@ -31,8 +36,7 @@ class FavoritesViewController: UIViewController {
         cartViewModel.delegate = self
         
         favoriteTableView.register(cellType: FavoritesTableViewCell.self)
-        favoritesViewModel.loadItemFavorite()
-        
+
         addAllButton.clipsToBounds = true
         addAllButton.layer.cornerRadius = 15
     }
@@ -82,6 +86,10 @@ extension FavoritesViewController: UITableViewDataSource {
 }
 
 extension FavoritesViewController: FavoritesViewModelEvents {
+    func gotFavoriteProduct(isFavorite: Bool, idFavorite: String) {
+        print("")
+    }
+    
     func gotDataFavorite(messageChangeData: String) {
         DispatchQueue.main.async {
             if !messageChangeData.isEmpty {
@@ -89,10 +97,6 @@ extension FavoritesViewController: FavoritesViewModelEvents {
             }
             self.favoriteTableView.reloadData()
         }
-    }
-    
-    func gotFavoriteProduct(isFavorite: Bool) {
-        print("")
     }
     
     func gotErrorFavorite(messageError: ErrorModel) {
