@@ -36,6 +36,9 @@
                                 <state key="normal" title="Add All To Cart">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addAllToCartTapped:" destination="Vvc-A7-3RE" eventType="touchUpInside" id="kbL-22-ZYE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9ZH-sk-GTo"/>
