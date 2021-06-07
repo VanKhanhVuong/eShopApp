@@ -69,20 +69,46 @@ class HomeViewController: UIViewController {
         bestSellingView.categoryTitleLabel.text = "Best Selling"
         cheapProductsView.categoryTitleLabel.text = "Cheap Products"
         
+        
         // pageControl's number of pages is equal to the total number of arrayPoster elements it has.
         slidePageControl.numberOfPages = homeViewModel.arrayPoster.count
         searchView.clipsToBounds = true
         searchView.layer.cornerRadius = 15
-        
-        
     }
     
     func navigationTypeProductScreen(title: String) {
         let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
         guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
         typeProductViewController.nameCategory = title
+        switch title {
+        case "Exclusive Offer":
+            typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductExclusive
+        case "Best Selling":
+            typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductBestSelling
+        default:
+            typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductCheap
+        }
         typeProductViewController.modalPresentationStyle = .fullScreen
         present(typeProductViewController, animated: true, completion: nil)
+    }
+    
+    func navigationDetail(name: String, index: IndexPath) {
+        if #available(iOS 13.0, *) {
+            let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
+            guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+            detailViewController.modalPresentationStyle = .fullScreen
+            switch name {
+            case "EO":
+                detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[index.item]
+            case "BS":
+                detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductBestSelling[index.item]
+            case "CP":
+                detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductCheap[index.item]
+            default:
+                break
+            }
+            present(detailViewController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -103,14 +129,14 @@ extension HomeViewController: UICollectionViewDelegate {
             return
         case categoryCollectionView:
             navigationTypeProductScreen(title: homeViewModel.arrayNameCategory[indexPath.row])
+        case exclusiveOfferCollectionView:
+            navigationDetail(name: "EO", index: indexPath)
+        case bestSellingCollectionView:
+            navigationDetail(name: "BS", index: indexPath)
+        case cheapProductsCollectionView:
+            navigationDetail(name: "CP", index: indexPath)
         default:
-            if #available(iOS 13.0, *) {
-                let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
-                guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
-                detailViewController.modalPresentationStyle = .fullScreen
-                detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[indexPath.item]
-                present(detailViewController, animated: true, completion: nil)
-            }
+            break
         }
     }
 }
