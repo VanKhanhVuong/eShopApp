@@ -11,7 +11,7 @@ class TypeProductViewController: UIViewController {
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var titleNavigationItem: UINavigationItem!
     
-    private var typeProductViewModel = TypeProductModel()
+    var typeProductViewModel = TypeProductModel()
     var nameCategory: String = ""
     
     override func viewDidLoad() {
