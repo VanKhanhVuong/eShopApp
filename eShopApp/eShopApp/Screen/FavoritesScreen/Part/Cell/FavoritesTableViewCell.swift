@@ -13,7 +13,7 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var nameProductLabel: UILabel!
     
-    func configure(item: Product) {
+    func configure(item: Favorite) {
         productImageView.getImage(urlString: item.imageProduct ?? "")
         priceLabel.text = "$\(item.price ?? "")"
 //        unitLabel.text = item.unit
