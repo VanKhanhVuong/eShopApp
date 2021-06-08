@@ -124,9 +124,9 @@ extension ProductAPI: TargetType {
         case .getProductByName:
             return "get_product_by_name.php"
         case .getProductByBrand:
-            return "get_product_by_brand.php"
+            return "get_product_by_brandId.php"
         case .getProductByCategory:
-            return "get_product_by_category.php"
+            return "get_product_by_categoryId.php"
         }
     }
     
