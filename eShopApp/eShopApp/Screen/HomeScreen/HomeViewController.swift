@@ -250,7 +250,11 @@ extension HomeViewController: ItemCollectionViewCellEvents {
 
 extension HomeViewController: CategoryViewEvents {
     func gotData(title: String) {
-        print("Show Explore Screen")
+        if title == "Category Product" {
+            print("Show Explore Screen")
+        } else {
+            self.navigationTypeProductScreen(title: title)
+        }
     }
 }
 
