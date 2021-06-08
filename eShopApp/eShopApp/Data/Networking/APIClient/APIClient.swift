@@ -143,6 +143,51 @@ class APIClient {
         }
     }
     
+    func getProductByNameFromAPI(productName: String, completionHandler: @escaping (_ result: Result<[Product], ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.getProductByName(productName: productName)) { (result: Result<DataProduct?, ErrorModel>) in
+            switch result {
+            case .success(let data):
+                guard let products = data?.product else {
+                    completionHandler(.failure(ErrorModel.noData))
+                    return
+                }
+                completionHandler(.success(products))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func getProductByCategoryFromAPI(categoryId: String, completionHandler: @escaping (_ result: Result<[Product], ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.getProductByCategory(categoryId: categoryId)) { (result: Result<DataProduct?, ErrorModel>) in
+            switch result {
+            case .success(let data):
+                guard let products = data?.product else {
+                    completionHandler(.failure(ErrorModel.noData))
+                    return
+                }
+                completionHandler(.success(products))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    func getProductByBrandFromAPI(brandId: String, completionHandler: @escaping (_ result: Result<[Product], ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.getProductByBrand(brandId: brandId)) { (result: Result<DataProduct?, ErrorModel>) in
+            switch result {
+            case .success(let data):
+                guard let products = data?.product else {
+                    completionHandler(.failure(ErrorModel.noData))
+                    return
+                }
+                completionHandler(.success(products))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
     func getCategoryFromAPI(completionHandler: @escaping (_ result: Result<[Category], ErrorModel>) -> ()) {
         APIManager.shared.requestApi(type: ProductAPI.getCategory) { (result: Result<DataCategory?, ErrorModel>) in
             switch result {
