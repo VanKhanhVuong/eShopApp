@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
         case "Cheap Products":
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductCheap
         default:
-            typeProductViewController.typeProductViewModel.arrayProduct = []
+            typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductByCategory
         }
         typeProductViewController.modalPresentationStyle = .fullScreen
         present(typeProductViewController, animated: true, completion: nil)
@@ -130,7 +130,7 @@ extension HomeViewController: UICollectionViewDelegate {
         case slideCollectionView:
             return
         case categoryCollectionView:
-            navigationTypeProductScreen(title: homeViewModel.arrayNameCategory[indexPath.row])
+            homeViewModel.loadItemProductByCategory(categoryId: homeViewModel.arrayCategoryId[indexPath.row], categoryName: homeViewModel.arrayNameCategory[indexPath.row])
         case exclusiveOfferCollectionView:
             navigationDetail(name: "EO", index: indexPath)
         case bestSellingCollectionView:
@@ -224,12 +224,17 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeViewController: HomeViewModelEvents {
-    func gotData() {
+    func gotData(isCategory: Bool, categoryName: String) {
         DispatchQueue.main.async {
-            self.exclusiveOfferCollectionView.reloadData()
-            self.bestSellingCollectionView.reloadData()
-            self.cheapProductsCollectionView.reloadData()
+            if isCategory {
+                self.navigationTypeProductScreen(title: categoryName)
+            } else {
+                self.exclusiveOfferCollectionView.reloadData()
+                self.bestSellingCollectionView.reloadData()
+                self.cheapProductsCollectionView.reloadData()
+            }
         }
+
     }
     
     func gotError(messageError: ErrorModel) {
@@ -245,7 +250,7 @@ extension HomeViewController: ItemCollectionViewCellEvents {
 
 extension HomeViewController: CategoryViewEvents {
     func gotData(title: String) {
-        self.navigationTypeProductScreen(title: title)
+        print("Show Explore Screen")
     }
 }
 
