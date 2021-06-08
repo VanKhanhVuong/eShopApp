@@ -24,6 +24,8 @@ struct Product: Codable {
     var price: String?
     var detail: String?
     var rate: String?
+    var categoryId: String?
+    var brandId: String?
     var base: String?
     
     private enum CodingKeys: String, CodingKey {
@@ -33,6 +35,8 @@ struct Product: Codable {
         case price = "price"
         case detail = "detail"
         case rate = "rate"
+        case categoryId = "categoryId"
+        case brandId = "brandId"
         case base = "base"
     }
 }

@@ -11,6 +11,8 @@ enum ProductAPI {
     case getProduct
     case getCategory
     case getBrand
+    case getProductByCategory(categoryId: String)
+    case getProductByBrand(brandId: String)
     
     // Cart
     case addCart(productId: String, userId: String, amount: Int)
@@ -24,6 +26,11 @@ enum ProductAPI {
     case checkFavorite(productId: String, userId: String)
     case addFavorite(productId: String, userId: String)
     case deleteFavorite(id: String)
+    
+    // Search Product
+    case getProductByName(productName: String)
+    
+    // Order
 }
 
 extension ProductAPI: TargetType {
@@ -39,46 +46,52 @@ extension ProductAPI: TargetType {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite, .getProductByBrand, .getProductByCategory, .getProductByName:
             return URLEncoding.default
         }
     }
     
     var parameters: Parameters? {
         switch self {
-            case .addCart(let productId, let userId, let amount):
-                return ["productId": productId,
+        case .addCart(let productId, let userId, let amount):
+            return ["productId": productId,
                     "userId": userId,
                     "amount": amount
-                ]
-            case .findCart(let userId):
-                return ["userId": userId]
-            case .checkCart(let productId, let userId):
-                return ["productId":productId,
-                        "userId":userId
-                        
-                ]
-            case .deleteProductInCart(let id):
-                return ["id":id]
-            case .updateAmountInCart(let id, let amount):
-                return [
-                    "id": id,
-                    "amount": amount
-                ]
-            case .findFavorite(let userId):
-                return ["userId": userId]
-            case .checkFavorite(let productId, let userId):
-                return ["productId":productId,
+            ]
+        case .findCart(let userId):
+            return ["userId": userId]
+        case .checkCart(let productId, let userId):
+            return ["productId":productId,
                     "userId":userId
-                ]
-            case .addFavorite(let productId, let userId):
-                return ["productId":productId,
-                        "userId":userId
-                ]
-            case .deleteFavorite(let id):
-                return ["id":id]
-            case .getProduct, .getCategory, .getBrand:
-                return [:]
+                    
+            ]
+        case .deleteProductInCart(let id):
+            return ["id":id]
+        case .updateAmountInCart(let id, let amount):
+            return [
+                "id": id,
+                "amount": amount
+            ]
+        case .findFavorite(let userId):
+            return ["userId": userId]
+        case .checkFavorite(let productId, let userId):
+            return ["productId":productId,
+                    "userId":userId
+            ]
+        case .addFavorite(let productId, let userId):
+            return ["productId":productId,
+                    "userId":userId
+            ]
+        case .deleteFavorite(let id):
+            return ["id":id]
+        case .getProductByName(let productName):
+            return ["productName":productName]
+        case .getProductByBrand(let brandId):
+            return ["brandId":brandId]
+        case .getProductByCategory(let categoryId):
+            return ["categoryId":categoryId]
+        case .getProduct, .getCategory, .getBrand:
+            return [:]
         }
     }
     
@@ -108,6 +121,12 @@ extension ProductAPI: TargetType {
             return "check_favorites.php"
         case .deleteFavorite:
             return "delete_product_favorite.php"
+        case .getProductByName:
+            return "get_product_by_name.php"
+        case .getProductByBrand:
+            return "get_product_by_brand.php"
+        case .getProductByCategory:
+            return "get_product_by_category.php"
         }
     }
     
@@ -118,7 +137,7 @@ extension ProductAPI: TargetType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite, .getProductByName, .getProductByBrand, .getProductByCategory:
             return .get
         }
     }
