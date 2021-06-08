@@ -85,8 +85,10 @@ class HomeViewController: UIViewController {
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductExclusive
         case "Best Selling":
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductBestSelling
-        default:
+        case "Cheap Products":
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductCheap
+        default:
+            typeProductViewController.typeProductViewModel.arrayProduct = []
         }
         typeProductViewController.modalPresentationStyle = .fullScreen
         present(typeProductViewController, animated: true, completion: nil)
