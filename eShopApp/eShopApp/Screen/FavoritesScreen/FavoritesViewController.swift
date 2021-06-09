@@ -22,7 +22,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        favoritesViewModel.loadItemFavorite()
+        favoritesViewModel.loadItemFavorite(userId: getUserId())
     }
     
     @IBAction func addAllToCartTapped(_ sender: Any) {
@@ -46,7 +46,7 @@ class FavoritesViewController: UIViewController {
             favoritesViewModel.arrayFavorite.forEach { (favorite) in
                 print(favorite.id ?? "")
                 amount = amount + 1
-                cartViewModel.filterProductCart(productId: favorite.productId ?? "", amount: "\(amount)", isCart: true)
+                cartViewModel.filterProductCart(productId: favorite.productId ?? "", amount: "\(amount)", isCart: true, userId: getUserId())
             }
         } else {
             print("Favorite empty")
@@ -54,19 +54,7 @@ class FavoritesViewController: UIViewController {
     }
 }
 
-extension FavoritesViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
-//        if #available(iOS 13.0, *) {
-//            guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
-//            detailViewController.modalPresentationStyle = .fullScreen
-//            detailViewController.detailViewModel.itemProduct = favoritesViewModel.arrayFavorite[indexPath.item]
-//            present(detailViewController, animated: true, completion: nil)
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//    }
-}
+extension FavoritesViewController: UITableViewDelegate {}
 
 extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,12 +87,20 @@ extension FavoritesViewController: FavoritesViewModelEvents {
         }
     }
     
-    func gotErrorFavorite(messageError: ErrorModel) {
-        print("")
+    func gotErrorFavorite(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
     }
 }
 
 extension FavoritesViewController: CartViewModelEvents {
+    func gotErrorCart(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
+    }
+    
     func gotDataCart(messageChangeData: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageChangeData)
@@ -113,9 +109,5 @@ extension FavoritesViewController: CartViewModelEvents {
     
     func gotAmountProduct(amount: String) {
         print("")
-    }
-    
-    func gotErrorCart(messageError: ErrorModel) {
-        print(messageError.rawValue)
     }
 }
