@@ -259,6 +259,8 @@ extension HomeViewController: CategoryViewEvents {
 }
 
 extension HomeViewController: CartViewModelEvents {
+    func gotIdOrder() {}
+    
     func gotErrorCart(messageError: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageError)
