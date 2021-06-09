@@ -177,7 +177,7 @@ class DetailViewController: UIViewController {
     func undropFavorite() {
         if !idFavorite.isEmpty {
             print("Bo tha tim")
-            favoritesViewModel.deleteProductInFavorite(idFavorite: idFavorite)
+            favoritesViewModel.deleteProductInFavorite(idFavorite: idFavorite, userId: getUserId())
         }
     }
     
@@ -185,7 +185,7 @@ class DetailViewController: UIViewController {
     func dropFavorite() {
         if !detailViewModel.productId.isEmpty {
             print("Tha tim")
-            favoritesViewModel.addProductInFavorite(productId: detailViewModel.productId)
+            favoritesViewModel.addProductInFavorite(productId: detailViewModel.productId, userId: getUserId())
         }
     }
 }
@@ -235,7 +235,7 @@ extension DetailViewController: DetailViewModelEvents {
                 self.nameProductLabel.text = self.detailViewModel.productName
                 self.descriptionLabel.text = self.detailViewModel.productDetail
                 self.amountNumberLabel.text = self.detailViewModel.amountProduct
-                self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId)
+                self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId, userId: self.getUserId())
                 self.priceProduct = self.detailViewModel.productPrice
                 self.starLabel.attributedText = self.changeColorText(number: self.detailViewModel.productRate, color: .orange)
                 self.cartViewModel.findAmountProduct(productId: self.detailViewModel.productId, userId: self.getUserId())
@@ -275,6 +275,8 @@ extension DetailViewController: CartViewModelEvents {
 
 @available(iOS 13.0, *)
 extension DetailViewController: FavoritesViewModelEvents {
+    func gotErrorFavorite(messageError: String) {}
+    
     func gotFavoriteProduct(isFavorite: Bool, idFavorite: String) {
         DispatchQueue.main.async {
             self.showFavoriteProduct(isFavorite: isFavorite)
@@ -285,7 +287,7 @@ extension DetailViewController: FavoritesViewModelEvents {
     func gotDataFavorite(messageChangeData: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageChangeData)
-            self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId)
+            self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId, userId: self.getUserId())
         }
     }
     
