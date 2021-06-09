@@ -23,7 +23,13 @@ class CartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cartViewModel.findCart()
+        cartViewModel.findCart(userId: getUserId())
+    }
+    
+    @IBAction func checkoutTapped(_ sender: Any) {
+//        let vc = CheckoutViewController()
+//        vc.modalPresentationStyle = .custom
+//        present(vc, animated: true, completion: nil)
     }
     
     func setupUIView() {
@@ -61,6 +67,12 @@ extension CartViewController: UITableViewDataSource {
 }
 
 extension CartViewController: CartViewModelEvents {
+    func gotErrorCart(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
+    }
+    
     func gotAmountProduct(amount: String) {
         print("Get amount product in cart.")
     }
@@ -74,25 +86,21 @@ extension CartViewController: CartViewModelEvents {
             self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
         }
     }
-    
-    func gotErrorCart(messageError: ErrorModel) {
-        print("")
-    }
 }
 
 extension CartViewController: CartTableViewCellEvents {
     func clickToRemoveProductFromCart(idCart: String) {
         DispatchQueue.main.async {
-            self.cartViewModel.deleteCart(idCart: idCart)
+            self.cartViewModel.deleteCart(idCart: idCart, userId: self.getUserId())
         }
     }
     
     func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell ) {
         if amount == "1" {
-            self.cartViewModel.deleteCart(idCart: cell.cartId)
+            self.cartViewModel.deleteCart(idCart: cell.cartId, userId: getUserId())
         } else {
             DispatchQueue.main.async {
-                self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true)
+                self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true, userId: self.getUserId())
             }
         }
     }
