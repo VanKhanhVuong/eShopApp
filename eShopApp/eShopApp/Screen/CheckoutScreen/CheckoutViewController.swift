@@ -18,6 +18,7 @@ final class CheckoutViewController: UIViewController {
     let menuView = CheckoutPopUp()
     let menuHeight = UIScreen.main.bounds.height / 1.8
     var isPresenting = false
+    var checkoutViewModel = CheckoutViewModel()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +34,7 @@ final class CheckoutViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         tapCartScreen()
+        checkoutViewModel.delegate = self
     }
     
     func setupUI() {
@@ -59,6 +61,13 @@ final class CheckoutViewController: UIViewController {
     
     private func dismissCheckoutView() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func navigationOrderSusscess() {
+        let mainStoryboard = UIStoryboard(name: "OrderSuccess", bundle: .main)
+        guard let signUpViewController = mainStoryboard.instantiateViewController(withIdentifier: "OrderSuccessView") as? OrderSuccessViewController else { return }
+        signUpViewController.modalPresentationStyle = .fullScreen
+        self.present(signUpViewController, animated: true, completion: nil)
     }
 }
 
@@ -108,6 +117,24 @@ extension CheckoutViewController: CheckoutPopUpDelegate {
     func closeCheckoutView() {
         DispatchQueue.main.async {
             self.dismissCheckoutView()
+        }
+    }
+    func submit() {
+        DispatchQueue.main.async {
+            self.checkoutViewModel.createOrder(idUser: self.getUserId())
+        }
+    }
+}
+extension CheckoutViewController: CheckoutViewModelEvents {
+    func gotData() {
+        DispatchQueue.main.async {
+            self.navigationOrderSusscess()
+        }
+    }
+    
+    func gotError(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
         }
     }
 }

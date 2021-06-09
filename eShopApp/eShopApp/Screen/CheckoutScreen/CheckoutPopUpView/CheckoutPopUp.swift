@@ -9,6 +9,7 @@ import UIKit
 
 protocol CheckoutPopUpDelegate: AnyObject {
     func closeCheckoutView()
+    func submit()
 }
 
 class CheckoutPopUp: UIView {
@@ -19,6 +20,9 @@ class CheckoutPopUp: UIView {
     
     @IBAction func closeCheckout(_ sender: Any) {
         delegate?.closeCheckoutView()
+    }
+    @IBAction func placeOrderTapped(_ sender: Any) {
+        delegate?.submit()
     }
     
     override init (frame: CGRect){
