@@ -63,7 +63,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func addToCartTapped(_ sender: Any) {
         print("add cart productID: \(detailViewModel.productId) amount: \(amountNumberLabel.text ?? "")")
-        cartViewModel.filterProductCart(productId: detailViewModel.productId, amount: amountNumberLabel.text ?? "", isCart: true)
+        cartViewModel.filterProductCart(productId: detailViewModel.productId, amount: amountNumberLabel.text ?? "", isCart: true, userId: getUserId())
     }
     
     private func setupView() {
@@ -238,7 +238,7 @@ extension DetailViewController: DetailViewModelEvents {
                 self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId)
                 self.priceProduct = self.detailViewModel.productPrice
                 self.starLabel.attributedText = self.changeColorText(number: self.detailViewModel.productRate, color: .orange)
-                self.cartViewModel.findAmountProduct(productId: self.detailViewModel.productId)
+                self.cartViewModel.findAmountProduct(productId: self.detailViewModel.productId, userId: self.getUserId())
             }
         } else {
             DispatchQueue.main.async {
@@ -254,6 +254,12 @@ extension DetailViewController: DetailViewModelEvents {
 
 @available(iOS 13.0, *)
 extension DetailViewController: CartViewModelEvents {
+    func gotErrorCart(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
+    }
+    
     func gotAmountProduct(amount: String) {
         DispatchQueue.main.async {
             self.showTotalPrice(amount: amount)
@@ -264,10 +270,6 @@ extension DetailViewController: CartViewModelEvents {
         DispatchQueue.main.async {
             self.showAlert(message: messageChangeData)
         }
-    }
-    
-    func gotErrorCart(messageError: ErrorModel) {
-        print("")
     }
 }
 
