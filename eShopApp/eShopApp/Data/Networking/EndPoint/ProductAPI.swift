@@ -102,7 +102,7 @@ extension ProductAPI: TargetType {
                 "idOrder":idOrder,
                 "delivery":delivery,
                 "pament":pament,
-                "idUser":promoCode,
+                "promoCode":promoCode,
                 "idUser":idUser,
                 "totalBill":totalBill
             ]
