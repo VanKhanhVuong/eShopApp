@@ -32,6 +32,18 @@ class APIClient {
         }
     }
     
+    func updateOrderIdToCart(idOrder: String, userId: String, completionHandler: @escaping (_ result: Result<Crud, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.updateOrderIdToCart(idOrder: idOrder, userId: userId)) { (result: Result<Crud?, ErrorModel>) in
+            switch result {
+            case .success(let status):
+                guard let statusMessage = status else { return }
+                completionHandler(.success(statusMessage))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
     func updateAmountCartToAPI(id: String, amount: Int, completionHandler: @escaping (_ result: Result<Crud, ErrorModel>) -> ()) {
         APIManager.shared.requestApi(type: ProductAPI.updateAmountInCart(id: id, amount: amount)) { (result: Result<Crud?, ErrorModel>) in
             switch result {
@@ -217,4 +229,17 @@ class APIClient {
             }
         }
     }
+    
+    func createOrder(idOrder: String, delivery: String, pament: String, promoCode: String, idUser: String, totalBill: String, completionHandler: @escaping (_ result: Result<Crud, ErrorModel>) -> ()) {
+        APIManager.shared.requestApi(type: ProductAPI.createOrder(idOrder: idOrder, delivery: delivery, pament: pament, promoCode: promoCode, idUser: idUser, totalBill: totalBill)) { (result: Result<Crud?, ErrorModel>) in
+            switch result {
+            case .success(let status):
+                guard let statusMessage = status else { return }
+                completionHandler(.success(statusMessage))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
 }

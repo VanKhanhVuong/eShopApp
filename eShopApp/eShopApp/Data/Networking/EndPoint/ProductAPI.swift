@@ -20,6 +20,7 @@ enum ProductAPI {
     case checkCart(productId: String, userId: String)
     case deleteProductInCart(id: String)
     case updateAmountInCart(id: String, amount: Int)
+    case updateOrderIdToCart(idOrder: String, userId: String)
     
     // Favorite
     case findFavorite(userId: String)
@@ -31,6 +32,7 @@ enum ProductAPI {
     case getProductByName(productName: String)
     
     // Order
+    case createOrder(idOrder: String, delivery: String, pament: String, promoCode: String, idUser: String, totalBill: String)
 }
 
 extension ProductAPI: TargetType {
@@ -46,7 +48,7 @@ extension ProductAPI: TargetType {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite, .getProductByBrand, .getProductByCategory, .getProductByName:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite, .getProductByBrand, .getProductByCategory, .getProductByName, .updateOrderIdToCart, .createOrder:
             return URLEncoding.default
         }
     }
@@ -72,6 +74,11 @@ extension ProductAPI: TargetType {
                 "id": id,
                 "amount": amount
             ]
+        case .updateOrderIdToCart(let idOrder, let userId):
+            return [
+                "idOrder":idOrder,
+                "userId":userId
+            ]
         case .findFavorite(let userId):
             return ["userId": userId]
         case .checkFavorite(let productId, let userId):
@@ -90,6 +97,15 @@ extension ProductAPI: TargetType {
             return ["brandId":brandId]
         case .getProductByCategory(let categoryId):
             return ["categoryId":categoryId]
+        case .createOrder(let idOrder, let delivery, let pament, let promoCode, let idUser, let totalBill):
+            return[
+                "idOrder":idOrder,
+                "delivery":delivery,
+                "pament":pament,
+                "idUser":promoCode,
+                "idUser":idUser,
+                "totalBill":totalBill
+            ]
         case .getProduct, .getCategory, .getBrand:
             return [:]
         }
@@ -109,6 +125,8 @@ extension ProductAPI: TargetType {
             return "get_cart_by_user_id.php"
         case .checkCart:
             return "check_cart.php"
+        case .updateOrderIdToCart:
+            return "update_idOrder_in_cart.php"
         case .deleteProductInCart:
             return "delete_product_cart.php"
         case .updateAmountInCart:
@@ -127,6 +145,8 @@ extension ProductAPI: TargetType {
             return "get_product_by_brandId.php"
         case .getProductByCategory:
             return "get_product_by_categoryId.php"
+        case .createOrder:
+            return "create_order.php"
         }
     }
     
@@ -137,7 +157,7 @@ extension ProductAPI: TargetType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite, .getProductByName, .getProductByBrand, .getProductByCategory:
+        case .getProduct, .getCategory, .getBrand, .addCart, .findCart, .deleteProductInCart, .updateAmountInCart, .checkCart, .findFavorite, .checkFavorite, .addFavorite, .deleteFavorite, .getProductByName, .getProductByBrand, .getProductByCategory, .updateOrderIdToCart, .createOrder:
             return .get
         }
     }
