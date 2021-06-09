@@ -10,12 +10,14 @@ import Foundation
 protocol CartViewModelEvents: AnyObject {
     func gotDataCart(messageChangeData: String)
     func gotAmountProduct(amount: String)
+    func gotIdOrder()
     func gotErrorCart(messageError: String)
 }
 
 class CartViewModel {
     var api = APIClient()
     var messageAddCart: String = ""
+    var idOrder: String = ""
     var arrayCart: [Cart] = []
     weak var delegate: CartViewModelEvents?
     
@@ -113,6 +115,25 @@ class CartViewModel {
                     guard let self = self else { return }
                     self.messageAddCart = result.status ?? ""
                     self.delegate?.gotDataCart(messageChangeData: "Product added to cart successfully")
+                case .failure(let error):
+                    self?.delegate?.gotErrorCart(messageError: error.rawValue)
+                    break
+                }
+            }
+        } else {
+            delegate?.gotErrorCart(messageError: "Please Login")
+        }
+    }
+    
+    func updateOrderIdToCart(idOrder: String, userId: String) {
+        if !userId.isEmpty {
+            api.updateOrderIdToCart(idOrder: idOrder, userId: userId) { [weak self] result in
+                switch result {
+                case .success(let result):
+                    guard let self = self else { return }
+                    self.messageAddCart = result.status ?? ""
+                    self.idOrder = idOrder
+                    self.delegate?.gotIdOrder()
                 case .failure(let error):
                     self?.delegate?.gotErrorCart(messageError: error.rawValue)
                     break
