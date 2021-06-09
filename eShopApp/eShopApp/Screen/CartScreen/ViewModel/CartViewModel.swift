@@ -83,8 +83,8 @@ class CartViewModel {
     
     // Find Cart By UserID
     func findCart(userId: String) {
+        arrayCart.removeAll()
         if !userId.isEmpty {
-            arrayCart.removeAll()
             api.findCartToAPI(userId: userId) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
@@ -100,7 +100,7 @@ class CartViewModel {
                 }
             }
         } else {
-            delegate?.gotErrorCart(messageError: "Please Login")
+            delegate?.gotDataCart(messageChangeData: "Please Login")
         }
     }
     
