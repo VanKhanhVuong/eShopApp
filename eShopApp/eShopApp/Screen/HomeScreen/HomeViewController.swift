@@ -244,7 +244,7 @@ extension HomeViewController: HomeViewModelEvents {
 
 extension HomeViewController: ItemCollectionViewCellEvents {
     func addCart(item: ItemCollectionViewCell) {
-        self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false)
+        self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false, userId: self.getUserId())
     }
 }
 
@@ -259,6 +259,12 @@ extension HomeViewController: CategoryViewEvents {
 }
 
 extension HomeViewController: CartViewModelEvents {
+    func gotErrorCart(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
+    }
+    
     func gotAmountProduct(amount: String) {
         print("Get amount product in cart")
     }
@@ -269,10 +275,6 @@ extension HomeViewController: CartViewModelEvents {
                 self.showAlert(message: messageChangeData)
             }
         }
-    }
-    
-    func gotErrorCart(messageError: ErrorModel) {
-        print("")
     }
 }
 
