@@ -254,6 +254,8 @@ extension DetailViewController: DetailViewModelEvents {
 
 @available(iOS 13.0, *)
 extension DetailViewController: CartViewModelEvents {
+    func gotIdOrder() {}
+    
     func gotErrorCart(messageError: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageError)
