@@ -29,8 +29,6 @@ class ExploreViewController: UIViewController {
         showFilterScreen()
     }
     
-
-    
     func setupView() {
         categoryProductCollectionView.delegate = self
         categoryProductCollectionView.dataSource = self
@@ -56,6 +54,8 @@ class ExploreViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Filter", bundle: .main)
         guard let filterViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterView") as? FilterViewController else { return }
         filterViewController.modalPresentationStyle = .fullScreen
+        filterViewController.filterViewModel.arrayProduct = exploreViewModel.arrayProduct
+        filterViewController.delegate = self
         present(filterViewController, animated: true, completion: nil)
     }
     
@@ -96,6 +96,7 @@ extension ExploreViewController: UICollectionViewDataSource {
             return exploreViewModel.arrayImageCategory.count
         } else {
             return exploreViewModel.arrayProduct.count
+            
         }
     }
     
@@ -109,7 +110,7 @@ extension ExploreViewController: UICollectionViewDataSource {
             return itemCell
         } else {
             let itemProductCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
-            itemProductCell.configure(item: exploreViewModel.arrayProduct[indexPath.item])
+                itemProductCell.configure(item: exploreViewModel.arrayProduct[indexPath.item])
             itemProductCell.delegate = self
             return itemProductCell
         }
@@ -148,6 +149,12 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ExploreViewController: ExploreViewModelEvents {
+    func gotFilter() {
+        DispatchQueue.main.async {
+            self.productCollectionView.reloadData()
+        }
+    }
+    
     func gotData(isSearch: Bool) {
         DispatchQueue.main.async {
             if isSearch {
@@ -220,6 +227,14 @@ extension ExploreViewController: CartViewModelEvents {
     func gotErrorCart(messageError: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageError)
+        }
+    }
+}
+
+extension ExploreViewController: FilterViewDelegate {
+    func gotFilter(filterViewModel: FilterViewModel) {
+        DispatchQueue.main.async {
+            self.exploreViewModel.filterDone(model: filterViewModel)
         }
     }
 }

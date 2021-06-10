@@ -9,6 +9,7 @@ import UIKit
 
 protocol ExploreViewModelEvents: AnyObject {
     func gotData(isSearch: Bool)
+    func gotFilter()
     func gotMessage(message: String)
     func gotError(messageError: ErrorModel)
 }
@@ -56,6 +57,11 @@ class ExploreViewModel {
         }
     }
     
+    func filterDone(model: FilterViewModel) {
+        self.arrayProduct = model.arrayProductFilter
+        delegate?.gotFilter()
+    }
+
     func getProductByCategory(categoryId: String, categoryName: String) {
         api.getProductByCategoryFromAPI(categoryId: categoryId) {
             [weak self] result in
