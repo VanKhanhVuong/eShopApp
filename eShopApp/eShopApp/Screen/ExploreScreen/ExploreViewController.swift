@@ -8,6 +8,7 @@
 import UIKit
 
 class ExploreViewController: UIViewController {
+    
     @IBOutlet weak var exploreSearchBar: UISearchBar!
     @IBOutlet weak var categoryProductCollectionView: UICollectionView!
     @IBOutlet weak var searchView: UIView!
@@ -16,12 +17,19 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var searchFakeView: UIView!
     
-    private var exploreViewModel = ExploreViewModel()
+    var exploreViewModel = ExploreViewModel()
+    private var cartViewModel = CartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
+    
+    @IBAction func filterTapped(_ sender: Any) {
+        showFilterScreen()
+    }
+    
+
     
     func setupView() {
         categoryProductCollectionView.delegate = self
@@ -31,6 +39,7 @@ class ExploreViewController: UIViewController {
         
         exploreSearchBar.delegate = self
         exploreViewModel.delegate = self
+        cartViewModel.delegate = self
         
         searchView.isHidden = true
         actionTappedSearchFake()
@@ -41,6 +50,13 @@ class ExploreViewController: UIViewController {
         
         searchFakeView.clipsToBounds = true
         searchFakeView.layer.cornerRadius = 15
+    }
+    
+    func showFilterScreen() {
+        let mainStoryboard = UIStoryboard(name: "Filter", bundle: .main)
+        guard let filterViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterView") as? FilterViewController else { return }
+        filterViewController.modalPresentationStyle = .fullScreen
+        present(filterViewController, animated: true, completion: nil)
     }
     
     private func actionTappedSearchFake() {
@@ -61,17 +77,25 @@ class ExploreViewController: UIViewController {
         categoryProductCollectionView.isHidden = false
         navigationController?.isNavigationBarHidden = false
     }
+    
+    func navigationTypeProductView() {
+        let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
+        guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
+        typeProductViewController.nameCategory = exploreViewModel.nameCategory
+        typeProductViewController.typeProductViewModel.arrayProduct = exploreViewModel.arrayProduct
+        typeProductViewController.modalPresentationStyle = .fullScreen
+        present(typeProductViewController, animated: true, completion: nil)
+    }
 }
 
-extension ExploreViewController: UICollectionViewDelegate {
-}
+extension ExploreViewController: UICollectionViewDelegate {}
 
 extension ExploreViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == categoryProductCollectionView {
             return exploreViewModel.arrayImageCategory.count
         } else {
-            return exploreViewModel.arrayProductByName.count
+            return exploreViewModel.arrayProduct.count
         }
     }
     
@@ -85,7 +109,8 @@ extension ExploreViewController: UICollectionViewDataSource {
             return itemCell
         } else {
             let itemProductCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
-            itemProductCell.configure(item: exploreViewModel.arrayProductByName[indexPath.item])
+            itemProductCell.configure(item: exploreViewModel.arrayProduct[indexPath.item])
+            itemProductCell.delegate = self
             return itemProductCell
         }
     }
@@ -111,31 +136,31 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryProductCollectionView {
-            let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
-            guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
-            typeProductViewController.nameCategory = exploreViewModel.arrayNameCategory[indexPath.row]
-            typeProductViewController.modalPresentationStyle = .fullScreen
-            present(typeProductViewController, animated: true, completion: nil)
+            exploreViewModel.getProductByCategory(categoryId: exploreViewModel.arrayIdCategory[indexPath.row], categoryName: exploreViewModel.arrayNameCategory[indexPath.row])
         } else {
             let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
             guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
             detailViewController.modalPresentationStyle = .fullScreen
-            detailViewController.detailViewModel.itemProduct = exploreViewModel.arrayProductByName[indexPath.item]
+            detailViewController.detailViewModel.itemProduct = exploreViewModel.arrayProduct[indexPath.item]
             present(detailViewController, animated: true, completion: nil)
         }
     }
 }
 
 extension ExploreViewController: ExploreViewModelEvents {
-    func gotMessage(message: String) {
-        showAlert(message: message)
+    func gotData(isSearch: Bool) {
+        DispatchQueue.main.async {
+            if isSearch {
+                self.categoryProductCollectionView.reloadData()
+                self.productCollectionView.reloadData()
+            } else {
+                self.navigationTypeProductView()
+            }
+        }
     }
     
-    func gotData() {
-        DispatchQueue.main.async {
-            self.categoryProductCollectionView.reloadData()
-            self.productCollectionView.reloadData()
-        }
+    func gotMessage(message: String) {
+        showAlert(message: message)
     }
     
     func gotError(messageError: ErrorModel) {
@@ -144,7 +169,7 @@ extension ExploreViewController: ExploreViewModelEvents {
 }
 extension ExploreViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        exploreViewModel.arrayProductByName = []
+        exploreViewModel.arrayProduct = []
         productCollectionView.reloadData()
         searchBar.showsCancelButton = true
         return true
@@ -156,7 +181,7 @@ extension ExploreViewController: UISearchBarDelegate {
             searchBar.resignFirstResponder()
             searchBar.text = ""
             showAlert(message: "Please enter the keyword you want to search.")
-            exploreViewModel.arrayProductByName = []
+            exploreViewModel.arrayProduct = []
             return
         }
         exploreViewModel.searchProductByName(productName: query)
@@ -168,5 +193,33 @@ extension ExploreViewController: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.showsCancelButton = false
         cancelSearch()
+    }
+}
+
+extension ExploreViewController: ItemCollectionViewCellEvents {
+    func addCart(item: ItemCollectionViewCell) {
+        DispatchQueue.main.async {
+            self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false, userId: self.getUserId())
+        }
+    }
+}
+
+extension ExploreViewController: CartViewModelEvents {
+    func gotDataCart(messageChangeData: String) {
+        DispatchQueue.main.async {
+            if !messageChangeData.isEmpty {
+                self.showAlert(message: messageChangeData)
+            }
+        }
+    }
+    
+    func gotAmountProduct(amount: String) {}
+    
+    func gotIdOrder() {}
+    
+    func gotErrorCart(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
     }
 }
