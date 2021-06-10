@@ -27,14 +27,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IX-iW-Bxz" customClass="CustomView" customModule="eShopApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="vST-cJ-BHr"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkx-6S-eVn">
-                                <rect key="frame" x="25" y="44" width="16" height="16"/>
+                                <rect key="frame" x="25" y="54" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="dx4-vt-vNr"/>
                                     <constraint firstAttribute="width" constant="16" id="rFt-9g-eGg"/>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mvf-rk-Lsh">
-                                <rect key="frame" x="25" y="300" width="364" height="195"/>
+                                <rect key="frame" x="25" y="344" width="364" height="195"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdg-Oo-w0t">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="39"/>
@@ -93,7 +93,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f03-JM-ih2">
-                                <rect key="frame" x="25" y="510" width="364" height="67"/>
+                                <rect key="frame" x="25" y="554" width="364" height="67"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
                                 <state key="normal" title="Log In">
@@ -104,7 +104,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account? Singup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-X6-fiK">
-                                <rect key="frame" x="108.5" y="597" width="197" height="16.5"/>
+                                <rect key="frame" x="108.5" y="641" width="197" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Zkx-6S-eVn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0hm-4w-94O"/>
+                            <constraint firstItem="Zkx-6S-eVn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="0hm-4w-94O"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mvf-rk-Lsh" secondAttribute="trailing" constant="25" id="1DM-yD-jE3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7IX-iW-Bxz" secondAttribute="trailing" id="5CK-P5-ElN"/>
                             <constraint firstItem="f03-JM-ih2" firstAttribute="top" secondItem="Mvf-rk-Lsh" secondAttribute="bottom" constant="15" id="9j3-i4-5qZ"/>
@@ -124,9 +124,9 @@
                             <constraint firstItem="f03-JM-ih2" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="1/13.4" id="aez-d0-z6o"/>
                             <constraint firstItem="Mvf-rk-Lsh" firstAttribute="top" secondItem="7IX-iW-Bxz" secondAttribute="bottom" id="af0-eu-eh6"/>
                             <constraint firstItem="P6Q-X6-fiK" firstAttribute="top" secondItem="f03-JM-ih2" secondAttribute="bottom" constant="20" id="fFf-Vy-0UZ"/>
-                            <constraint firstItem="7IX-iW-Bxz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="hGr-2R-UXv"/>
                             <constraint firstItem="f03-JM-ih2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="o65-DR-9qV"/>
                             <constraint firstItem="Zkx-6S-eVn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="uWo-Uj-vf2"/>
+                            <constraint firstItem="7IX-iW-Bxz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="xYX-k8-DcC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yBN-yP-72B">
