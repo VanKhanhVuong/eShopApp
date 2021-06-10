@@ -17,7 +17,7 @@ struct DataProduct: Codable {
     }
 }
 
-struct Product: Codable {
+struct Product: Codable, Hashable {
     var productId: String?
     var productName: String?
     var imageProduct: String?

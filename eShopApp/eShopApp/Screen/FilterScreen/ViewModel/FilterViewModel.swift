@@ -9,6 +9,7 @@ import Foundation
 
 protocol FilterViewModelEvents: AnyObject {
     func gotData(isCategoryData: Bool)
+    func gotFilter()
     func gotError(messageError: ErrorModel)
 }
 
@@ -16,6 +17,8 @@ class FilterViewModel {
     private var api = APIClient()
     var arrayBrand: [Brand] = []
     var arrayCategory: [Category] = []
+    var arrayProduct: [Product] = []
+    var arrayProductFilter: [Product] = []
     let headerTitles = ["Category", "Brand"]
     weak var delegate: FilterViewModelEvents?
     
@@ -37,6 +40,46 @@ class FilterViewModel {
                 }
             case .failure(_):
                 break
+            }
+        }
+    }
+    
+    func getData(array: [String]) {
+        var arrayCategory:[Product] = []
+        var arrayBrand:[Product] = []
+        array.forEach { name in
+            let string = name[name.startIndex]
+            if string ==  "c" {
+                print(string)
+                arrayCategory = self.arrayProduct.filter { $0.categoryId == name}
+                print(arrayCategory)
+            } else {
+                print(string)
+                arrayBrand = self.arrayProduct.filter { $0.brandId == name}
+                print(arrayBrand)
+            }
+        }
+        
+        if !arrayCategory.isEmpty {
+            if !arrayBrand.isEmpty {
+                let arrayCategorySet = Set(arrayCategory)
+                let arrayBrandSet = Set(arrayBrand)
+                let output = Array(arrayLiteral: arrayCategorySet.intersection(arrayBrandSet))
+                let flat = output.flatMap{$0}
+                self.arrayProductFilter = flat
+                delegate?.gotFilter()
+            } else {
+                print(arrayCategory)
+                self.arrayProductFilter = arrayCategory
+                delegate?.gotFilter()
+            }
+        } else {
+            if !arrayBrand.isEmpty {
+                self.arrayProductFilter = arrayBrand
+                delegate?.gotFilter()
+            } else {
+                self.arrayProductFilter.removeAll()
+                delegate?.gotFilter()
             }
         }
     }
