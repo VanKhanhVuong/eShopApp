@@ -7,20 +7,30 @@
 
 import UIKit
 
+protocol OrderSuccessViewDelegate: AnyObject {
+    func backToCart()
+}
+
 class OrderSuccessViewController: UIViewController {
-    @IBOutlet weak var trackOrderButton: UIButton!
-    @IBOutlet weak var backToHomeButton: UIButton!
+    @IBOutlet weak var backToCartButton: UIButton!
+    
+    weak var delegate: OrderSuccessViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
+    private func backToCart() {
+        self.dismiss(animated: true, completion: nil)
+        delegate?.backToCart()
+    }
+    
+    @IBAction func backToHomeTapped(_ sender: Any) {
+        backToCart()
+    }
+    
     func setupView() {
-        trackOrderButton.clipsToBounds = true
-        trackOrderButton.layer.cornerRadius = 15
-        
-        trackOrderButton.clipsToBounds = true
-        trackOrderButton.layer.cornerRadius = 15
+        backToCartButton.configureButton()
     }
 }

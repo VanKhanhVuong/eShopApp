@@ -15,6 +15,7 @@ protocol CheckoutPopUpDelegate: AnyObject {
 class CheckoutPopUp: UIView {
     @IBOutlet weak var placeOrderButton: UIButton!
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var totalBillLabel: UILabel!
     
     weak var delegate: CheckoutPopUpDelegate?
     
