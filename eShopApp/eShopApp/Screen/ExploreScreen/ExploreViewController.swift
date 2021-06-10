@@ -95,7 +95,12 @@ extension ExploreViewController: UICollectionViewDataSource {
         if collectionView == categoryProductCollectionView {
             return exploreViewModel.arrayImageCategory.count
         } else {
-            return exploreViewModel.arrayProduct.count
+            if !exploreViewModel.arrayProductFilter.isEmpty {
+                return exploreViewModel.arrayProductFilter.count
+            } else {
+                return exploreViewModel.arrayProduct.count
+            }
+            
             
         }
     }
@@ -110,7 +115,11 @@ extension ExploreViewController: UICollectionViewDataSource {
             return itemCell
         } else {
             let itemProductCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
+            if !exploreViewModel.arrayProductFilter.isEmpty {
+                itemProductCell.configure(item: exploreViewModel.arrayProductFilter[indexPath.item])
+            } else {
                 itemProductCell.configure(item: exploreViewModel.arrayProduct[indexPath.item])
+            }
             itemProductCell.delegate = self
             return itemProductCell
         }
@@ -149,6 +158,12 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ExploreViewController: ExploreViewModelEvents {
+    func gotError(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
+    }
+    
     func gotFilter() {
         DispatchQueue.main.async {
             self.productCollectionView.reloadData()
@@ -167,11 +182,9 @@ extension ExploreViewController: ExploreViewModelEvents {
     }
     
     func gotMessage(message: String) {
-        showAlert(message: message)
-    }
-    
-    func gotError(messageError: ErrorModel) {
-        showAlert(message: messageError.rawValue)
+        DispatchQueue.main.async {
+            self.showAlert(message: message)
+        }
     }
 }
 extension ExploreViewController: UISearchBarDelegate {
