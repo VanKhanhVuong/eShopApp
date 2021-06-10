@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
                 if error != nil {
                     self.showAlert(message: "Login Fail !")
                 } else {
-                    self.navigationHomeScreen()
+                    self.navigationHomeScreen(emailUser: email)
                 }
             }
         }
@@ -63,10 +63,11 @@ class LoginViewController: UIViewController {
         self.present(signUpViewController, animated: true, completion: nil)
     }
     
-    func navigationHomeScreen() {
+    func navigationHomeScreen(emailUser: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let keychain = Keychain()
         keychain[string: "token"] = userID
+        keychain[string: "email"] = emailUser
         delegate?.loginSuccess()
         self.dismiss(animated: true, completion: nil)
     }

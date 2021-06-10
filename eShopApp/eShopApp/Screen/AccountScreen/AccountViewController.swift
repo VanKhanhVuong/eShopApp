@@ -34,7 +34,9 @@ class AccountViewController: UIViewController {
     @IBAction func touchLogOutTapped(_ sender: Any) {
         if logoutButton.titleLabel?.text == "Log Out" {
             print("Log Out and delete userID")
+            showAlert(message: "You are now logged out")
             keychain[string: "token"] = ""
+            checkLogin()
         } else {
             let mainStoryboard = UIStoryboard(name: "SignIn", bundle: .main)
             guard let signInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
@@ -47,20 +49,25 @@ class AccountViewController: UIViewController {
         userCategoryTableView.dataSource = self
         userCategoryTableView.register(cellType: AccountTableViewCell.self)
         
-        logoutButton.clipsToBounds = true
-        logoutButton.layer.cornerRadius = 15
+        logoutButton.configureButton()
         
         contentAvatarView.clipsToBounds = true
         contentAvatarView.layer.cornerRadius = contentAvatarView.bounds.size.height/2
     }
     
     func checkLogin() {
-        
         let token = keychain["token"] ?? ""
         if !token.isEmpty {
             logoutButton.setTitle("Log Out", for: .normal)
+            showAlert(message: "Logged in successfully")
+            emailUserLabel.text = getEmailUser()
+            userNameLabel.text = "Welcome"
+            userNameLabel.isHidden = false
+            emailUserLabel.isHidden = false
             logoutImageView.isHidden = false
         } else {
+            userNameLabel.isHidden = true
+            emailUserLabel.isHidden = true
             logoutButton.setTitle("Log In", for: .normal)
             logoutImageView.isHidden = true
         }
