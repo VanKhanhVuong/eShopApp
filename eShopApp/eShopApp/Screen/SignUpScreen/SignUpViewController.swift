@@ -27,19 +27,32 @@ class SignUpViewController: UIViewController {
         messageSignUpView.titleLabel.text = "Sign Up"
         messageSignUpView.subtitleLabel.text = "Enter your credentials to continue"
         setupView()
+        actionClickSignUp()
+    }
+    
+    func actionClickSignUp() {
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.navigationSignInScreen))
+        self.signInLabel.addGestureRecognizer(gesture)
+    }
+    
+    @objc func navigationSignInScreen(sender : UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func signUpTapped(_ sender: Any) {
         guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        if !isValidEmail(email: email) {
+            self.showAlert(message: "Please enter the correct email format.")
+        }
         // Validate the fields
         let error = validateField()
         if error != nil {
-            // Show message Error
+            self.showAlert(message: error ?? "")
         } else {
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 if error != nil {
-                    print("Sign up Fail")
+                    self.showAlert(message: "Create account fail")
                 } else {
                     self.delegate?.signUpSuccess()
                     self.dismiss(animated: true, completion: nil)
@@ -51,8 +64,13 @@ class SignUpViewController: UIViewController {
     func setupView() {
         signUpButton.clipsToBounds = true
         signUpButton.layer.cornerRadius = 15
-        
-//        signInLabel.attributedText = changeColorText()
+        signInLabel.attributedText = changeColorText()
+    }
+    
+    func isValidEmail(email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
     
     func validateField() -> String? {
@@ -72,8 +90,8 @@ class SignUpViewController: UIViewController {
     
     private func changeColorText() -> NSMutableAttributedString {
         var myMutableString = NSMutableAttributedString()
-        myMutableString = NSMutableAttributedString(string: "Already have an account? Sign In" as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Gilroy-Bold", size: CGFloat(14.0)) as Any])
-        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location:26, length: 7))
+        myMutableString = NSMutableAttributedString(string: "Already have an account? Login" as String, attributes: [NSAttributedString.Key.font:UIFont(name: "Gilroy-Bold", size: CGFloat(14.0)) as Any])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(named: "AccentColor") ?? "", range: NSRange(location:25, length: 5))
         return myMutableString
     }
 }
