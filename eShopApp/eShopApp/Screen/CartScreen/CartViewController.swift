@@ -56,7 +56,8 @@ class CartViewController: UIViewController {
     }
     
     func navigationCheckout() {
-        //checkoutViewController.checkoutViewModel.idOrder = cartViewModel.idOrder
+        checkoutViewController.checkoutViewModel.idOrder = cartViewModel.idOrder
+        checkoutViewController.checkoutViewModel.totalBill = "\(cartViewModel.totalPrice())"
         checkoutViewController.modalPresentationStyle = .custom
         present(checkoutViewController, animated: true, completion: nil)
     }
@@ -118,12 +119,8 @@ extension CartViewController: CartTableViewCellEvents {
     }
     
     func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell ) {
-        if amount == "1" {
-            self.cartViewModel.deleteCart(idCart: cell.cartId, userId: getUserId())
-        } else {
-            DispatchQueue.main.async {
-                self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true, userId: self.getUserId())
-            }
+        DispatchQueue.main.async {
+            self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true, userId: self.getUserId())
         }
     }
 }
