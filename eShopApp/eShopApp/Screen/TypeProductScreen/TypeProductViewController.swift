@@ -12,6 +12,7 @@ class TypeProductViewController: UIViewController {
     @IBOutlet weak var titleNavigationItem: UINavigationItem!
     
     var typeProductViewModel = TypeProductModel()
+    private var cartViewModel = CartViewModel()
     var nameCategory: String = ""
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class TypeProductViewController: UIViewController {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         typeProductViewModel.delegate = self
+        cartViewModel.delegate = self
         
         productCollectionView.register(cellType: ItemCollectionViewCell.self)
         typeProductViewModel.loadItemProduct()
@@ -65,6 +67,7 @@ extension TypeProductViewController: UICollectionViewDataSource {
         let itemCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
         let image = typeProductViewModel.arrayProduct[indexPath.row]
         itemCell.configure(item: image)
+        itemCell.delegate = self
         return itemCell
     }
 }
@@ -88,5 +91,33 @@ extension TypeProductViewController: TypeProductModelEvents {
     
     func gotError(messageError: ErrorModel) {
         print("")
+    }
+}
+
+extension TypeProductViewController: ItemCollectionViewCellEvents {
+    func addCart(item: ItemCollectionViewCell) {
+        DispatchQueue.main.async {
+            self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false, userId: self.getUserId())
+        }
+    }
+}
+
+extension TypeProductViewController: CartViewModelEvents {
+    func gotDataCart(messageChangeData: String) {
+        DispatchQueue.main.async {
+            if !messageChangeData.isEmpty {
+                self.showAlert(message: messageChangeData)
+            }
+        }
+    }
+    
+    func gotAmountProduct(amount: String) {}
+    
+    func gotIdOrder() {}
+    
+    func gotErrorCart(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
     }
 }
