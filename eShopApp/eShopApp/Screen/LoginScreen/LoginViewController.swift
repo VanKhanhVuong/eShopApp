@@ -106,7 +106,6 @@ class LoginViewController: UIViewController {
 extension LoginViewController: SignUpViewEvents {
     func signUpSuccess() {
         DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
         }
     }
 }
