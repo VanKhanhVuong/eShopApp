@@ -51,7 +51,6 @@ class FilterViewController: UIViewController {
     }
     
     func closeFilter() {
-        exploreViewController.exploreViewModel.arrayFilter = filterViewModel.arrayProductFilter
         delegate?.gotFilter(filterViewModel: filterViewModel)
         self.dismiss(animated: true, completion: nil)
     }
