@@ -21,4 +21,10 @@ extension UIViewController {
         let userId = keychain["token"] ?? ""
         return userId
     }
+    
+    func getEmailUser() -> String {
+        let keychain = Keychain()
+        let emailUser = keychain["email"] ?? ""
+        return emailUser
+    }
 }
