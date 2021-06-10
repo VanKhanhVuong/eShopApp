@@ -14,7 +14,7 @@ class CartViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     var cartViewModel = CartViewModel()
-    private var checkoutViewController = CheckoutViewController()
+    
     var cartTableViewCell = CartTableViewCell()
     
     override func viewDidLoad() {
@@ -28,8 +28,11 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func checkoutTapped(_ sender: Any) {
-        // func tạo idOrder = userId_Date
-        createOrder()
+        if cartViewModel.totalPrice() != 0.0 {
+            createOrder()
+        } else {
+            showAlert(message: "Sorry cart empty")
+        }
     }
     
     func setupUIView() {
@@ -56,9 +59,11 @@ class CartViewController: UIViewController {
     }
     
     func navigationCheckout() {
+        let checkoutViewController = CheckoutViewController()
         checkoutViewController.checkoutViewModel.idOrder = cartViewModel.idOrder
         checkoutViewController.checkoutViewModel.totalBill = "\(cartViewModel.totalPrice())"
         checkoutViewController.modalPresentationStyle = .custom
+        checkoutViewController.delegate = self
         present(checkoutViewController, animated: true, completion: nil)
     }
 }
@@ -102,11 +107,16 @@ extension CartViewController: CartViewModelEvents {
     
     func gotDataCart(messageChangeData: String) {
         DispatchQueue.main.async {
+            if self.cartViewModel.arrayCart.isEmpty {
+                self.carTableView.reloadData()
+                self.totalPriceLabel.text = "$" + "0.0"
+            } else {
+                self.carTableView.reloadData()
+                self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
+            }
             if !messageChangeData.isEmpty {
                 self.showAlert(message: messageChangeData)
             }
-            self.carTableView.reloadData()
-            self.totalPriceLabel.text = "$" + "\(self.cartViewModel.totalPrice())"
         }
     }
 }
@@ -121,6 +131,14 @@ extension CartViewController: CartTableViewCellEvents {
     func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell ) {
         DispatchQueue.main.async {
             self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true, userId: self.getUserId())
+        }
+    }
+}
+
+extension CartViewController: CheckoutViewDelegate {
+    func backToCart() {
+        DispatchQueue.main.async {
+            self.cartViewModel.findCart(userId: self.getUserId())
         }
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CheckoutViewDelegate: AnyObject {
+    func backToCart()
+}
+
 final class CheckoutViewController: UIViewController {
     
     lazy var backdropView: UIView = {
@@ -19,6 +23,7 @@ final class CheckoutViewController: UIViewController {
     let menuHeight = UIScreen.main.bounds.height / 1.8
     var isPresenting = false
     var checkoutViewModel = CheckoutViewModel()
+    weak var delegate: CheckoutViewDelegate?
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -43,6 +48,7 @@ final class CheckoutViewController: UIViewController {
         view.addSubview(menuView)
         
         menuView.delegate = self
+        menuView.totalBillLabel.text = "$" + checkoutViewModel.totalBill
         menuView.translatesAutoresizingMaskIntoConstraints = false
         menuView.heightAnchor.constraint(equalToConstant: menuHeight).isActive = true
         menuView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -61,13 +67,15 @@ final class CheckoutViewController: UIViewController {
     
     private func dismissCheckoutView() {
         dismiss(animated: true, completion: nil)
+        delegate?.backToCart()
     }
     
     func navigationOrderSusscess() {
         let mainStoryboard = UIStoryboard(name: "OrderSuccess", bundle: .main)
-        guard let signUpViewController = mainStoryboard.instantiateViewController(withIdentifier: "OrderSuccessView") as? OrderSuccessViewController else { return }
-        signUpViewController.modalPresentationStyle = .fullScreen
-        self.present(signUpViewController, animated: true, completion: nil)
+        guard let orderSuccessViewController = mainStoryboard.instantiateViewController(withIdentifier: "OrderSuccessView") as? OrderSuccessViewController else { return }
+        orderSuccessViewController.delegate = self
+        orderSuccessViewController.modalPresentationStyle = .fullScreen
+        self.present(orderSuccessViewController, animated: true, completion: nil)
     }
 }
 
@@ -135,6 +143,14 @@ extension CheckoutViewController: CheckoutViewModelEvents {
     func gotError(messageError: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageError)
+        }
+    }
+}
+
+extension CheckoutViewController: OrderSuccessViewDelegate {
+    func backToCart() {
+        DispatchQueue.main.async {
+            self.dismissCheckoutView()
         }
     }
 }

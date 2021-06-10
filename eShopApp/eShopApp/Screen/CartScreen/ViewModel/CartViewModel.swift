@@ -95,6 +95,9 @@ class CartViewModel {
                         self.arrayCart = carts
                         print(self.arrayCart)
                         self.delegate?.gotDataCart(messageChangeData: "")
+                    } else {
+                        self.arrayCart.removeAll()
+                        self.delegate?.gotDataCart(messageChangeData: "")
                     }
                 case .failure(let error):
                     self.delegate?.gotErrorCart(messageError: error.rawValue)
