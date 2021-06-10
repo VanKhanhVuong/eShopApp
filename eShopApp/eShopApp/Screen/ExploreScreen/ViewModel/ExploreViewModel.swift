@@ -11,7 +11,7 @@ protocol ExploreViewModelEvents: AnyObject {
     func gotData(isSearch: Bool)
     func gotFilter()
     func gotMessage(message: String)
-    func gotError(messageError: ErrorModel)
+    func gotError(messageError: String)
 }
 
 class ExploreViewModel {
@@ -21,6 +21,7 @@ class ExploreViewModel {
     var arrayIdCategory: [String] = []
     var arrayColorBackground: [UIColor] = []
     var arrayProduct: [Product] = []
+    var arrayProductFilter: [Product] = []
     var api = APIClient()
     weak var delegate: ExploreViewModelEvents?
     
@@ -52,14 +53,18 @@ class ExploreViewModel {
                 }
             case .failure(let error):
                 self.arrayProduct.removeAll()
-                self.delegate?.gotError(messageError: error)
+                self.delegate?.gotError(messageError: error.rawValue)
             }
         }
     }
     
     func filterDone(model: FilterViewModel) {
-        self.arrayProduct = model.arrayProductFilter
-        delegate?.gotFilter()
+        self.arrayProductFilter = model.arrayProductFilter
+        if !self.arrayProductFilter.isEmpty {
+            delegate?.gotFilter()
+        } else {
+            delegate?.gotError(messageError: "Can't filter")
+        }
     }
 
     func getProductByCategory(categoryId: String, categoryName: String) {
@@ -78,7 +83,7 @@ class ExploreViewModel {
                 }
             case .failure(let error):
                 self.arrayProduct.removeAll()
-                self.delegate?.gotError(messageError: error)
+                self.delegate?.gotError(messageError: error.rawValue)
             }
         }
     }
