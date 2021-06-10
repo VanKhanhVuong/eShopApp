@@ -42,6 +42,8 @@ class TypeProductViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Filter", bundle: .main)
         guard let filterViewController = mainStoryboard.instantiateViewController(withIdentifier: "FilterView") as? FilterViewController else { return }
         filterViewController.modalPresentationStyle = .fullScreen
+        filterViewController.filterViewModel.arrayProduct = typeProductViewModel.arrayProduct
+        filterViewController.delegate = self
         present(filterViewController, animated: true, completion: nil)
     }
 }
@@ -60,13 +62,23 @@ extension TypeProductViewController: UICollectionViewDelegate {
 
 extension TypeProductViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return typeProductViewModel.arrayProduct.count
+        if !typeProductViewModel.arrayProductFilter.isEmpty {
+            return typeProductViewModel.arrayProductFilter.count
+        } else {
+            return typeProductViewModel.arrayProduct.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let itemCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
-        let image = typeProductViewModel.arrayProduct[indexPath.row]
-        itemCell.configure(item: image)
+        if !typeProductViewModel.arrayProductFilter.isEmpty {
+            let image = typeProductViewModel.arrayProductFilter[indexPath.row]
+            itemCell.configure(item: image)
+        } else {
+            let image = typeProductViewModel.arrayProduct[indexPath.row]
+            itemCell.configure(item: image)
+        }
         itemCell.delegate = self
         return itemCell
     }
@@ -83,14 +95,22 @@ extension TypeProductViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension TypeProductViewController: TypeProductModelEvents {
-    func gotData() {
+    func gotError(messageError: String) {
+        DispatchQueue.main.async {
+            self.showAlert(message: messageError)
+        }
+    }
+    
+    func gotFilter() {
         DispatchQueue.main.async {
             self.productCollectionView.reloadData()
         }
     }
     
-    func gotError(messageError: ErrorModel) {
-        print("")
+    func gotData() {
+        DispatchQueue.main.async {
+            self.productCollectionView.reloadData()
+        }
     }
 }
 
@@ -118,6 +138,14 @@ extension TypeProductViewController: CartViewModelEvents {
     func gotErrorCart(messageError: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageError)
+        }
+    }
+}
+
+extension TypeProductViewController: FilterViewDelegate {
+    func gotFilter(filterViewModel: FilterViewModel) {
+        DispatchQueue.main.async {
+            self.typeProductViewModel.filterDone(model: filterViewModel)
         }
     }
 }
