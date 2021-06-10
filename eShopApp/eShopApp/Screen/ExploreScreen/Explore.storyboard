@@ -72,6 +72,9 @@
                                                         <rect key="frame" x="350" y="0.0" width="44" height="51"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <state key="normal" image="filter"/>
+                                                        <connections>
+                                                            <action selector="filterTapped:" destination="4NC-pc-dqe" eventType="touchUpInside" id="sLY-lq-FPC"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
