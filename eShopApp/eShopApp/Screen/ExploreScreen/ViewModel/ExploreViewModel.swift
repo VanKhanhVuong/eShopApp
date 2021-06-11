@@ -29,11 +29,11 @@ class ExploreViewModel {
         arrayImageCategory = [#imageLiteral(resourceName: "tv"),#imageLiteral(resourceName: "Iphone"),#imageLiteral(resourceName: "Laptop"),#imageLiteral(resourceName: "EarPhone"),#imageLiteral(resourceName: "SmartWatch")]
         arrayIdCategory = ["category001","category002","category003","category005","category006"]
         arrayNameCategory = ["TV","Smart Phone","Laptop","Ear Phone","Smart Watch"]
-        arrayColorBackground = [UIColor(red: 230/255, green: 70/255, blue: 63/255, alpha: 1),
-                                UIColor(red: 236/255, green: 235/255, blue: 133/255, alpha: 1),
-                                UIColor(red: 157/255, green: 172/255, blue: 87/255, alpha: 1),
-                                UIColor(red: 138/255, green: 178/255, blue: 228/255, alpha: 1),
-                                UIColor(red: 210/255, green: 81/255, blue: 91/255, alpha: 1)
+        arrayColorBackground = [UIColor(red: 238/255, green: 247/255, blue: 241/255, alpha: 1),
+                                UIColor(red: 254/255, green: 246/255, blue: 237/255, alpha: 1),
+                                UIColor(red: 253/255, green: 231/255, blue: 228/255, alpha: 1),
+                                UIColor(red: 244/255, green: 235/255, blue: 247/255, alpha: 1),
+                                UIColor(red: 255/255, green: 249/255, blue: 229/255, alpha: 1)
         ]
         self.delegate?.gotData(isSearch: true)
     }
