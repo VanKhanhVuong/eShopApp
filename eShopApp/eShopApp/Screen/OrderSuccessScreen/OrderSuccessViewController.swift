@@ -26,11 +26,11 @@ class OrderSuccessViewController: UIViewController {
         delegate?.backToCart()
     }
     
-    @IBAction func backToHomeTapped(_ sender: Any) {
-        backToCart()
-    }
-    
     func setupView() {
         backToCartButton.configureButton()
+    }
+    
+    @IBAction func backToHomeTapped(_ sender: Any) {
+        backToCart()
     }
 }
