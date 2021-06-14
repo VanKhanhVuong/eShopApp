@@ -16,7 +16,6 @@ class FavoritesTableViewCell: UITableViewCell {
     func configure(item: Favorite) {
         productImageView.getImage(urlString: item.imageProduct ?? "")
         priceLabel.text = "$\(item.price ?? "")"
-//        unitLabel.text = item.unit
         nameProductLabel.text = item.productName
     }
 }
