@@ -28,28 +28,6 @@ class LoginViewController: UIViewController {
         setupView()
     }
     
-    @IBAction func closeScreenTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func loginTapped(_ sender: Any) {
-        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        
-        let error = validateField()
-        if error != nil {
-            self.showAlert(message: error ?? "")
-        } else {
-            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-                if error != nil {
-                    self.showAlert(message: "Login Fail !")
-                } else {
-                    self.navigationHomeScreen(emailUser: email)
-                }
-            }
-        }
-    }
-    
     func actionClickSignUp() {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.navigationSignUpScreen))
         self.signUpLabel.addGestureRecognizer(gesture)
@@ -59,7 +37,6 @@ class LoginViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "SignUp", bundle: .main)
         guard let signUpViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignUpView") as? SignUpViewController else { return }
         signUpViewController.modalPresentationStyle = .fullScreen
-        signUpViewController.delegate = self
         self.present(signUpViewController, animated: true, completion: nil)
     }
     
@@ -86,8 +63,7 @@ class LoginViewController: UIViewController {
         messageLoginView.titleLabel.text = "Loging"
         messageLoginView.subtitleLabel.text = "Enter your emails and password"
         
-        loginButton.clipsToBounds = true
-        loginButton.layer.cornerRadius = 15
+        loginButton.configureButton()
     }
     
     func validateField() -> String? {
@@ -102,11 +78,26 @@ class LoginViewController: UIViewController {
         }
         return nil
     }
-}
+    
+    @IBAction func closeScreenTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
-extension LoginViewController: SignUpViewEvents {
-    func signUpSuccess() {
-        DispatchQueue.main.async {
+    @IBAction func loginTapped(_ sender: Any) {
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        
+        let error = validateField()
+        if error != nil {
+            self.showAlert(message: error ?? "")
+        } else {
+            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                if error != nil {
+                    self.showAlert(message: "Login Fail !")
+                } else {
+                    self.navigationHomeScreen(emailUser: email)
+                }
+            }
         }
     }
 }
