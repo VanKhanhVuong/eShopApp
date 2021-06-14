@@ -19,13 +19,6 @@ class CheckoutPopUp: UIView {
     
     weak var delegate: CheckoutPopUpDelegate?
     
-    @IBAction func closeCheckout(_ sender: Any) {
-        delegate?.closeCheckoutView()
-    }
-    @IBAction func placeOrderTapped(_ sender: Any) {
-        delegate?.submit()
-    }
-    
     override init (frame: CGRect){
         super.init(frame: frame)
         commitInit()
@@ -50,5 +43,13 @@ class CheckoutPopUp: UIView {
         setupUI()
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+    }
+    
+    @IBAction func closeCheckout(_ sender: Any) {
+        delegate?.closeCheckoutView()
+    }
+    
+    @IBAction func placeOrderTapped(_ sender: Any) {
+        delegate?.submit()
     }
 }
