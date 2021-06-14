@@ -27,14 +27,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            setupView()
-        } else {
-            // Fallback on earlier versions
-        }
+        setupView()
     }
     
-    @available(iOS 13.0, *)
     private func setupView() {
         slideCollectionView.delegate = self
         exclusiveOfferCollectionView.delegate = self
@@ -64,10 +59,10 @@ class HomeViewController: UIViewController {
         cheapProductsCollectionView.register(cellType: ItemCollectionViewCell.self)
         categoryCollectionView.register(cellType: CategoryCollectionViewCell.self)
         
-        categoryProductView.categoryTitleLabel.text = "Category Product"
-        exclusiveOfferView.categoryTitleLabel.text = "Exclusive Offer"
-        bestSellingView.categoryTitleLabel.text = "Best Selling"
-        cheapProductsView.categoryTitleLabel.text = "Cheap Products"
+        categoryProductView.categoryTitleLabel.text = BaseProduct.categoryProduct.rawValue
+        exclusiveOfferView.categoryTitleLabel.text = BaseProduct.exclusiveOffer.rawValue
+        bestSellingView.categoryTitleLabel.text = BaseProduct.bestSelling.rawValue
+        cheapProductsView.categoryTitleLabel.text = BaseProduct.cheapProducts.rawValue
         
         
         // pageControl's number of pages is equal to the total number of arrayPoster elements it has.
@@ -81,11 +76,11 @@ class HomeViewController: UIViewController {
         guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
         typeProductViewController.nameCategory = title
         switch title {
-        case "Exclusive Offer":
+        case BaseProduct.exclusiveOffer.rawValue:
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductExclusive
-        case "Best Selling":
+        case BaseProduct.bestSelling.rawValue:
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductBestSelling
-        case "Cheap Products":
+        case BaseProduct.cheapProducts.rawValue:
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductCheap
         default:
             typeProductViewController.typeProductViewModel.arrayProduct = homeViewModel.arrayProductByCategory
@@ -95,22 +90,20 @@ class HomeViewController: UIViewController {
     }
     
     func navigationDetail(name: String, index: IndexPath) {
-        if #available(iOS 13.0, *) {
             let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
             guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
             detailViewController.modalPresentationStyle = .fullScreen
             switch name {
-            case "EO":
+            case BaseProduct.exclusiveOffer.rawValue:
                 detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductExclusive[index.item]
-            case "BS":
+            case BaseProduct.bestSelling.rawValue:
                 detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductBestSelling[index.item]
-            case "CP":
+            case BaseProduct.cheapProducts.rawValue:
                 detailViewController.detailViewModel.itemProduct = homeViewModel.arrayProductCheap[index.item]
             default:
                 break
             }
             present(detailViewController, animated: true, completion: nil)
-        }
     }
 }
 
@@ -132,11 +125,11 @@ extension HomeViewController: UICollectionViewDelegate {
         case categoryCollectionView:
             homeViewModel.loadItemProductByCategory(categoryId: homeViewModel.arrayCategoryId[indexPath.row], categoryName: homeViewModel.arrayNameCategory[indexPath.row])
         case exclusiveOfferCollectionView:
-            navigationDetail(name: "EO", index: indexPath)
+            navigationDetail(name: BaseProduct.exclusiveOffer.rawValue, index: indexPath)
         case bestSellingCollectionView:
-            navigationDetail(name: "BS", index: indexPath)
+            navigationDetail(name: BaseProduct.bestSelling.rawValue, index: indexPath)
         case cheapProductsCollectionView:
-            navigationDetail(name: "CP", index: indexPath)
+            navigationDetail(name: BaseProduct.cheapProducts.rawValue, index: indexPath)
         default:
             break
         }
@@ -163,22 +156,21 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case exclusiveOfferCollectionView:
+        case exclusiveOfferCollectionView, cheapProductsCollectionView, bestSellingCollectionView:
             let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
-            let product = homeViewModel.arrayProductExclusive[indexPath.item]
-            productCell.configure(item: product)
-            productCell.delegate = self
-            return productCell
-        case cheapProductsCollectionView:
-            let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
-            let product = homeViewModel.arrayProductCheap[indexPath.item]
-            productCell.configure(item: product)
-            productCell.delegate = self
-            return productCell
-        case bestSellingCollectionView:
-            let productCell = collectionView.dequeueReusableCell(with: ItemCollectionViewCell.self, for: indexPath)
-            let product = homeViewModel.arrayProductBestSelling[indexPath.item]
-            productCell.configure(item: product)
+            switch collectionView {
+            case exclusiveOfferCollectionView:
+                let productExclusive = homeViewModel.arrayProductExclusive[indexPath.item]
+                productCell.configure(item: productExclusive)
+            case cheapProductsCollectionView:
+                let productCheap = homeViewModel.arrayProductCheap[indexPath.item]
+                productCell.configure(item: productCheap)
+            case bestSellingCollectionView:
+                let productBestSelling = homeViewModel.arrayProductBestSelling[indexPath.item]
+                productCell.configure(item: productBestSelling)
+            default:
+                break
+            }
             productCell.delegate = self
             return productCell
         case slideCollectionView:
@@ -194,6 +186,7 @@ extension HomeViewController: UICollectionViewDataSource {
             categoryCell.configure(name: name, image: image, color: color)
             return categoryCell
         default:
+            
             return UICollectionViewCell()
         }
     }
@@ -234,12 +227,9 @@ extension HomeViewController: HomeViewModelEvents {
                 self.cheapProductsCollectionView.reloadData()
             }
         }
-
     }
     
-    func gotError(messageError: ErrorModel) {
-        print("")
-    }
+    func gotError(messageError: ErrorModel) {}
 }
 
 extension HomeViewController: ItemCollectionViewCellEvents {
@@ -250,7 +240,7 @@ extension HomeViewController: ItemCollectionViewCellEvents {
 
 extension HomeViewController: CategoryViewEvents {
     func gotData(title: String) {
-        if title == "Category Product" {
+        if title == BaseProduct.categoryProduct.rawValue {
             print("Show Explore Screen")
         } else {
             self.navigationTypeProductScreen(title: title)

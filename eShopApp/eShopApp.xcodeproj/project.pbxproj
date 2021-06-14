@@ -102,6 +102,7 @@
 		66E576D32652787800C767AB /* UIImageView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576D22652787800C767AB /* UIImageView+Extention.swift */; };
 		66E576E026535C7300C767AB /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576DE26535C7300C767AB /* SlideCollectionViewCell.swift */; };
 		66E576E126535C7300C767AB /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E576DF26535C7300C767AB /* SlideCollectionViewCell.xib */; };
+		66F69720267706A2003C5525 /* BaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6971F267706A2003C5525 /* BaseProduct.swift */; };
 		9DAE49D33C6CDECAE16EBFA6 /* Pods_eShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55125FAF33B8F02D4F6E2B07 /* Pods_eShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -205,6 +206,7 @@
 		66E576DE26535C7300C767AB /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		66E576DF26535C7300C767AB /* SlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCollectionViewCell.xib; sourceTree = "<group>"; };
 		66F0377D265B36120001BF0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66F6971F267706A2003C5525 /* BaseProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProduct.swift; sourceTree = "<group>"; };
 		79D5EC15B94C9779414719E3 /* Pods-eShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopApp.debug.xcconfig"; path = "Target Support Files/Pods-eShopApp/Pods-eShopApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -774,6 +776,7 @@
 				66E576C2265268E200C767AB /* Parts */,
 				6684DA5B265B41ED00912B60 /* ViewModel */,
 				66D873352659CCF2006150F0 /* HomeViewController.swift */,
+				66F6971F267706A2003C5525 /* BaseProduct.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -1014,6 +1017,7 @@
 				665B3F3926574A6300A22671 /* ErrorModel.swift in Sources */,
 				66E576CB2652744A00C767AB /* ClassName+Extention.swift in Sources */,
 				66E5769D2652597E00C767AB /* AppDelegate.swift in Sources */,
+				66F69720267706A2003C5525 /* BaseProduct.swift in Sources */,
 				66C969F126677BF400D403BE /* Cart.swift in Sources */,
 				66D873372659CCF2006150F0 /* HomeViewController.swift in Sources */,
 				6684DA8A265C9FB500912B60 /* AccountTableViewCell.swift in Sources */,
