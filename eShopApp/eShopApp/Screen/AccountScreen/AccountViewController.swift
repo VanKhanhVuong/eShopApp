@@ -18,7 +18,6 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var logoutImageView: UIImageView!
     
     var accountViewModel = AccountViewModel()
-    let keychain = Keychain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +27,6 @@ class AccountViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkLogin()
-    }
-    
-    @available(iOS 13.0, *)
-    @IBAction func touchLogOutTapped(_ sender: Any) {
-        if logoutButton.titleLabel?.text == "Log Out" {
-            print("Log Out and delete userID")
-            showAlert(message: "You are now logged out")
-            keychain[string: "token"] = ""
-            checkLogin()
-        } else {
-            let mainStoryboard = UIStoryboard(name: "SignIn", bundle: .main)
-            guard let signInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
-            signInViewController.modalPresentationStyle = .fullScreen
-            self.present(signInViewController, animated: true, completion: nil)
-        }
     }
     
     func setupView() {
@@ -56,8 +40,8 @@ class AccountViewController: UIViewController {
     }
     
     func checkLogin() {
-        let token = keychain["token"] ?? ""
-        if !token.isEmpty {
+        let userId: String = getUserId()
+        if !userId.isEmpty {
             logoutButton.setTitle("Log Out", for: .normal)
             showAlert(message: "Logged in successfully")
             emailUserLabel.text = getEmailUser()
@@ -70,6 +54,19 @@ class AccountViewController: UIViewController {
             emailUserLabel.isHidden = true
             logoutButton.setTitle("Log In", for: .normal)
             logoutImageView.isHidden = true
+        }
+    }
+    
+    @IBAction func logOutTapped(_ sender: Any) {
+        if logoutButton.titleLabel?.text == "Log Out" {
+            print("Log Out and delete userID")
+            showAlert(message: "You are now logged out")
+            checkLogin()
+        } else {
+            let mainStoryboard = UIStoryboard(name: "SignIn", bundle: .main)
+            guard let signInViewController = mainStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
+            signInViewController.modalPresentationStyle = .fullScreen
+            self.present(signInViewController, animated: true, completion: nil)
         }
     }
 }
