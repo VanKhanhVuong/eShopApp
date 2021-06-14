@@ -38,8 +38,8 @@ class FilterViewModel {
                     }
                     self.delegate?.gotData(isCategoryData: false)
                 }
-            case .failure(_):
-                break
+            case .failure(let error):
+                self.delegate?.gotError(messageError: error)
             }
         }
     }
@@ -95,8 +95,8 @@ class FilterViewModel {
                     }
                     self.delegate?.gotData(isCategoryData: true)
                 }
-            case .failure(_):
-                break
+            case .failure(let error):
+                self.delegate?.gotError(messageError: error)
             }
         }
     }

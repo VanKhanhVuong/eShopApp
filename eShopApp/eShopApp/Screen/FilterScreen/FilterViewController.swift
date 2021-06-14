@@ -31,14 +31,6 @@ class FilterViewController: UIViewController {
         setupUIView()
     }
     
-    @IBAction func closeFilterTapped(_ sender: Any) {
-        closeFilter()
-    }
-    
-    @IBAction func applyFilterTapped(_ sender: Any) {
-        filterViewModel.getData(array: arrayName)
-    }
-    
     func setupView() {
         filterTableView.delegate = self
         filterTableView.dataSource = self
@@ -56,8 +48,7 @@ class FilterViewController: UIViewController {
     }
     
     func setupUIView() {
-        applyFilterButton.clipsToBounds = true
-        applyFilterButton.layer.cornerRadius = 15
+        applyFilterButton.configureButton()
     }
     
     func showCategory(str: String, index: Int) -> String {
@@ -66,6 +57,14 @@ class FilterViewController: UIViewController {
         } else {
             return filterViewModel.arrayBrand[index].brandId ?? ""
         }
+    }
+    
+    @IBAction func closeFilterTapped(_ sender: Any) {
+        closeFilter()
+    }
+    
+    @IBAction func applyFilterTapped(_ sender: Any) {
+        filterViewModel.getData(array: arrayName)
     }
 }
 
@@ -129,7 +128,5 @@ extension FilterViewController: FilterViewModelEvents {
         }
     }
     
-    func gotError(messageError: ErrorModel) {
-        print("")
-    }
+    func gotError(messageError: ErrorModel) {}
 }
