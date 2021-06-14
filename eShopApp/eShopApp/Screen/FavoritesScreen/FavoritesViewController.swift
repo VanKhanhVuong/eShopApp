@@ -25,10 +25,6 @@ class FavoritesViewController: UIViewController {
         favoritesViewModel.loadItemFavorite(userId: getUserId())
     }
     
-    @IBAction func addAllToCartTapped(_ sender: Any) {
-        addAllToCart()
-    }
-    
     func setUpView() {
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
@@ -36,9 +32,7 @@ class FavoritesViewController: UIViewController {
         cartViewModel.delegate = self
         
         favoriteTableView.register(cellType: FavoritesTableViewCell.self)
-
-        addAllButton.clipsToBounds = true
-        addAllButton.layer.cornerRadius = 15
+        addAllButton.configureButton()
     }
     
     func addAllToCart() {
@@ -49,12 +43,20 @@ class FavoritesViewController: UIViewController {
                 cartViewModel.filterProductCart(productId: favorite.productId ?? "", amount: "\(amount)", isCart: true, userId: getUserId())
             }
         } else {
-            print("Favorite empty")
+            showAlert(message: "Favorite empty")
         }
+    }
+    
+    @IBAction func addAllToCartTapped(_ sender: Any) {
+        addAllToCart()
     }
 }
 
-extension FavoritesViewController: UITableViewDelegate {}
+extension FavoritesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+}
 
 extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,16 +69,10 @@ extension FavoritesViewController: UITableViewDataSource {
         itemCell.configure(item: favorite)
         return itemCell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
 }
 
 extension FavoritesViewController: FavoritesViewModelEvents {
-    func gotFavoriteProduct(isFavorite: Bool, idFavorite: String) {
-        print("")
-    }
+    func gotFavoriteProduct(isFavorite: Bool, idFavorite: String) {}
     
     func gotDataFavorite(messageChangeData: String) {
         DispatchQueue.main.async {
@@ -109,7 +105,5 @@ extension FavoritesViewController: CartViewModelEvents {
         }
     }
     
-    func gotAmountProduct(amount: String) {
-        print("")
-    }
+    func gotAmountProduct(amount: String) {}
 }
