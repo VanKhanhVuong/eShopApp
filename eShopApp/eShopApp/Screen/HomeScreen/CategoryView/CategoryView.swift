@@ -17,10 +17,6 @@ class CategoryView: UIView {
     
     weak var delegate: CategoryViewEvents?
     
-    @IBAction func touchSeeAllProduct(_ sender: Any) {
-        delegate?.gotData(title: categoryTitleLabel.text ?? "")
-    }
-    
     override init (frame: CGRect){
         super.init(frame: frame)
         commitInit()
@@ -36,5 +32,9 @@ class CategoryView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+    }
+    
+    @IBAction func touchSeeAllProduct(_ sender: Any) {
+        delegate?.gotData(title: categoryTitleLabel.text ?? "")
     }
 }

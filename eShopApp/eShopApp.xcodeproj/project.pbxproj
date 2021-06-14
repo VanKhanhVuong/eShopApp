@@ -43,7 +43,6 @@
 		667B7F81265E528B00BD4EC8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667B7F80265E528B00BD4EC8 /* Home.storyboard */; };
 		667B7F85265E583900BD4EC8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B7F84265E583900BD4EC8 /* LoginViewController.swift */; };
 		667B7F87265E584200BD4EC8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667B7F86265E584200BD4EC8 /* Login.storyboard */; };
-		6684DA5D265B41ED00912B60 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA5C265B41ED00912B60 /* HomeViewModel.swift */; };
 		6684DA5F265B4B8900912B60 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA5E265B4B8900912B60 /* Brand.swift */; };
 		6684DA63265B4DDB00912B60 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6684DA62265B4DDB00912B60 /* FilterViewController.swift */; };
 		6684DA65265B4E0D00912B60 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6684DA64265B4E0D00912B60 /* Filter.storyboard */; };
@@ -103,6 +102,7 @@
 		66E576E026535C7300C767AB /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E576DE26535C7300C767AB /* SlideCollectionViewCell.swift */; };
 		66E576E126535C7300C767AB /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E576DF26535C7300C767AB /* SlideCollectionViewCell.xib */; };
 		66F69720267706A2003C5525 /* BaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6971F267706A2003C5525 /* BaseProduct.swift */; };
+		66F6972326773C8E003C5525 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6972226773C8E003C5525 /* HomeViewModel.swift */; };
 		9DAE49D33C6CDECAE16EBFA6 /* Pods_eShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55125FAF33B8F02D4F6E2B07 /* Pods_eShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,7 +145,6 @@
 		667B7F80265E528B00BD4EC8 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		667B7F84265E583900BD4EC8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		667B7F86265E584200BD4EC8 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		6684DA5C265B41ED00912B60 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6684DA5E265B4B8900912B60 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		6684DA62265B4DDB00912B60 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		6684DA64265B4E0D00912B60 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
@@ -207,6 +206,7 @@
 		66E576DF26535C7300C767AB /* SlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCollectionViewCell.xib; sourceTree = "<group>"; };
 		66F0377D265B36120001BF0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66F6971F267706A2003C5525 /* BaseProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProduct.swift; sourceTree = "<group>"; };
+		66F6972226773C8E003C5525 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		79D5EC15B94C9779414719E3 /* Pods-eShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShopApp.debug.xcconfig"; path = "Target Support Files/Pods-eShopApp/Pods-eShopApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -387,15 +387,6 @@
 				667B7F86265E584200BD4EC8 /* Login.storyboard */,
 			);
 			path = LoginScreen;
-			sourceTree = "<group>";
-		};
-		6684DA5B265B41ED00912B60 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				6684DA5C265B41ED00912B60 /* HomeViewModel.swift */,
-			);
-			name = ViewModel;
-			path = ../../../../../../../Downloads/ViewModel;
 			sourceTree = "<group>";
 		};
 		6684DA60265B4D5800912B60 /* FilterScreen */ = {
@@ -771,10 +762,10 @@
 		66E576BD2652654B00C767AB /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				66F6972126773C6C003C5525 /* ViewModel */,
 				667B7F80265E528B00BD4EC8 /* Home.storyboard */,
 				669C11702657697700FC72E6 /* CategoryView */,
 				66E576C2265268E200C767AB /* Parts */,
-				6684DA5B265B41ED00912B60 /* ViewModel */,
 				66D873352659CCF2006150F0 /* HomeViewController.swift */,
 				66F6971F267706A2003C5525 /* BaseProduct.swift */,
 			);
@@ -808,6 +799,14 @@
 				66D873412659D004006150F0 /* DetailViewController.swift */,
 			);
 			path = DetailScreen;
+			sourceTree = "<group>";
+		};
+		66F6972126773C6C003C5525 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				66F6972226773C8E003C5525 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		733CD55B1D1860FFBE23038D /* Pods */ = {
@@ -982,6 +981,7 @@
 				6684DA6F265B9D0700912B60 /* CartViewModel.swift in Sources */,
 				664D8BC9266D0F0100F61C95 /* Crud.swift in Sources */,
 				66B5F74C2658CC11007BA088 /* CategoryCollectionViewCell.swift in Sources */,
+				66F6972326773C8E003C5525 /* HomeViewModel.swift in Sources */,
 				664262AB265DF4E0000283EB /* DialogView.swift in Sources */,
 				6684DA81265C8E2100912B60 /* FavoritesViewModel.swift in Sources */,
 				665B3F3B26574A6300A22671 /* APIManager.swift in Sources */,
@@ -1007,7 +1007,6 @@
 				66E576D32652787800C767AB /* UIImageView+Extention.swift in Sources */,
 				666623C62668E0AB005E8121 /* EnumApiCart.swift in Sources */,
 				66DCC25226674752006032D1 /* UIButton+Extention.swift in Sources */,
-				6684DA5D265B41ED00912B60 /* HomeViewModel.swift in Sources */,
 				6684DA5F265B4B8900912B60 /* Brand.swift in Sources */,
 				66A490CD265A323A0095B60F /* TypeProductModel.swift in Sources */,
 				66217DF32669AD6900E04F2E /* CheckoutPopUp.swift in Sources */,
