@@ -14,7 +14,6 @@ class CartViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     var cartViewModel = CartViewModel()
-    
     var cartTableViewCell = CartTableViewCell()
     
     override func viewDidLoad() {
@@ -26,15 +25,7 @@ class CartViewController: UIViewController {
         super.viewWillAppear(animated)
         cartViewModel.findCart(userId: getUserId())
     }
-    
-    @IBAction func checkoutTapped(_ sender: Any) {
-        if cartViewModel.totalPrice() != 0.0 {
-            createOrder()
-        } else {
-            showAlert(message: "Sorry cart empty")
-        }
-    }
-    
+
     func setupUIView() {
         carTableView.delegate = self
         carTableView.dataSource = self
@@ -43,8 +34,7 @@ class CartViewController: UIViewController {
         carTableView.allowsSelection = false
         carTableView.register(cellType: CartTableViewCell.self)
         
-        checkoutButton.clipsToBounds = true
-        checkoutButton.layer.cornerRadius = 15
+        checkoutButton.configureButton()
     }
     
     func createOrder() {
@@ -66,9 +56,21 @@ class CartViewController: UIViewController {
         checkoutViewController.delegate = self
         present(checkoutViewController, animated: true, completion: nil)
     }
+    
+    @IBAction func checkoutTapped(_ sender: Any) {
+        if cartViewModel.totalPrice() != 0.0 {
+            createOrder()
+        } else {
+            showAlert(message: "Sorry cart empty")
+        }
+    }
 }
 
-extension CartViewController: UITableViewDelegate {}
+extension CartViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
 
 extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,10 +84,7 @@ extension CartViewController: UITableViewDataSource {
         itemCell.delegate = self
         return itemCell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
+
 }
 
 extension CartViewController: CartViewModelEvents {
