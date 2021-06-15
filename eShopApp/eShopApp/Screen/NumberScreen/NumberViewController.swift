@@ -21,25 +21,13 @@ class NumberViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-    
-    @IBAction func vetificationNumberPhone(_ sender: Any) {
-        guard let number: String = phoneNumberTextField.text else { return }
-        if !number.isEmpty {
-            authPhone(numberPhone: "+84" + number)
-        } else {
-            showAlert(message: "Please enter your phone number")
-        }
-    }
-    @IBAction func backSignInTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func setupView() {
+
+    private func setupView() {
         vetificationButton.clipsToBounds = true
         vetificationButton.layer.cornerRadius = vetificationButton.bounds.size.height/2
     }
     
-    func authPhone(numberPhone: String) {
+    private func authPhone(numberPhone: String) {
         Auth.auth().settings?.isAppVerificationDisabledForTesting = false
         PhoneAuthProvider.provider().verifyPhoneNumber(numberPhone, uiDelegate: nil) { verificationID, error in
             if (error != nil){
@@ -51,13 +39,13 @@ class NumberViewController: UIViewController {
         }
     }
     
-    func showAlertErrorGetVerificationID() {
+    private func showAlertErrorGetVerificationID() {
         let alert = UIAlertController(title: "Message !!!", message: "Sorry don't", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func navigationVerificationView(numberPhone: String) {
+    private func navigationVerificationView(numberPhone: String) {
         if !vetificationId.isEmpty {
             let mainStoryboard = UIStoryboard(name: "Verification", bundle: .main)
             guard let verificationViewController = mainStoryboard.instantiateViewController(withIdentifier: "VerificationView") as? VerificationViewController else { return }
@@ -66,8 +54,21 @@ class NumberViewController: UIViewController {
             verificationViewController.verificationID = vetificationId
             present(verificationViewController, animated: true, completion: nil)
         } else {
+            
             // Error Firebase return verificationID = nil
             showAlert(message: "Sorry the authentication failed, please try again later.")
         }
+    }
+    
+    @IBAction func vetificationNumberPhone(_ sender: Any) {
+        guard let number: String = phoneNumberTextField.text else { return }
+        if !number.isEmpty {
+            authPhone(numberPhone: "+84" + number)
+        } else {
+            showAlert(message: "Please enter your phone number")
+        }
+    }
+    @IBAction func backSignInTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
