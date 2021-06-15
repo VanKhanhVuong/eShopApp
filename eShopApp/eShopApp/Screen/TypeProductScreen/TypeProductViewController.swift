@@ -30,13 +30,6 @@ class TypeProductViewController: UIViewController {
         productCollectionView.register(cellType: ItemCollectionViewCell.self)
         typeProductViewModel.loadItemProduct()
     }
-    @IBAction func backExploreTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func filterTapped(_ sender: Any) {
-        showFilterScreen()
-    }
     
     func showFilterScreen() {
         let mainStoryboard = UIStoryboard(name: "Filter", bundle: .main)
@@ -50,13 +43,20 @@ class TypeProductViewController: UIViewController {
 
 extension TypeProductViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            if #available(iOS 13.0, *) {
-                let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
-                guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
-                detailViewController.modalPresentationStyle = .fullScreen
-                detailViewController.detailViewModel.itemProduct = typeProductViewModel.arrayProduct[indexPath.item]
-                present(detailViewController, animated: true, completion: nil)
-            }
+        let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
+        guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+        detailViewController.modalPresentationStyle = .fullScreen
+        detailViewController.detailViewModel.itemProduct = typeProductViewModel.arrayProduct[indexPath.item]
+        present(detailViewController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func backExploreTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func filterTapped(_ sender: Any) {
+        showFilterScreen()
     }
 }
 
