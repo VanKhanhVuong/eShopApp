@@ -21,7 +21,7 @@ class Utilities {
         if !userId.isEmpty {
             return userId
         } else {
-            return "Sorry don`t get UserId"
+            return ""
         }
     }
     
@@ -30,29 +30,51 @@ class Utilities {
         if !emailUser.isEmpty {
             return emailUser
         } else {
-            return "Sorry don`t get emailUser"
+            return ""
         }
     }
     
-    func saveUserId(_ userId: String) -> Bool {
+    func saveUserId(_ userId: String) -> (Bool, Error?) {
         do {
             try keychain.set(userId, key: optionKeychain.saveUserId.rawValue)
-            return true
+            return (true, nil)
         }
         catch let error {
             print(error)
-            return false
+            return (false,error)
         }
     }
     
-    func saveEmail(_ email: String) -> Bool {
+    func saveEmail(_ email: String) -> (Bool, Error?) {
         do {
             try keychain.set(email, key: optionKeychain.saveEmail.rawValue)
-            return true
+            return (true, nil)
         }
         catch let error {
             print(error)
-            return false
+            return (false,error)
+        }
+    }
+    
+    func removeUserId(_ userId: String) -> (Bool, Error?) {
+        do {
+            try keychain.remove(optionKeychain.getUserId.rawValue)
+            return (true, nil)
+        }
+        catch let error {
+            print(error)
+            return (false,error)
+        }
+    }
+    
+    func removeEmail(_ email: String) -> (Bool, Error?) {
+        do {
+            try keychain.remove(optionKeychain.saveEmail.rawValue)
+            return (true, nil)
+        }
+        catch let error {
+            print(error)
+            return (false,error)
         }
     }
     
