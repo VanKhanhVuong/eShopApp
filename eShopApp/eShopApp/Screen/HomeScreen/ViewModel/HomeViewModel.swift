@@ -48,11 +48,9 @@ class HomeViewModel {
         api.getProductByCategoryFromAPI(categoryId: categoryId) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let result):
-                if !result.isEmpty {
-                    result.forEach { (products) in
-                        self.arrayProductByCategory.append(products)
-                    }
+            case .success(let products):
+                if !products.isEmpty {
+                    self.arrayProductByCategory = products
                     print(self.arrayProductByCategory)
                     self.delegate?.gotData(isCategory: true, categoryName: categoryName)
                 }
@@ -67,9 +65,9 @@ class HomeViewModel {
         api.getProductFromAPI { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let result):
-                if !result.isEmpty {
-                    result.forEach { (product) in
+            case .success(let products):
+                if !products.isEmpty {
+                    products.forEach { (product) in
                         if product.base == BaseProduct.exclusiveOffer.rawValue {
                             self.arrayProductExclusive.append(product)
                         } else if product.base == BaseProduct.cheapProducts.rawValue {
