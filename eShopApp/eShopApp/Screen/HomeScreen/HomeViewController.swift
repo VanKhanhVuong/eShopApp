@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import KeychainAccess
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var slideCollectionView: UICollectionView!
@@ -71,7 +70,7 @@ class HomeViewController: UIViewController {
         searchView.layer.cornerRadius = 15
     }
     
-    func navigationTypeProductScreen(title: String) {
+    private func navigationTypeProductScreen(title: String) {
         let mainStoryboard = UIStoryboard(name: "TypeProduct", bundle: .main)
         guard let typeProductViewController = mainStoryboard.instantiateViewController(withIdentifier: "TypeProductView") as? TypeProductViewController else { return }
         typeProductViewController.nameCategory = title
@@ -89,7 +88,7 @@ class HomeViewController: UIViewController {
         present(typeProductViewController, animated: true, completion: nil)
     }
     
-    func navigationDetail(name: String, index: IndexPath) {
+    private func navigationDetail(name: String, index: IndexPath) {
             let mainStoryboard = UIStoryboard(name: "Detail", bundle: .main)
             guard let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
             detailViewController.modalPresentationStyle = .fullScreen
