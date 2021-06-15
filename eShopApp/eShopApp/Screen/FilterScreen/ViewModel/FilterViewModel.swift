@@ -31,11 +31,9 @@ class FilterViewModel {
         api.getBrandFromAPI { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let result):
-                if !result.isEmpty {
-                    result.forEach { (brand) in
-                        self.arrayBrand.append(brand)
-                    }
+            case .success(let brands):
+                if !brands.isEmpty {
+                    self.arrayBrand = brands
                     self.delegate?.gotData(isCategoryData: false)
                 }
             case .failure(let error):
@@ -88,11 +86,9 @@ class FilterViewModel {
         api.getCategoryFromAPI { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let result):
-                if !result.isEmpty {
-                    result.forEach { (product) in
-                        self.arrayCategory.append(product)
-                    }
+            case .success(let products):
+                if !products.isEmpty {
+                    self.arrayCategory = products
                     self.delegate?.gotData(isCategoryData: true)
                 }
             case .failure(let error):
