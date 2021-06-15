@@ -7,7 +7,6 @@
 
 import UIKit
 import FirebaseAuth
-import KeychainAccess
 
 protocol LoginViewEvents: AnyObject {
     func loginSuccess()
@@ -42,11 +41,12 @@ class LoginViewController: UIViewController {
     
     func navigationHomeScreen(emailUser: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        let keychain = Keychain()
-        keychain[string: "token"] = userID
-        keychain[string: "email"] = emailUser
-        delegate?.loginSuccess()
-        self.dismiss(animated: true, completion: nil)
+        if Utilities.saveUserId(userID) && Utilities.saveEmail(emailUser){
+            delegate?.loginSuccess()
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            showAlert(message: "Cannot get user information")
+        }
     }
     
     private func changeColorText() -> NSMutableAttributedString {
