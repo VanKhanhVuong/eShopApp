@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpLabel: UILabel!
     
     var delegate: LoginViewEvents?
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +42,13 @@ class LoginViewController: UIViewController {
     
     func navigationHomeScreen(emailUser: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        if Utilities.saveUserId(userID) && Utilities.saveEmail(emailUser){
-            delegate?.loginSuccess()
-            self.dismiss(animated: true, completion: nil)
-        } else {
+        let (resultEmail, errorEmail) = utilities.saveEmail(emailUser)
+        let (resultUser, errorUser) = utilities.saveUserId(userID)
+        if (errorEmail != nil) || (errorUser != nil) {
             showAlert(message: "Cannot get user information")
+        } else {
+            print(resultEmail)
+            print(resultUser)
         }
     }
     
