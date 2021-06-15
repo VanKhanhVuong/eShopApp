@@ -7,7 +7,7 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
+
 class DetailViewController: UIViewController {
     @IBOutlet weak var showDescriptionView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -38,34 +38,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-    
-    @IBAction func touchPlusButton(_ sender: Any) {
-        if minusButton.titleColor(for: .normal) == .gray {
-            minusButton.setTitleColor(.systemGreen, for: .normal)
-        }
-        let amount: Int = Int(amountNumberLabel.text ?? "") ?? 0
-        amountNumberLabel.text = "\(amount + 1)"
-        totalLabel.text = "$\((Float(amount + 1)) * priceProduct)"
-    }
-    
-    @IBAction func touchMinusButton(_ sender: Any) {
-        let amount: Int = Int(amountNumberLabel.text ?? "") ?? 0
-        if amount == 1 {
-            amountNumberLabel.text = "1"
-        } else {
-            amountNumberLabel.text = "\(amount - 1)"
-            if (amount - 1) == 1 {
-                minusButton.setTitleColor(.gray, for: .normal)
-            }
-            totalLabel.text = "$\((Float(amount - 1)) * priceProduct)"
-        }
-    }
-    
-    @IBAction func addToCartTapped(_ sender: Any) {
-        print("add cart productID: \(detailViewModel.productId) amount: \(amountNumberLabel.text ?? "")")
-        cartViewModel.filterProductCart(productId: detailViewModel.productId, amount: amountNumberLabel.text ?? "", isCart: true, userId: getUserId())
-    }
-    
+
     private func setupView() {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
@@ -83,8 +56,7 @@ class DetailViewController: UIViewController {
         actionClickShowDescriptionProduct()
         actionLikeProduct()
         actionBackHome()
-        addToCartButton.clipsToBounds = true
-        addToCartButton.layer.cornerRadius = 15
+        addToCartButton.configureButton()
         
         amountView.clipsToBounds = true
         amountView.layer.cornerRadius = 15
@@ -174,23 +146,47 @@ class DetailViewController: UIViewController {
     }
     
     // Undrop favorites
-    func undropFavorite() {
+    private func undropFavorite() {
         if !idFavorite.isEmpty {
-            print("Bo tha tim")
             favoritesViewModel.deleteProductInFavorite(idFavorite: idFavorite, userId: getUserId())
         }
     }
     
     // Drop favorites
-    func dropFavorite() {
+    private func dropFavorite() {
         if !detailViewModel.productId.isEmpty {
-            print("Tha tim")
             favoritesViewModel.addProductInFavorite(productId: detailViewModel.productId, userId: getUserId())
         }
     }
+    
+    @IBAction func touchPlusButton(_ sender: Any) {
+        if minusButton.titleColor(for: .normal) == .gray {
+            minusButton.setTitleColor(.systemGreen, for: .normal)
+        }
+        let amount: Int = Int(amountNumberLabel.text ?? "") ?? 0
+        amountNumberLabel.text = "\(amount + 1)"
+        totalLabel.text = "$\((Float(amount + 1)) * priceProduct)"
+    }
+    
+    @IBAction func touchMinusButton(_ sender: Any) {
+        let amount: Int = Int(amountNumberLabel.text ?? "") ?? 0
+        if amount == 1 {
+            amountNumberLabel.text = "1"
+        } else {
+            amountNumberLabel.text = "\(amount - 1)"
+            if (amount - 1) == 1 {
+                minusButton.setTitleColor(.gray, for: .normal)
+            }
+            totalLabel.text = "$\((Float(amount - 1)) * priceProduct)"
+        }
+    }
+    
+    @IBAction func addToCartTapped(_ sender: Any) {
+        print("add cart productID: \(detailViewModel.productId) amount: \(amountNumberLabel.text ?? "")")
+        cartViewModel.filterProductCart(productId: detailViewModel.productId, amount: amountNumberLabel.text ?? "", isCart: true, userId: getUserId())
+    }
 }
 
-@available(iOS 13.0, *)
 extension DetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return detailViewModel.arrayImageProduct.count
@@ -204,7 +200,6 @@ extension DetailViewController: UICollectionViewDataSource {
     }
 }
 
-@available(iOS 13.0, *)
 extension DetailViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isEqual(imageCollectionView), scrollView.isDragging {
@@ -216,7 +211,6 @@ extension DetailViewController: UICollectionViewDelegate {
     }
 }
 
-@available(iOS 13.0, *)
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
@@ -227,7 +221,6 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-@available(iOS 13.0, *)
 extension DetailViewController: DetailViewModelEvents {
     func gotData(isData: Bool) {
         if isData {
@@ -247,12 +240,9 @@ extension DetailViewController: DetailViewModelEvents {
         }
     }
     
-    func gotError(messageError: ErrorModel) {
-        print("")
-    }
+    func gotError(messageError: ErrorModel) {}
 }
 
-@available(iOS 13.0, *)
 extension DetailViewController: CartViewModelEvents {
     func gotIdOrder() {}
     
@@ -275,7 +265,6 @@ extension DetailViewController: CartViewModelEvents {
     }
 }
 
-@available(iOS 13.0, *)
 extension DetailViewController: FavoritesViewModelEvents {
     func gotErrorFavorite(messageError: String) {}
     

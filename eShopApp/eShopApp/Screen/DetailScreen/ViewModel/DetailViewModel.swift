@@ -43,24 +43,4 @@ class DetailViewModel {
         arrayImageProduct.append(productImage)
         delegate?.gotData(isData: false)
     }
-    
-    //var arrayImageProduct: [ImageProduct] = []
-    
-//    func loadItemImageProduct() {
-//        api.getImageFromAPI { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let result):
-//                if !result.isEmpty {
-//                    result.forEach { (imageProduct) in
-//                        self.arrayImageProduct.append(imageProduct)
-//                    }
-//                    self.delegate?.gotData()
-//                }
-//            case .failure(_):
-//                //self.delegate?.gotError(messageError: error.rawValue)
-//                break
-//            }
-//        }
-//    }
 }
