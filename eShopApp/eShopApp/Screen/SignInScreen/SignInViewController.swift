@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
 class SignInViewController: UIViewController {
     @IBOutlet weak var phoneNumberView: UIView!
     @IBOutlet weak var loginLabel: UILabel!
@@ -17,10 +16,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-    @IBAction func closeSignScreenTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+
     func setupView() {
         actionClickShowDetail()
         actionClickLoginLabel()
@@ -54,9 +50,12 @@ class SignInViewController: UIViewController {
     @objc func close(sender : UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func closeSignScreenTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
-@available(iOS 13.0, *)
 extension SignInViewController: LoginViewEvents {
     func loginSuccess() {
         DispatchQueue.main.async {
