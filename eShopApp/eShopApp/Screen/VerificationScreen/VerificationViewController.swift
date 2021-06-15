@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 
-@available(iOS 13.0, *)
 class VerificationViewController: UIViewController {
     @IBOutlet weak var backToHomeButton: UIButton!
     @IBOutlet weak var resendButton: UIButton!
@@ -24,28 +23,14 @@ class VerificationViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-
-    @IBAction func submitCode(_ sender: Any) {
-        verificationPhoneNumber()
-    }
     
-    @IBAction func resendClick(_ sender: Any) {
-        self.vetificationTextField.text = ""
-        self.vetificationTextField.isHidden = true
-        authPhone(numberPhone: self.numberPhone)
-    }
-    
-    @IBAction func backToNumberTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func setupView() {
+    private func setupView() {
         numberPhoneLabel.text = "Your phone number : " + numberPhone
         backToHomeButton.clipsToBounds = true
         backToHomeButton.layer.cornerRadius = backToHomeButton.bounds.size.height/2
     }
     
-    func authPhone(numberPhone: String) {
+    private func authPhone(numberPhone: String) {
         Auth.auth().settings?.isAppVerificationDisabledForTesting = false
         PhoneAuthProvider.provider().verifyPhoneNumber(numberPhone, uiDelegate: nil) { verificationID, error in
             if (error != nil){
@@ -57,14 +42,14 @@ class VerificationViewController: UIViewController {
         }
     }
     
-    func navigationHomeView() {
+    private func navigationHomeView() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
         guard let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
         mainViewController.modalPresentationStyle = .fullScreen
         present(mainViewController, animated: true, completion: nil)
     }
     
-    func verificationPhoneNumber() {
+    private func verificationPhoneNumber() {
         guard let vetificationText: String = vetificationTextField.text  else { return }
         if !vetificationText.isEmpty {
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: vetificationText)
@@ -78,5 +63,19 @@ class VerificationViewController: UIViewController {
         } else {
             showAlert(message: "Show alert input verificationCode")
         }
+    }
+    
+    @IBAction func submitCode(_ sender: Any) {
+        verificationPhoneNumber()
+    }
+    
+    @IBAction func resendClick(_ sender: Any) {
+        self.vetificationTextField.text = ""
+        self.vetificationTextField.isHidden = true
+        authPhone(numberPhone: self.numberPhone)
+    }
+    
+    @IBAction func backToNumberTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
