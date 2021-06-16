@@ -24,6 +24,7 @@ final class CheckoutViewController: UIViewController {
     var isPresenting = false
     var checkoutViewModel = CheckoutViewModel()
     weak var delegate: CheckoutViewDelegate?
+    private let utilities = Utilities()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -129,7 +130,7 @@ extension CheckoutViewController: CheckoutPopUpDelegate {
     }
     func submit() {
         DispatchQueue.main.async {
-            self.checkoutViewModel.createOrder(idUser: self.getUserId())
+            self.checkoutViewModel.createOrder(idUser: self.utilities.getUserId())
         }
     }
 }
