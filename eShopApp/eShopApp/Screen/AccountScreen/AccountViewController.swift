@@ -17,7 +17,8 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var contentAvatarView: UIView!
     @IBOutlet weak var logoutImageView: UIImageView!
     
-    var accountViewModel = AccountViewModel()
+    private let accountViewModel = AccountViewModel()
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +41,12 @@ class AccountViewController: UIViewController {
     }
     
     func checkLogin() {
-        let userId: String = getUserId()
-        if !userId.isEmpty {
+        let userId: String = utilities.getUserId()
+        let emailUser: String = utilities.getEmailUser()
+        if !userId.isEmpty && !emailUser.isEmpty{
             logoutButton.setTitle("Log Out", for: .normal)
             showAlert(message: "Logged in successfully")
-            emailUserLabel.text = getEmailUser()
+            emailUserLabel.text = emailUser
             userNameLabel.text = "Welcome"
             userNameLabel.isHidden = false
             emailUserLabel.isHidden = false
