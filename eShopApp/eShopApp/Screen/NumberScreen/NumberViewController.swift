@@ -9,7 +9,6 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 
-@available(iOS 13.0, *)
 class NumberViewController: UIViewController {
     @IBOutlet weak var vetificationButton: UIButton!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -40,9 +39,7 @@ class NumberViewController: UIViewController {
     }
     
     private func showAlertErrorGetVerificationID() {
-        let alert = UIAlertController(title: "Message !!!", message: "Sorry don't", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(message: "Sorry don't get VerificationID")
     }
     
     private func navigationVerificationView(numberPhone: String) {
