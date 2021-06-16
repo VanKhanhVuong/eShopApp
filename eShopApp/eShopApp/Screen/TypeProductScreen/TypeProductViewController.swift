@@ -14,6 +14,7 @@ class TypeProductViewController: UIViewController {
     var typeProductViewModel = TypeProductModel()
     private var cartViewModel = CartViewModel()
     var nameCategory: String = ""
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,9 +116,9 @@ extension TypeProductViewController: TypeProductModelEvents {
 }
 
 extension TypeProductViewController: ItemCollectionViewCellEvents {
-    func addCart(item: ItemCollectionViewCell) {
+    func addCart(idProduct: String) {
         DispatchQueue.main.async {
-            self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false, userId: self.getUserId())
+            self.cartViewModel.filterProductCart(productId: idProduct, amount: "1", isCart: false, userId: self.utilities.getUserId())
         }
     }
 }
