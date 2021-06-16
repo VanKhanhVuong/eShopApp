@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-protocol LoginViewEvents: AnyObject {
+protocol LoginViewDelegate: AnyObject {
     func loginSuccess()
 }
 
@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var closeScreenButton: UIButton!
     @IBOutlet weak var signUpLabel: UILabel!
     
-    var delegate: LoginViewEvents?
+    var delegate: LoginViewDelegate?
     private let utilities = Utilities()
     
     override func viewDidLoad() {
