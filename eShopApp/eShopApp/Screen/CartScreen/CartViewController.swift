@@ -15,6 +15,7 @@ class CartViewController: UIViewController {
     
     var cartViewModel = CartViewModel()
     var cartTableViewCell = CartTableViewCell()
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class CartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cartViewModel.findCart(userId: getUserId())
+        cartViewModel.findCart(userId: utilities.getUserId())
     }
 
     func setupUIView() {
@@ -44,8 +45,8 @@ class CartViewController: UIViewController {
         let minutes = calendar.component(.minute, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
-        let idOrder = getUserId() + "\(hour)\(minutes)\(month)\(year)"
-        cartViewModel.updateOrderIdToCart(idOrder: idOrder, userId:getUserId())
+        let idOrder = utilities.getUserId() + "\(hour)\(minutes)\(month)\(year)"
+        cartViewModel.updateOrderIdToCart(idOrder: idOrder, userId: utilities.getUserId())
     }
     
     func navigationCheckout() {
@@ -123,13 +124,13 @@ extension CartViewController: CartViewModelEvents {
 extension CartViewController: CartTableViewCellEvents {
     func clickToRemoveProductFromCart(idCart: String) {
         DispatchQueue.main.async {
-            self.cartViewModel.deleteCart(idCart: idCart, userId: self.getUserId())
+            self.cartViewModel.deleteCart(idCart: idCart, userId: self.utilities.getUserId())
         }
     }
     
     func clickPlusOrMinusButton(amount: String, cell: CartTableViewCell ) {
         DispatchQueue.main.async {
-            self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true, userId: self.getUserId())
+            self.cartViewModel.filterProductCart(productId: cell.productId, amount: amount, isCart: true, userId: self.utilities.getUserId())
         }
     }
 }
@@ -137,7 +138,7 @@ extension CartViewController: CartTableViewCellEvents {
 extension CartViewController: CheckoutViewDelegate {
     func backToCart() {
         DispatchQueue.main.async {
-            self.cartViewModel.findCart(userId: self.getUserId())
+            self.cartViewModel.findCart(userId: self.utilities.getUserId())
         }
     }
 }
