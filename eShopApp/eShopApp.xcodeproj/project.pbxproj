@@ -69,6 +69,7 @@
 		669C116F26575C0400FC72E6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C116D26575C0400FC72E6 /* SignInViewController.swift */; };
 		669C117226576A7500FC72E6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C117126576A7500FC72E6 /* CategoryView.swift */; };
 		669C117426576A8500FC72E6 /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669C117326576A8500FC72E6 /* CategoryView.xib */; };
+		66A1A0222679EEC400480E4B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A1A0212679EEC400480E4B /* FirebaseManager.swift */; };
 		66A490B2265A248C0095B60F /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A490B1265A248C0095B60F /* ExploreViewController.swift */; };
 		66A490BB265A26070095B60F /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A490B9265A26070095B60F /* ExploreCollectionViewCell.swift */; };
 		66A490BC265A26070095B60F /* ExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A490BA265A26070095B60F /* ExploreCollectionViewCell.xib */; };
@@ -171,6 +172,7 @@
 		669C116D26575C0400FC72E6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		669C117126576A7500FC72E6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		669C117326576A8500FC72E6 /* CategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
+		66A1A0212679EEC400480E4B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		66A490B1265A248C0095B60F /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		66A490B9265A26070095B60F /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		66A490BA265A26070095B60F /* ExploreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -728,6 +730,7 @@
 				66E576D22652787800C767AB /* UIImageView+Extention.swift */,
 				6678D9E2265602B3006E09D3 /* UIViewController+Extention.swift */,
 				66DCC25126674752006032D1 /* UIButton+Extention.swift */,
+				66A1A0212679EEC400480E4B /* FirebaseManager.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -1012,6 +1015,7 @@
 				66217DF32669AD6900E04F2E /* CheckoutPopUp.swift in Sources */,
 				667B7F85265E583900BD4EC8 /* LoginViewController.swift in Sources */,
 				66E576CD265274A600C767AB /* UICollectionView+Extention.swift in Sources */,
+				66A1A0222679EEC400480E4B /* FirebaseManager.swift in Sources */,
 				669C117226576A7500FC72E6 /* CategoryView.swift in Sources */,
 				665B3F3926574A6300A22671 /* ErrorModel.swift in Sources */,
 				66E576CB2652744A00C767AB /* ClassName+Extention.swift in Sources */,
