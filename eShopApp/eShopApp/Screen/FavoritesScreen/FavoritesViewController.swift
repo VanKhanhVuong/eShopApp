@@ -14,6 +14,7 @@ class FavoritesViewController: UIViewController {
     var favoritesViewModel = FavoritesViewModel()
     var cartViewModel = CartViewModel()
     private var amount: Int = 0
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        favoritesViewModel.loadItemFavorite(userId: getUserId())
+        favoritesViewModel.loadItemFavorite(userId: utilities.getUserId())
     }
     
     func setUpView() {
@@ -40,7 +41,7 @@ class FavoritesViewController: UIViewController {
             favoritesViewModel.arrayFavorite.forEach { (favorite) in
                 print(favorite.id ?? "")
                 amount = amount + 1
-                cartViewModel.filterProductCart(productId: favorite.productId ?? "", amount: "\(amount)", isCart: true, userId: getUserId())
+                cartViewModel.filterProductCart(productId: favorite.productId ?? "", amount: "\(amount)", isCart: true, userId: utilities.getUserId())
             }
         } else {
             showAlert(message: "Favorite empty")
