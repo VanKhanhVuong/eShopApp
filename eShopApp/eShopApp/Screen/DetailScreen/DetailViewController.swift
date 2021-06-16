@@ -33,6 +33,7 @@ class DetailViewController: UIViewController {
     var detailViewModel = DetailViewModel()
     var cartViewModel = CartViewModel()
     var favoritesViewModel = FavoritesViewModel()
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,14 +149,14 @@ class DetailViewController: UIViewController {
     // Undrop favorites
     private func undropFavorite() {
         if !idFavorite.isEmpty {
-            favoritesViewModel.deleteProductInFavorite(idFavorite: idFavorite, userId: getUserId())
+            favoritesViewModel.deleteProductInFavorite(idFavorite: idFavorite, userId: utilities.getUserId())
         }
     }
     
     // Drop favorites
     private func dropFavorite() {
         if !detailViewModel.productId.isEmpty {
-            favoritesViewModel.addProductInFavorite(productId: detailViewModel.productId, userId: getUserId())
+            favoritesViewModel.addProductInFavorite(productId: detailViewModel.productId, userId: utilities.getUserId())
         }
     }
     
@@ -183,7 +184,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func addToCartTapped(_ sender: Any) {
         print("add cart productID: \(detailViewModel.productId) amount: \(amountNumberLabel.text ?? "")")
-        cartViewModel.filterProductCart(productId: detailViewModel.productId, amount: amountNumberLabel.text ?? "", isCart: true, userId: getUserId())
+        cartViewModel.filterProductCart(productId: detailViewModel.productId, amount: amountNumberLabel.text ?? "", isCart: true, userId: utilities.getUserId())
     }
 }
 
@@ -228,10 +229,10 @@ extension DetailViewController: DetailViewModelEvents {
                 self.nameProductLabel.text = self.detailViewModel.productName
                 self.descriptionLabel.text = self.detailViewModel.productDetail
                 self.amountNumberLabel.text = self.detailViewModel.amountProduct
-                self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId, userId: self.getUserId())
+                self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId, userId: self.utilities.getUserId())
                 self.priceProduct = self.detailViewModel.productPrice
                 self.starLabel.attributedText = self.changeColorText(number: self.detailViewModel.productRate, color: .orange)
-                self.cartViewModel.findAmountProduct(productId: self.detailViewModel.productId, userId: self.getUserId())
+                self.cartViewModel.findAmountProduct(productId: self.detailViewModel.productId, userId: self.utilities.getUserId())
             }
         } else {
             DispatchQueue.main.async {
@@ -278,7 +279,7 @@ extension DetailViewController: FavoritesViewModelEvents {
     func gotDataFavorite(messageChangeData: String) {
         DispatchQueue.main.async {
             self.showAlert(message: messageChangeData)
-            self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId, userId: self.getUserId())
+            self.favoritesViewModel.checkProductInFavorite(productId: self.detailViewModel.productId, userId: self.utilities.getUserId())
         }
     }
     
