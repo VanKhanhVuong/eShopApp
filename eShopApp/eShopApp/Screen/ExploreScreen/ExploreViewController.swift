@@ -19,6 +19,7 @@ class ExploreViewController: UIViewController {
     
     var exploreViewModel = ExploreViewModel()
     private var cartViewModel = CartViewModel()
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -217,9 +218,9 @@ extension ExploreViewController: UISearchBarDelegate {
 }
 
 extension ExploreViewController: ItemCollectionViewCellEvents {
-    func addCart(item: ItemCollectionViewCell) {
+    func addCart(idProduct: String) {
         DispatchQueue.main.async {
-            self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false, userId: self.getUserId())
+            self.cartViewModel.filterProductCart(productId: idProduct, amount: "1", isCart: false, userId: self.utilities.getUserId())
         }
     }
 }
