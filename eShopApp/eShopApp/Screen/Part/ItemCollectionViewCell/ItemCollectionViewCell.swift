@@ -7,7 +7,7 @@
 
 import UIKit
 protocol ItemCollectionViewCellEvents: AnyObject {
-    func addCart(item: ItemCollectionViewCell)
+    func addCart(idProduct: String)
 }
 
 class ItemCollectionViewCell: UICollectionViewCell {
@@ -41,6 +41,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func touchBuyButton(_ sender: Any) {
-        delegate?.addCart(item: self)
+        delegate?.addCart(idProduct: self.idProduct)
     }
 }
