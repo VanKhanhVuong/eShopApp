@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     private var homeViewModel = HomeViewModel()
     private var cartViewModel = CartViewModel()
     private var currentIndex: Int = 0
+    private let utilities = Utilities()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -232,8 +233,8 @@ extension HomeViewController: HomeViewModelEvents {
 }
 
 extension HomeViewController: ItemCollectionViewCellEvents {
-    func addCart(item: ItemCollectionViewCell) {
-        self.cartViewModel.filterProductCart(productId: item.idProduct, amount: "1", isCart: false, userId: self.getUserId())
+    func addCart(idProduct: String) {
+        self.cartViewModel.filterProductCart(productId: idProduct, amount: "1", isCart: false, userId: utilities.getUserId())
     }
 }
 
